@@ -32,6 +32,7 @@
             contextMenuStrip1 = new ContextMenuStrip(components);
             checkBox1 = new CheckBox();
             domainUpDown1 = new DomainUpDown();
+            groupBox1 = new GroupBox();
             SuspendLayout();
             // 
             // contextMenuStrip1
@@ -57,11 +58,21 @@
             domainUpDown1.TabIndex = 3;
             domainUpDown1.Text = "domainUpDown1";
             // 
+            // groupBox1
+            // 
+            groupBox1.Location = new Point(193, 200);
+            groupBox1.Name = "groupBox1";
+            groupBox1.Size = new Size(200, 100);
+            groupBox1.TabIndex = 4;
+            groupBox1.TabStop = false;
+            groupBox1.Text = "groupBox1";
+            // 
             // FormReunionesDy1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(groupBox1);
             Controls.Add(domainUpDown1);
             Controls.Add(checkBox1);
             Name = "FormReunionesDy1";
@@ -75,5 +86,6 @@
         private ContextMenuStrip contextMenuStrip1;
         private CheckBox checkBox1;
         private DomainUpDown domainUpDown1;
+        private GroupBox groupBox1;
     }
 }
