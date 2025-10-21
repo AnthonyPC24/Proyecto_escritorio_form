@@ -28,35 +28,40 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridView dataGridViewTarea;
+            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
             btnReunion = new Button();
             btnTareas = new Button();
             btnProyectos = new Button();
             btnInicio = new Button();
             fotoUsuario = new PictureBox();
             panel1 = new Panel();
+            lblNombre = new Label();
             lblNombreUsuario = new Label();
             monthCalendar = new MonthCalendar();
             comboBoxProyecto = new ComboBox();
-            dataGridViewTarea = new DataGridView();
+            btnIdioma = new Button();
             ColumnTarea = new DataGridViewTextBoxColumn();
             ColumnEspecificaciones = new DataGridViewTextBoxColumn();
             ColumnUsuario = new DataGridViewTextBoxColumn();
-            flowLayoutPanel1 = new FlowLayoutPanel();
-            btnIdioma = new Button();
-            lblNombre = new Label();
+            panelTareaHoy = new Panel();
+            labelTitle = new Label();
+            labelHorario = new Label();
+            dataGridViewTarea = new DataGridView();
             ((System.ComponentModel.ISupportInitialize)fotoUsuario).BeginInit();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridViewTarea).BeginInit();
+            panelTareaHoy.SuspendLayout();
             SuspendLayout();
             // 
             // btnReunion
             // 
             btnReunion.Font = new Font("Montserrat Medium", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnReunion.Location = new Point(44, 442);
+            btnReunion.Location = new Point(31, 535);
             btnReunion.Name = "btnReunion";
-            btnReunion.Size = new Size(155, 45);
+            btnReunion.Size = new Size(186, 63);
             btnReunion.TabIndex = 4;
             btnReunion.Text = "Reuniones";
             btnReunion.UseVisualStyleBackColor = true;
@@ -64,9 +69,9 @@
             // btnTareas
             // 
             btnTareas.Font = new Font("Montserrat Medium", 9F, FontStyle.Bold);
-            btnTareas.Location = new Point(44, 382);
+            btnTareas.Location = new Point(31, 456);
             btnTareas.Name = "btnTareas";
-            btnTareas.Size = new Size(155, 45);
+            btnTareas.Size = new Size(186, 63);
             btnTareas.TabIndex = 3;
             btnTareas.Text = "Tareas";
             btnTareas.UseVisualStyleBackColor = true;
@@ -74,9 +79,9 @@
             // btnProyectos
             // 
             btnProyectos.Font = new Font("Montserrat Medium", 9F, FontStyle.Bold);
-            btnProyectos.Location = new Point(44, 322);
+            btnProyectos.Location = new Point(31, 375);
             btnProyectos.Name = "btnProyectos";
-            btnProyectos.Size = new Size(155, 45);
+            btnProyectos.Size = new Size(186, 63);
             btnProyectos.TabIndex = 2;
             btnProyectos.Text = "Proyectos";
             btnProyectos.UseVisualStyleBackColor = true;
@@ -84,16 +89,16 @@
             // btnInicio
             // 
             btnInicio.Font = new Font("Montserrat Medium", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnInicio.Location = new Point(44, 261);
+            btnInicio.Location = new Point(31, 297);
             btnInicio.Name = "btnInicio";
-            btnInicio.Size = new Size(155, 45);
+            btnInicio.Size = new Size(186, 63);
             btnInicio.TabIndex = 1;
             btnInicio.Text = "Inicio";
             btnInicio.UseVisualStyleBackColor = true;
             // 
             // fotoUsuario
             // 
-            fotoUsuario.Location = new Point(53, 54);
+            fotoUsuario.Location = new Point(55, 54);
             fotoUsuario.Name = "fotoUsuario";
             fotoUsuario.Size = new Size(125, 125);
             fotoUsuario.TabIndex = 1;
@@ -112,14 +117,25 @@
             panel1.Dock = DockStyle.Left;
             panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
-            panel1.Size = new Size(250, 531);
+            panel1.Size = new Size(250, 673);
             panel1.TabIndex = 5;
+            // 
+            // lblNombre
+            // 
+            lblNombre.AutoSize = true;
+            lblNombre.Font = new Font("Montserrat Medium", 12F, FontStyle.Bold);
+            lblNombre.ForeColor = SystemColors.ControlLightLight;
+            lblNombre.Location = new Point(0, 0);
+            lblNombre.Name = "lblNombre";
+            lblNombre.Size = new Size(86, 31);
+            lblNombre.TabIndex = 6;
+            lblNombre.Text = "Beatrix";
             // 
             // lblNombreUsuario
             // 
             lblNombreUsuario.AutoSize = true;
             lblNombreUsuario.Font = new Font("Montserrat", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblNombreUsuario.Location = new Point(92, 200);
+            lblNombreUsuario.Location = new Point(93, 225);
             lblNombreUsuario.Name = "lblNombreUsuario";
             lblNombreUsuario.Size = new Size(51, 24);
             lblNombreUsuario.TabIndex = 5;
@@ -128,9 +144,10 @@
             // monthCalendar
             // 
             monthCalendar.Font = new Font("Montserrat", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            monthCalendar.Location = new Point(273, 292);
+            monthCalendar.Location = new Point(273, 375);
             monthCalendar.Name = "monthCalendar";
             monthCalendar.TabIndex = 6;
+            monthCalendar.DateChanged += monthCalendar_DateChanged;
             // 
             // comboBoxProyecto
             // 
@@ -146,28 +163,50 @@
             // 
             // dataGridViewTarea
             // 
-            dataGridViewTarea.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridViewTarea.BackgroundColor = SystemColors.ButtonHighlight;
-            dataGridViewTarea.BorderStyle = BorderStyle.Fixed3D;
-            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = SystemColors.Control;
-            dataGridViewCellStyle1.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle1.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
-            dataGridViewTarea.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            dataGridViewTarea.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewTarea.AllowUserToDeleteRows = false;
+            dataGridViewTarea.AllowUserToResizeColumns = false;
+            dataGridViewTarea.AllowUserToResizeRows = false;
+            dataGridViewTarea.BackgroundColor = Color.White;
+            dataGridViewTarea.CellBorderStyle = DataGridViewCellBorderStyle.SunkenHorizontal;
+            dataGridViewTarea.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.BackColor = SystemColors.ControlLightLight;
+            dataGridViewCellStyle4.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle4.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = DataGridViewTriState.True;
+            dataGridViewTarea.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewTarea.ColumnHeadersHeight = 50;
             dataGridViewTarea.Columns.AddRange(new DataGridViewColumn[] { ColumnTarea, ColumnEspecificaciones, ColumnUsuario });
-            dataGridViewTarea.GridColor = SystemColors.Control;
+            dataGridViewTarea.GridColor = Color.White;
             dataGridViewTarea.Location = new Point(273, 54);
             dataGridViewTarea.Name = "dataGridViewTarea";
             dataGridViewTarea.ReadOnly = true;
+            dataGridViewTarea.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = Color.White;
+            dataGridViewCellStyle5.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle5.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle5.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = DataGridViewTriState.True;
+            dataGridViewTarea.RowHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewTarea.RowHeadersVisible = false;
             dataGridViewTarea.RowHeadersWidth = 51;
-            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewTarea.RowsDefaultCellStyle = dataGridViewCellStyle2;
-            dataGridViewTarea.Size = new Size(651, 217);
+            dataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewTarea.RowsDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewTarea.Size = new Size(965, 281);
             dataGridViewTarea.TabIndex = 10;
+            // 
+            // btnIdioma
+            // 
+            btnIdioma.Location = new Point(1181, 12);
+            btnIdioma.Name = "btnIdioma";
+            btnIdioma.Size = new Size(57, 29);
+            btnIdioma.TabIndex = 12;
+            btnIdioma.UseVisualStyleBackColor = true;
+            btnIdioma.Click += btnIdioma_Click;
             // 
             // ColumnTarea
             // 
@@ -175,6 +214,7 @@
             ColumnTarea.MinimumWidth = 6;
             ColumnTarea.Name = "ColumnTarea";
             ColumnTarea.ReadOnly = true;
+            ColumnTarea.Width = 321;
             // 
             // ColumnEspecificaciones
             // 
@@ -182,6 +222,7 @@
             ColumnEspecificaciones.MinimumWidth = 6;
             ColumnEspecificaciones.Name = "ColumnEspecificaciones";
             ColumnEspecificaciones.ReadOnly = true;
+            ColumnEspecificaciones.Width = 321;
             // 
             // ColumnUsuario
             // 
@@ -189,43 +230,46 @@
             ColumnUsuario.MinimumWidth = 6;
             ColumnUsuario.Name = "ColumnUsuario";
             ColumnUsuario.ReadOnly = true;
+            ColumnUsuario.Width = 321;
             // 
-            // flowLayoutPanel1
+            // panelTareaHoy
             // 
-            flowLayoutPanel1.Font = new Font("Montserrat", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            flowLayoutPanel1.Location = new Point(568, 292);
-            flowLayoutPanel1.Name = "flowLayoutPanel1";
-            flowLayoutPanel1.Size = new Size(356, 207);
-            flowLayoutPanel1.TabIndex = 11;
+            panelTareaHoy.BackColor = Color.FromArgb(0, 181, 200);
+            panelTareaHoy.Controls.Add(labelHorario);
+            panelTareaHoy.Controls.Add(labelTitle);
+            panelTareaHoy.Location = new Point(788, 375);
+            panelTareaHoy.Name = "panelTareaHoy";
+            panelTareaHoy.Size = new Size(450, 269);
+            panelTareaHoy.TabIndex = 13;
             // 
-            // btnIdioma
+            // labelTitle
             // 
-            btnIdioma.Location = new Point(867, 11);
-            btnIdioma.Name = "btnIdioma";
-            btnIdioma.Size = new Size(57, 29);
-            btnIdioma.TabIndex = 12;
-            btnIdioma.UseVisualStyleBackColor = true;
-            btnIdioma.Click += btnIdioma_Click;
+            labelTitle.AutoSize = true;
+            labelTitle.Font = new Font("Playfair Display", 17.9999981F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            labelTitle.ForeColor = Color.White;
+            labelTitle.Location = new Point(189, 20);
+            labelTitle.Name = "labelTitle";
+            labelTitle.Size = new Size(85, 43);
+            labelTitle.TabIndex = 0;
+            labelTitle.Text = "HOY";
             // 
-            // lblNombre
+            // labelHorario
             // 
-            lblNombre.AutoSize = true;
-            lblNombre.Font = new Font("Montserrat Medium", 12F, FontStyle.Bold);
-            lblNombre.ForeColor = SystemColors.ControlLightLight;
-            lblNombre.Location = new Point(0, 0);
-            lblNombre.Name = "lblNombre";
-            lblNombre.Size = new Size(86, 31);
-            lblNombre.TabIndex = 6;
-            lblNombre.Text = "Beatrix";
+            labelHorario.AutoSize = true;
+            labelHorario.Location = new Point(52, 81);
+            labelHorario.Name = "labelHorario";
+            labelHorario.Size = new Size(50, 20);
+            labelHorario.TabIndex = 1;
+            labelHorario.Text = "label1";
             // 
             // Inicio
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ControlLightLight;
-            ClientSize = new Size(947, 531);
+            ClientSize = new Size(1262, 673);
+            Controls.Add(panelTareaHoy);
             Controls.Add(btnIdioma);
-            Controls.Add(flowLayoutPanel1);
             Controls.Add(dataGridViewTarea);
             Controls.Add(comboBoxProyecto);
             Controls.Add(monthCalendar);
@@ -237,6 +281,8 @@
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridViewTarea).EndInit();
+            panelTareaHoy.ResumeLayout(false);
+            panelTareaHoy.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -250,12 +296,14 @@
         private MonthCalendar monthCalendar;
         private ComboBox comboBoxProyecto;
         private DataGridView dataGridViewTarea;
-        private FlowLayoutPanel flowLayoutPanel1;
         private Button btnIdioma;
+        private Label lblNombreUsuario;
+        private Label lblNombre;
         private DataGridViewTextBoxColumn ColumnTarea;
         private DataGridViewTextBoxColumn ColumnEspecificaciones;
         private DataGridViewTextBoxColumn ColumnUsuario;
-        private Label lblNombreUsuario;
-        private Label lblNombre;
+        private Panel panelTareaHoy;
+        private Label labelHorario;
+        private Label labelTitle;
     }
 }
