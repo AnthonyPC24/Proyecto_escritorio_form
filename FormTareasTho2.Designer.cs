@@ -30,7 +30,7 @@
         {
             groupBoxNuevaTarea = new GroupBox();
             labelDescripcionNuevaTarea = new Label();
-            richTextBox1 = new RichTextBox();
+            richTextBoxDescripcion = new RichTextBox();
             comboBoxUsuariosAsignarTareas = new ComboBox();
             dateTimePickerFechaTareaFin = new DateTimePicker();
             dateTimePickerFechaTareaInicio = new DateTimePicker();
@@ -47,7 +47,7 @@
             // groupBoxNuevaTarea
             // 
             groupBoxNuevaTarea.Controls.Add(labelDescripcionNuevaTarea);
-            groupBoxNuevaTarea.Controls.Add(richTextBox1);
+            groupBoxNuevaTarea.Controls.Add(richTextBoxDescripcion);
             groupBoxNuevaTarea.Controls.Add(comboBoxUsuariosAsignarTareas);
             groupBoxNuevaTarea.Controls.Add(dateTimePickerFechaTareaFin);
             groupBoxNuevaTarea.Controls.Add(dateTimePickerFechaTareaInicio);
@@ -56,7 +56,7 @@
             groupBoxNuevaTarea.Controls.Add(textBoxNombreNuevaTarea);
             groupBoxNuevaTarea.Location = new Point(12, 95);
             groupBoxNuevaTarea.Name = "groupBoxNuevaTarea";
-            groupBoxNuevaTarea.Size = new Size(475, 258);
+            groupBoxNuevaTarea.Size = new Size(776, 314);
             groupBoxNuevaTarea.TabIndex = 4;
             groupBoxNuevaTarea.TabStop = false;
             // 
@@ -64,26 +64,26 @@
             // 
             labelDescripcionNuevaTarea.AutoSize = true;
             labelDescripcionNuevaTarea.Font = new Font("Montserrat Medium", 8.999999F, FontStyle.Bold);
-            labelDescripcionNuevaTarea.Location = new Point(20, 141);
+            labelDescripcionNuevaTarea.Location = new Point(20, 152);
             labelDescripcionNuevaTarea.Name = "labelDescripcionNuevaTarea";
             labelDescripcionNuevaTarea.Size = new Size(80, 18);
             labelDescripcionNuevaTarea.TabIndex = 9;
             labelDescripcionNuevaTarea.Text = "Descripción";
             // 
-            // richTextBox1
+            // richTextBoxDescripcion
             // 
-            richTextBox1.Font = new Font("Montserrat Medium", 8.999999F, FontStyle.Bold);
-            richTextBox1.Location = new Point(20, 165);
-            richTextBox1.Name = "richTextBox1";
-            richTextBox1.Size = new Size(434, 65);
-            richTextBox1.TabIndex = 8;
-            richTextBox1.Text = "";
+            richTextBoxDescripcion.Font = new Font("Montserrat Medium", 8.999999F, FontStyle.Bold);
+            richTextBoxDescripcion.Location = new Point(20, 179);
+            richTextBoxDescripcion.Name = "richTextBoxDescripcion";
+            richTextBoxDescripcion.Size = new Size(737, 117);
+            richTextBoxDescripcion.TabIndex = 8;
+            richTextBoxDescripcion.Text = "";
             // 
             // comboBoxUsuariosAsignarTareas
             // 
             comboBoxUsuariosAsignarTareas.Font = new Font("Montserrat Medium", 8.999999F, FontStyle.Bold);
             comboBoxUsuariosAsignarTareas.FormattingEnabled = true;
-            comboBoxUsuariosAsignarTareas.Location = new Point(20, 54);
+            comboBoxUsuariosAsignarTareas.Location = new Point(20, 50);
             comboBoxUsuariosAsignarTareas.Name = "comboBoxUsuariosAsignarTareas";
             comboBoxUsuariosAsignarTareas.Size = new Size(166, 26);
             comboBoxUsuariosAsignarTareas.TabIndex = 7;
@@ -138,7 +138,7 @@
             label1.AutoSize = true;
             label1.Font = new Font("Montserrat ExtraBold", 20.25F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
             label1.ForeColor = Color.Black;
-            label1.Location = new Point(142, 9);
+            label1.Location = new Point(294, 9);
             label1.Name = "label1";
             label1.Size = new Size(203, 42);
             label1.TabIndex = 6;
@@ -148,7 +148,7 @@
             // 
             comboBoxProyectoNuevaTarea.Font = new Font("Montserrat Medium", 8.999999F, FontStyle.Bold, GraphicsUnit.Point, 0);
             comboBoxProyectoNuevaTarea.FormattingEnabled = true;
-            comboBoxProyectoNuevaTarea.Location = new Point(12, 66);
+            comboBoxProyectoNuevaTarea.Location = new Point(12, 63);
             comboBoxProyectoNuevaTarea.Name = "comboBoxProyectoNuevaTarea";
             comboBoxProyectoNuevaTarea.Size = new Size(186, 26);
             comboBoxProyectoNuevaTarea.TabIndex = 1;
@@ -158,30 +158,32 @@
             // 
             buttonCrearNuevaTarea.BackColor = Color.White;
             buttonCrearNuevaTarea.Font = new Font("Montserrat Medium", 8.999999F, FontStyle.Bold);
-            buttonCrearNuevaTarea.Location = new Point(409, 359);
+            buttonCrearNuevaTarea.Location = new Point(713, 415);
             buttonCrearNuevaTarea.Name = "buttonCrearNuevaTarea";
             buttonCrearNuevaTarea.Size = new Size(75, 23);
             buttonCrearNuevaTarea.TabIndex = 7;
             buttonCrearNuevaTarea.Text = "Crear";
             buttonCrearNuevaTarea.UseVisualStyleBackColor = false;
+            buttonCrearNuevaTarea.Click += buttonCrearNuevaTarea_Click;
             // 
             // buttonCancelarTarea
             // 
             buttonCancelarTarea.BackColor = Color.White;
             buttonCancelarTarea.Font = new Font("Montserrat Medium", 8.999999F, FontStyle.Bold);
-            buttonCancelarTarea.Location = new Point(328, 359);
+            buttonCancelarTarea.Location = new Point(632, 415);
             buttonCancelarTarea.Name = "buttonCancelarTarea";
             buttonCancelarTarea.Size = new Size(75, 23);
             buttonCancelarTarea.TabIndex = 8;
             buttonCancelarTarea.Text = "Cancelar";
             buttonCancelarTarea.UseVisualStyleBackColor = false;
+            buttonCancelarTarea.Click += buttonCancelarTarea_Click;
             // 
             // FormTareasTho2
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(41, 191, 225);
-            ClientSize = new Size(496, 390);
+            ClientSize = new Size(800, 450);
             Controls.Add(buttonCancelarTarea);
             Controls.Add(buttonCrearNuevaTarea);
             Controls.Add(comboBoxProyectoNuevaTarea);
@@ -206,7 +208,7 @@
         private ComboBox comboBoxUsuariosAsignarTareas;
         private DateTimePicker dateTimePickerFechaTareaFin;
         private Label labelDescripcionNuevaTarea;
-        private RichTextBox richTextBox1;
+        private RichTextBox richTextBoxDescripcion;
         private Button buttonCrearNuevaTarea;
         private Button buttonCancelarTarea;
     }

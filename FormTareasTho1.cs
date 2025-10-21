@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Beatrix_Formulario.ClasesTareas;
 
 namespace Beatrix_Formulario
 {
@@ -27,7 +28,20 @@ namespace Beatrix_Formulario
 
         private void comboBoxEstadosTarea_SelectedIndexChanged(object sender, EventArgs e)
         {
-            
+
+        }
+
+        private void buttonNuevaTarea_Click(object sender, EventArgs e)
+        {
+            FormTareasTho2 nuevaTarea = new FormTareasTho2();
+
+            if (nuevaTarea.ShowDialog() == DialogResult.OK)
+            {
+                Tareas tareaCreada = nuevaTarea.NuevaTareaCreada;
+                comboBoxTareas.Items.Add(tareaCreada.nombreTarea);
+                MessageBox.Show($"Tarea '{tareaCreada.nombreTarea}' creada con éxito.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            }
         }
     }
 }
