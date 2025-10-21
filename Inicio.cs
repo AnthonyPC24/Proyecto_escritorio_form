@@ -36,6 +36,9 @@ namespace Beatrix_Formulario
 
         }
 
-        
+        private void monthCalendar_DateChanged(object sender, DateRangeEventArgs e)
+        {
+
+        }
     }
 }
