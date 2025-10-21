@@ -26,5 +26,10 @@ namespace Beatrix_Formulario
         {
 
         }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
+        }
     }
 }

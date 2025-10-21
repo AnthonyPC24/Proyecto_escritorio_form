@@ -36,5 +36,25 @@ namespace Beatrix_Formulario
         {
 
         }
+
+        private void btnReunion_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnTareas_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dataGridViewTarea_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }
