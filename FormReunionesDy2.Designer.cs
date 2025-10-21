@@ -28,12 +28,175 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Text = "FormReunionesDy2";
+            labelNuevaReunion = new Label();
+            textBoxAsunto = new TextBox();
+            labelAsunto = new Label();
+            labelFechaHora = new Label();
+            dateTimePickerFechaHoraNuevaReunion = new DateTimePicker();
+            labelParticipantes = new Label();
+            comboBoxParticipantes = new ComboBox();
+            panelParaHoy = new Panel();
+            richTextBoxInformacion = new RichTextBox();
+            labelInformacion = new Label();
+            buttonCrear = new Button();
+            buttonCancelar = new Button();
+            panelParaHoy.SuspendLayout();
+            SuspendLayout();
+            // 
+            // labelNuevaReunion
+            // 
+            labelNuevaReunion.AutoSize = true;
+            labelNuevaReunion.Font = new Font("Montserrat", 21.7499962F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            labelNuevaReunion.Location = new Point(164, -1);
+            labelNuevaReunion.Name = "labelNuevaReunion";
+            labelNuevaReunion.Size = new Size(240, 45);
+            labelNuevaReunion.TabIndex = 9;
+            labelNuevaReunion.Text = "Nueva Reunión";
+            // 
+            // textBoxAsunto
+            // 
+            textBoxAsunto.Location = new Point(75, 125);
+            textBoxAsunto.Name = "textBoxAsunto";
+            textBoxAsunto.Size = new Size(453, 23);
+            textBoxAsunto.TabIndex = 10;
+            // 
+            // labelAsunto
+            // 
+            labelAsunto.AutoSize = true;
+            labelAsunto.Font = new Font("Montserrat", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            labelAsunto.Location = new Point(241, 93);
+            labelAsunto.Name = "labelAsunto";
+            labelAsunto.Size = new Size(81, 29);
+            labelAsunto.TabIndex = 11;
+            labelAsunto.Text = "Asunto";
+            // 
+            // labelFechaHora
+            // 
+            labelFechaHora.AutoSize = true;
+            labelFechaHora.Font = new Font("Montserrat", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            labelFechaHora.Location = new Point(216, 151);
+            labelFechaHora.Name = "labelFechaHora";
+            labelFechaHora.Size = new Size(137, 29);
+            labelFechaHora.TabIndex = 12;
+            labelFechaHora.Text = "Fecha y Hora";
+            // 
+            // dateTimePickerFechaHoraNuevaReunion
+            // 
+            dateTimePickerFechaHoraNuevaReunion.CustomFormat = "dd/MM/yyyy HH:mm";
+            dateTimePickerFechaHoraNuevaReunion.Format = DateTimePickerFormat.Custom;
+            dateTimePickerFechaHoraNuevaReunion.Location = new Point(185, 185);
+            dateTimePickerFechaHoraNuevaReunion.Name = "dateTimePickerFechaHoraNuevaReunion";
+            dateTimePickerFechaHoraNuevaReunion.Size = new Size(219, 23);
+            dateTimePickerFechaHoraNuevaReunion.TabIndex = 13;
+            // 
+            // labelParticipantes
+            // 
+            labelParticipantes.AutoSize = true;
+            labelParticipantes.Font = new Font("Montserrat", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            labelParticipantes.Location = new Point(215, 223);
+            labelParticipantes.Name = "labelParticipantes";
+            labelParticipantes.Size = new Size(138, 29);
+            labelParticipantes.TabIndex = 14;
+            labelParticipantes.Text = "Participantes";
+            // 
+            // comboBoxParticipantes
+            // 
+            comboBoxParticipantes.FormattingEnabled = true;
+            comboBoxParticipantes.Location = new Point(216, 255);
+            comboBoxParticipantes.Name = "comboBoxParticipantes";
+            comboBoxParticipantes.Size = new Size(121, 23);
+            comboBoxParticipantes.TabIndex = 15;
+            // 
+            // panelParaHoy
+            // 
+            panelParaHoy.BackColor = Color.FromArgb(41, 191, 225);
+            panelParaHoy.BorderStyle = BorderStyle.FixedSingle;
+            panelParaHoy.Controls.Add(buttonCancelar);
+            panelParaHoy.Controls.Add(buttonCrear);
+            panelParaHoy.Controls.Add(labelInformacion);
+            panelParaHoy.Controls.Add(richTextBoxInformacion);
+            panelParaHoy.Controls.Add(comboBoxParticipantes);
+            panelParaHoy.Controls.Add(labelParticipantes);
+            panelParaHoy.Controls.Add(dateTimePickerFechaHoraNuevaReunion);
+            panelParaHoy.Controls.Add(labelFechaHora);
+            panelParaHoy.Controls.Add(labelAsunto);
+            panelParaHoy.Controls.Add(textBoxAsunto);
+            panelParaHoy.Controls.Add(labelNuevaReunion);
+            panelParaHoy.Dock = DockStyle.Fill;
+            panelParaHoy.Location = new Point(0, 0);
+            panelParaHoy.Name = "panelParaHoy";
+            panelParaHoy.Size = new Size(570, 520);
+            panelParaHoy.TabIndex = 7;
+            // 
+            // richTextBoxInformacion
+            // 
+            richTextBoxInformacion.Location = new Point(75, 315);
+            richTextBoxInformacion.Name = "richTextBoxInformacion";
+            richTextBoxInformacion.Size = new Size(453, 96);
+            richTextBoxInformacion.TabIndex = 16;
+            richTextBoxInformacion.Text = "";
+            // 
+            // labelInformacion
+            // 
+            labelInformacion.AutoSize = true;
+            labelInformacion.Font = new Font("Montserrat", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            labelInformacion.Location = new Point(215, 281);
+            labelInformacion.Name = "labelInformacion";
+            labelInformacion.Size = new Size(130, 29);
+            labelInformacion.TabIndex = 17;
+            labelInformacion.Text = "Información";
+            // 
+            // buttonCrear
+            // 
+            buttonCrear.BackColor = Color.FromArgb(41, 195, 205);
+            buttonCrear.Font = new Font("Montserrat Medium", 8.999999F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            buttonCrear.ForeColor = Color.White;
+            buttonCrear.Location = new Point(60, 445);
+            buttonCrear.Name = "buttonCrear";
+            buttonCrear.Size = new Size(170, 37);
+            buttonCrear.TabIndex = 18;
+            buttonCrear.Text = "Crear";
+            buttonCrear.UseVisualStyleBackColor = false;
+            // 
+            // buttonCancelar
+            // 
+            buttonCancelar.BackColor = Color.FromArgb(245, 168, 125);
+            buttonCancelar.Font = new Font("Montserrat Medium", 8.999999F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            buttonCancelar.ForeColor = Color.White;
+            buttonCancelar.Location = new Point(330, 445);
+            buttonCancelar.Name = "buttonCancelar";
+            buttonCancelar.Size = new Size(170, 37);
+            buttonCancelar.TabIndex = 19;
+            buttonCancelar.Text = "Cancelar";
+            buttonCancelar.UseVisualStyleBackColor = false;
+            // 
+            // FormReunionesDy2
+            // 
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            BackColor = SystemColors.ControlLightLight;
+            ClientSize = new Size(570, 520);
+            Controls.Add(panelParaHoy);
+            Name = "FormReunionesDy2";
+            Text = "FormReunionesDy2";
+            panelParaHoy.ResumeLayout(false);
+            panelParaHoy.PerformLayout();
+            ResumeLayout(false);
         }
 
         #endregion
+
+        private Label labelNuevaReunion;
+        private TextBox textBoxAsunto;
+        private Label labelAsunto;
+        private Label labelFechaHora;
+        private DateTimePicker dateTimePickerFechaHoraNuevaReunion;
+        private Label labelParticipantes;
+        private ComboBox comboBoxParticipantes;
+        private Panel panelParaHoy;
+        private RichTextBox richTextBoxInformacion;
+        private Label labelInformacion;
+        private Button buttonCancelar;
+        private Button buttonCrear;
     }
 }
