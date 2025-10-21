@@ -1,0 +1,20 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Beatrix_Formulario.ClasesTareas
+{
+    internal class Usuarios
+    {
+        public string nombreApellidos { get; set; }
+        public string nombreUsuario { get; set; }
+        public string contraseña { get; set; }
+
+        public string email { get; set; }
+
+        public int telefono { get; set; }
+        public string rol { get; set; }
+    }
+}

@@ -7,11 +7,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Beatrix_Formulario.ClasesTareas;
+
 
 namespace Beatrix_Formulario
 {
     public partial class FormTareasTho2 : Form
     {
+        public Tareas NuevaTareaCreada { get; private set; }
         public FormTareasTho2()
         {
             InitializeComponent();
@@ -19,10 +22,47 @@ namespace Beatrix_Formulario
             comboBoxUsuariosAsignarTareas.Items.Add("Usuarios");
         }
 
-     
+
         private void comboBoxProyectoNuevaTarea_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void buttonCrearNuevaTarea_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(textBoxNombreNuevaTarea.Text))
+            {
+
+                MessageBox.Show("Introduzca el nombre de la tarea.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+
+            }
+
+            if (comboBoxUsuariosAsignarTareas == null)
+            {
+                MessageBox.Show("Seleccine un usuario");
+                return;
+
+            }
+
+            NuevaTareaCreada = new Tareas
+
+            {
+                nombreTarea = textBoxNombreNuevaTarea.Text,
+                descripcion = richTextBoxDescripcion.Text,
+                fechaEntrega = dateTimePickerFechaTareaFin.Value,
+                fechaInicio = dateTimePickerFechaTareaInicio.Value,
+                estado = "Pendiente"
+            };
+
+            this.DialogResult = DialogResult.OK;
+            this.Close();
+        }
+
+        private void buttonCancelarTarea_Click(object sender, EventArgs e)
+        {
+            this.DialogResult = DialogResult.Cancel;
+            this.Close();
         }
     }
 }
