@@ -14,7 +14,7 @@ namespace Beatrix_Formulario.ClasesTareas
         public DateTime fechaEntrega { get; set; }
         public DateTime fechaInicio { get; set; }
 
-        List<Usuarios> UsuariosAsignados { get; set; } = new List<Usuarios>();
+        public List<Usuarios> UsuariosAsignados { get; set; } = new List<Usuarios>();
 
     }
 }

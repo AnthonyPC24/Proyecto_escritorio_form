@@ -31,5 +31,19 @@ namespace Beatrix_Formulario
         {
 
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txtNombre.Text))
+            {
+                MessageBox.Show("El campo 'Nombre' es obligatorio.", "Error de Validación", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return; // Detiene la ejecución
+            }
+            if (cmbUsuarios.SelectedItem == null)
+            {
+                MessageBox.Show("Debe seleccionar un 'Usuario'.", "Error de Validación", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return; // Detiene la ejecución
+            }
+        }
     }
 }

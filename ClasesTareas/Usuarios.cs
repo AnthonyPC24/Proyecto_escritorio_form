@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Beatrix_Formulario.ClasesTareas
 {
-    internal class Usuarios
+    public class Usuarios
     {
         public string nombreApellidos { get; set; }
         public string nombreUsuario { get; set; }
