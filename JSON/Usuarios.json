@@ -1,35 +1,31 @@
 [
     {
-        "nombre": "Elena",
-        "apellido": "Ruiz",
-        "nombreusuario": "eruiz",
+        "nombreApellidos": "Elena Ruiz",
+        "nombreUsuario": "eruiz",
         "contrasena": "MiClaveSecreta!2025",
         "email": "elena.ruiz@ejemplo.com",
         "telefono": "+34600123456",
         "rol": "Administrador"
     },
     {
-        "nombre": "Marcos",
-        "apellido": "Gómez",
-        "nombreusuario": "mgomez",
+        "nombreApellidos": "Marcos Gomez",
+        "nombreUsuario": "mgomez",
         "contrasena": "P@ssw0rd987",
         "email": "marcos.g@ejemplo.com",
         "telefono": "+525512345678",
         "rol": "Editor"
     },
     {
-        "nombre": "Ana",
-        "apellido": "Fernández",
-        "nombreusuario": "afernandez",
+        "nombreApellidos": "Ana Fernandez",
+        "nombreUsuario": "afernandez",
         "contrasena": "AnaFer.2024*",
         "email": "ana.fernandez@ejemplo.com",
         "telefono": "+5491112345678",
         "rol": "Usuario"
     },
     {
-        "nombre": "Carlos",
-        "apellido": "Santana",
-        "nombreusuario": "csantana",
+        "nombreApellidos": "Carlos Santana",    
+        "nombreUsuario": "csantana",
         "contrasena": "Carlos.Santana#1",
         "email": "c.santana@ejemplo.com",
         "telefono": "+13055551234",

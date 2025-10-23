@@ -13,6 +13,10 @@ namespace Beatrix_Formulario
 {
     public partial class FormProyectosGerard1 : Form
     {
+        private List<Proyectos> listaDeProyectos;
+
+        private string rutaArchivoJson = @"JSON\Proyectos.JSON";
+
         public FormProyectosGerard1()
         {
             InitializeComponent();
@@ -32,41 +36,24 @@ namespace Beatrix_Formulario
         {
             using (FormProyectosGerard2 formCrear = new FormProyectosGerard2())
             {
-                // 2. Mostramos Form2 como un diálogo modal.
-                // El código de Form1 se pausará aquí mismo
-                // hasta que Form2 se cierre.
                 DialogResult resultado = formCrear.ShowDialog();
 
-                // 3. Cuando Form2 se cierra, el código continúa.
-                // Comprobamos si el usuario hizo clic en "Crear".
                 if (resultado == DialogResult.OK)
                 {
-                    // 4. Si pulsó "Crear", recuperamos el proyecto
-                    // desde la propiedad pública que creamos en Form2.
                     Proyectos proyectoCreado = formCrear.NuevoProyecto;
 
-                    // 5. (Opcional) Verificamos que no sea nulo
                     if (proyectoCreado != null)
                     {
-                        // 6. Formateamos los datos para la tabla
+                        // 1. Añadir el nuevo proyecto a nuestra lista principal
+                        listaDeProyectos.Add(proyectoCreado);
 
-                        // Unimos los nombres de los usuarios con una coma
-                        // ej: ["Gerard", "Anna"] -> "Gerard, Anna"
-                        string usuariosStr = string.Join(", ",
-                            proyectoCreado.UsuariosAsignados.Select(u => u.nombreApellidos)
-                        );
+                        // 2. Añadir el nuevo proyecto visualmente a la tabla
+                        AgregarFilaAGrid(proyectoCreado);
 
-                        // 7. Añadimos la nueva fila al DataGridView
-                        // (Asumiendo que tu tabla se llama 'dataGridView1')
-                        dataGridViewTarea.Rows.Add(
-                            proyectoCreado.NombreProyecto,
-                            usuariosStr,
-                            proyectoCreado.fechaEntrega.ToShortDateString()
-                        );
+                        // 3. Guardar la lista actualizada en el archivo JSON
+                        GuardarProyectosEnJson();
                     }
                 }
-                // Si el resultado es 'DialogResult.Cancel',
-                // simplemente no hace nada y el 'using' cierra el 'formCrear'.
             }
         }
 
@@ -93,6 +80,11 @@ namespace Beatrix_Formulario
         private void dataGridViewTarea_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+
+        private void FormProyectosGerard1_Load(object sender, EventArgs e)
+        {
+            CargarProyectosDesdeJson();
         }
     }
 }
