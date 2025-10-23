@@ -82,6 +82,7 @@ namespace Beatrix_Formulario
 
         }
 
+        //
         private void buttonQuitarUsuario_Click(object sender, EventArgs e)
         {
             if(listBoxUsuarios.SelectedItem != null)
