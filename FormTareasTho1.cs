@@ -18,7 +18,7 @@ namespace Beatrix_Formulario
             InitializeComponent();
 
             comboBoxEstadosTarea.Items.AddRange(new String[] {
-                "Pendiente", "En Proceso", "En espera","Revisión", "Completada", "Cancelada"
+                "Pendiente", "En proceso", "En espera","Revisión", "Completada", "Cancelada"
             });
 
             comboBoxEstadosTarea.SelectedItem = "Pendiente";
@@ -42,6 +42,11 @@ namespace Beatrix_Formulario
                 MessageBox.Show($"Tarea '{tareaCreada.nombreTarea}' creada con éxito.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
             }
+        }
+
+        private void comboBoxTareas_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

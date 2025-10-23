@@ -19,7 +19,9 @@ namespace Beatrix_Formulario
         {
             InitializeComponent();
             comboBoxProyectoNuevaTarea.Items.Add("Proyectos");
-            comboBoxUsuariosAsignarTareas.Items.Add("Usuarios");
+
+            comboBoxUsuariosAsignarTareas.Items.Add("pedro");
+            comboBoxUsuariosAsignarTareas.Items.Add("maria");
         }
 
 
@@ -63,6 +65,29 @@ namespace Beatrix_Formulario
         {
             this.DialogResult = DialogResult.Cancel;
             this.Close();
+        }
+
+        private void comboBoxUsuariosAsignarTareas_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (comboBoxUsuariosAsignarTareas.SelectedItem != null)
+            {
+                String usuario = comboBoxUsuariosAsignarTareas.SelectedItem.ToString();
+
+                if (!listBoxUsuarios.Items.Contains(usuario))
+                {
+                    listBoxUsuarios.Items.Add(usuario);
+                }
+                comboBoxUsuariosAsignarTareas.SelectedItem = -1;
+            }
+
+        }
+
+        private void buttonQuitarUsuario_Click(object sender, EventArgs e)
+        {
+            if(listBoxUsuarios.SelectedItem != null)
+            {
+                listBoxUsuarios.Items.Remove(listBoxUsuarios.SelectedItem);
+            }
         }
     }
 }
