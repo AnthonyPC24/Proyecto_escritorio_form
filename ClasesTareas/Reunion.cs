@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Beatrix_Formulario.ClasesTareas
 {
-    internal class Reunion
+    public class Reunion
     {
         public string titulo { get; set; }
         public DateTime fechaHora { get; set; }

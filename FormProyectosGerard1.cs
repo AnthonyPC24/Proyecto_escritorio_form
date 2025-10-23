@@ -29,7 +29,9 @@ namespace Beatrix_Formulario
 
         private void label1_Click(object sender, EventArgs e)
         {
+            FormProyectosGerard2 formDestino = new FormProyectosGerard2();
 
+            formDestino.ShowDialog();
         }
 
         private void button1_Click(object sender, EventArgs e)

@@ -36,8 +36,8 @@
             label4 = new Label();
             monthCalendar1 = new MonthCalendar();
             textBox2 = new TextBox();
-            comboBox1 = new ComboBox();
-            textBox1 = new TextBox();
+            cmbUsuarios = new ComboBox();
+            txtNombre = new TextBox();
             label3 = new Label();
             label2 = new Label();
             label1 = new Label();
@@ -62,8 +62,8 @@
             groupBox1.Controls.Add(label4);
             groupBox1.Controls.Add(monthCalendar1);
             groupBox1.Controls.Add(textBox2);
-            groupBox1.Controls.Add(comboBox1);
-            groupBox1.Controls.Add(textBox1);
+            groupBox1.Controls.Add(cmbUsuarios);
+            groupBox1.Controls.Add(txtNombre);
             groupBox1.Controls.Add(label3);
             groupBox1.Controls.Add(label2);
             groupBox1.Controls.Add(label1);
@@ -91,6 +91,7 @@
             button1.TabIndex = 8;
             button1.Text = "Crear";
             button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
             // 
             // label4
             // 
@@ -116,20 +117,20 @@
             textBox2.Size = new Size(147, 23);
             textBox2.TabIndex = 5;
             // 
-            // comboBox1
+            // cmbUsuarios
             // 
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Location = new Point(95, 108);
-            comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(147, 23);
-            comboBox1.TabIndex = 4;
+            cmbUsuarios.FormattingEnabled = true;
+            cmbUsuarios.Location = new Point(95, 108);
+            cmbUsuarios.Name = "cmbUsuarios";
+            cmbUsuarios.Size = new Size(147, 23);
+            cmbUsuarios.TabIndex = 4;
             // 
-            // textBox1
+            // txtNombre
             // 
-            textBox1.Location = new Point(95, 48);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(147, 23);
-            textBox1.TabIndex = 3;
+            txtNombre.Location = new Point(95, 48);
+            txtNombre.Name = "txtNombre";
+            txtNombre.Size = new Size(147, 23);
+            txtNombre.TabIndex = 3;
             // 
             // label3
             // 
@@ -193,8 +194,8 @@
         private Label label4;
         private MonthCalendar monthCalendar1;
         private TextBox textBox2;
-        private ComboBox comboBox1;
-        private TextBox textBox1;
+        private ComboBox cmbUsuarios;
+        private TextBox txtNombre;
         private Label label3;
         private Button button3;
         private Button button1;
