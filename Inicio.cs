@@ -15,6 +15,7 @@ namespace Beatrix_Formulario
         public Inicio()
         {
             InitializeComponent();
+            LoadJsonToTarea();
         }
 
         private void Inicio_Load(object sender, EventArgs e)
@@ -40,5 +41,21 @@ namespace Beatrix_Formulario
         {
 
         }
+
+        //cargar los datos de tareas
+        private void LoadJsonToTarea()
+        {
+            string jsonPath = "JSON\\Proyectos.json";
+            if (!File.Exists(jsonPath))
+            {
+                MessageBox.Show("El archivo JSON no encontrado");
+                return;
+            }
+
+            string json = File.ReadAllText(jsonPath);
+
+        }
+
+
     }
 }
