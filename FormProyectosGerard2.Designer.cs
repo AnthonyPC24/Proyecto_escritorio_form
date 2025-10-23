@@ -32,16 +32,16 @@
             button2 = new Button();
             groupBox1 = new GroupBox();
             button3 = new Button();
-            button1 = new Button();
+            btnCrear = new Button();
             label4 = new Label();
-            monthCalendar1 = new MonthCalendar();
-            textBox2 = new TextBox();
-            cmbUsuarios = new ComboBox();
+            monthCalendar = new MonthCalendar();
+            txtDescripcion = new TextBox();
             txtNombre = new TextBox();
             label3 = new Label();
             label2 = new Label();
             label1 = new Label();
             label5 = new Label();
+            txtUsuarios = new TextBox();
             groupBox1.SuspendLayout();
             SuspendLayout();
             // 
@@ -57,12 +57,12 @@
             // 
             // groupBox1
             // 
+            groupBox1.Controls.Add(txtUsuarios);
             groupBox1.Controls.Add(button3);
-            groupBox1.Controls.Add(button1);
+            groupBox1.Controls.Add(btnCrear);
             groupBox1.Controls.Add(label4);
-            groupBox1.Controls.Add(monthCalendar1);
-            groupBox1.Controls.Add(textBox2);
-            groupBox1.Controls.Add(cmbUsuarios);
+            groupBox1.Controls.Add(monthCalendar);
+            groupBox1.Controls.Add(txtDescripcion);
             groupBox1.Controls.Add(txtNombre);
             groupBox1.Controls.Add(label3);
             groupBox1.Controls.Add(label2);
@@ -83,15 +83,15 @@
             button3.Text = "Cancelar";
             button3.UseVisualStyleBackColor = true;
             // 
-            // button1
+            // btnCrear
             // 
-            button1.Location = new Point(316, 240);
-            button1.Name = "button1";
-            button1.Size = new Size(75, 23);
-            button1.TabIndex = 8;
-            button1.Text = "Crear";
-            button1.UseVisualStyleBackColor = true;
-            button1.Click += button1_Click;
+            btnCrear.Location = new Point(316, 240);
+            btnCrear.Name = "btnCrear";
+            btnCrear.Size = new Size(75, 23);
+            btnCrear.TabIndex = 8;
+            btnCrear.Text = "Crear";
+            btnCrear.UseVisualStyleBackColor = true;
+            btnCrear.Click += btnCrear_Click_1;
             // 
             // label4
             // 
@@ -103,27 +103,19 @@
             label4.Text = "Duracion del Proyecto";
             label4.Click += label4_Click;
             // 
-            // monthCalendar1
+            // monthCalendar
             // 
-            monthCalendar1.Location = new Point(307, 48);
-            monthCalendar1.Name = "monthCalendar1";
-            monthCalendar1.TabIndex = 6;
-            monthCalendar1.DateChanged += monthCalendar1_DateChanged;
+            monthCalendar.Location = new Point(307, 48);
+            monthCalendar.Name = "monthCalendar";
+            monthCalendar.TabIndex = 6;
+            monthCalendar.DateChanged += monthCalendar1_DateChanged;
             // 
-            // textBox2
+            // txtDescripcion
             // 
-            textBox2.Location = new Point(95, 169);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(147, 23);
-            textBox2.TabIndex = 5;
-            // 
-            // cmbUsuarios
-            // 
-            cmbUsuarios.FormattingEnabled = true;
-            cmbUsuarios.Location = new Point(95, 108);
-            cmbUsuarios.Name = "cmbUsuarios";
-            cmbUsuarios.Size = new Size(147, 23);
-            cmbUsuarios.TabIndex = 4;
+            txtDescripcion.Location = new Point(95, 169);
+            txtDescripcion.Name = "txtDescripcion";
+            txtDescripcion.Size = new Size(147, 23);
+            txtDescripcion.TabIndex = 5;
             // 
             // txtNombre
             // 
@@ -169,6 +161,13 @@
             label5.TabIndex = 28;
             label5.Text = "Nuevo Proyecto";
             // 
+            // txtUsuarios
+            // 
+            txtUsuarios.Location = new Point(95, 108);
+            txtUsuarios.Name = "txtUsuarios";
+            txtUsuarios.Size = new Size(147, 23);
+            txtUsuarios.TabIndex = 10;
+            // 
             // FormProyectosGerard2
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -192,13 +191,13 @@
         private Label label2;
         private Label label1;
         private Label label4;
-        private MonthCalendar monthCalendar1;
-        private TextBox textBox2;
-        private ComboBox cmbUsuarios;
+        private MonthCalendar monthCalendar;
+        private TextBox txtDescripcion;
         private TextBox txtNombre;
         private Label label3;
         private Button button3;
-        private Button button1;
+        private Button btnCrear;
         private Label label5;
+        private TextBox txtUsuarios;
     }
 }
