@@ -1,9 +1,9 @@
 [
     {
-        "NombreProyecto": "Lanzamiento App Móvil",
+        "NombreProyecto": "Lanzamiento App Mï¿½vil",
         "Tareas": [
             {
-                "nombreTarea": "Diseño UI/UX (Figma)",
+                "nombreTarea": "Diseï¿½o UI/UX (Figma)",
                 "descripcion": "Crear los mockups y prototipos de alta fidelidad en Figma.",
                 "fechaInicio": "2024-11-18T09:00:00Z",
                 "fechaEntrega": "2024-12-15T18:00:00Z",
@@ -17,7 +17,7 @@
             },
             {
                 "nombreTarea": "Desarrollo del Backend (API REST)",
-                "descripcion": "Implementar endpoints para autenticación, perfiles y gestión de tareas.",
+                "descripcion": "Implementar endpoints para autenticaciï¿½n, perfiles y gestiï¿½n de tareas.",
                 "fechaInicio": "2024-12-01T09:00:00Z",
                 "fechaEntrega": "2025-02-15T18:00:00Z",
                 "estado": "Pendiente",
@@ -30,7 +30,7 @@
             },
             {
                 "nombreTarea": "Definir arquitectura de la app",
-                "descripcion": "Decidir la estructura de componentes, estado y navegación.",
+                "descripcion": "Decidir la estructura de componentes, estado y navegaciï¿½n.",
                 "fechaInicio": "2024-11-15T10:00:00Z",
                 "fechaEntrega": "2024-11-17T17:00:00Z",
                 "estado": "Completada",
@@ -61,10 +61,10 @@
         ]
     },
     {
-        "NombreProyecto": "Migración a la Nube (AWS)",
+        "NombreProyecto": "Migraciï¿½n a la Nube (AWS)",
         "Tareas": [
             {
-                "nombreTarea": "Auditoría de infraestructura",
+                "nombreTarea": "Auditorï¿½a de infraestructura",
                 "descripcion": "Revisar todos los servicios y bases de datos actuales.",
                 "fechaInicio": "2024-12-02T09:00:00Z",
                 "fechaEntrega": "2024-12-10T18:00:00Z",
@@ -77,8 +77,8 @@
                 ]
             },
             {
-                "nombreTarea": "Configuración de VPC",
-                "descripcion": "Definir la red privada, subredes públicas y privadas, y gateways.",
+                "nombreTarea": "Configuraciï¿½n de VPC",
+                "descripcion": "Definir la red privada, subredes pï¿½blicas y privadas, y gateways.",
                 "fechaInicio": "2024-12-11T09:00:00Z",
                 "fechaEntrega": "2024-12-15T18:00:00Z",
                 "estado": "Pendiente",

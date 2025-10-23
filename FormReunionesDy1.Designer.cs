@@ -29,18 +29,18 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
-            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormReunionesDy1));
             contextMenuStrip1 = new ContextMenuStrip(components);
             panelBarraOpciones = new Panel();
+            label1 = new Label();
             labelBeatrix = new Label();
             buttonReuniones1Tareas = new Button();
             buttonTareas1Tareas = new Button();
             buttonProyetos1Tareas = new Button();
             buttonInicioForm1Tareas = new Button();
             monthCalendarReuniones = new MonthCalendar();
-            button1 = new Button();
             panelParaHoy = new Panel();
             dataGridViewTarea = new DataGridView();
             ColumnTarea = new DataGridViewTextBoxColumn();
@@ -56,7 +56,6 @@
             labelParticipantes = new Label();
             labelReunionPanel = new Label();
             buttonIdioma = new Button();
-            label1 = new Label();
             panelBarraOpciones.SuspendLayout();
             panelParaHoy.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridViewTarea).BeginInit();
@@ -83,6 +82,18 @@
             panelBarraOpciones.Size = new Size(219, 681);
             panelBarraOpciones.TabIndex = 3;
             // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Montserrat", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label1.ForeColor = SystemColors.ControlLightLight;
+            label1.Location = new Point(41, 566);
+            label1.Name = "label1";
+            label1.Size = new Size(124, 25);
+            label1.TabIndex = 5;
+            label1.Text = "Configuración";
+            label1.Visible = false;
+            // 
             // labelBeatrix
             // 
             labelBeatrix.AutoSize = true;
@@ -97,6 +108,7 @@
             // buttonReuniones1Tareas
             // 
             buttonReuniones1Tareas.BackColor = Color.FromArgb(41, 195, 205);
+            buttonReuniones1Tareas.Cursor = Cursors.Hand;
             buttonReuniones1Tareas.Font = new Font("Montserrat Medium", 8.999999F, FontStyle.Bold, GraphicsUnit.Point, 0);
             buttonReuniones1Tareas.ForeColor = Color.White;
             buttonReuniones1Tareas.Location = new Point(22, 341);
@@ -109,6 +121,7 @@
             // buttonTareas1Tareas
             // 
             buttonTareas1Tareas.BackColor = Color.FromArgb(41, 195, 205);
+            buttonTareas1Tareas.Cursor = Cursors.Hand;
             buttonTareas1Tareas.Font = new Font("Montserrat Medium", 8.999999F, FontStyle.Bold, GraphicsUnit.Point, 0);
             buttonTareas1Tareas.ForeColor = Color.White;
             buttonTareas1Tareas.Location = new Point(22, 298);
@@ -121,6 +134,7 @@
             // buttonProyetos1Tareas
             // 
             buttonProyetos1Tareas.BackColor = Color.FromArgb(41, 195, 205);
+            buttonProyetos1Tareas.Cursor = Cursors.Hand;
             buttonProyetos1Tareas.Font = new Font("Montserrat Medium", 8.999999F, FontStyle.Bold, GraphicsUnit.Point, 0);
             buttonProyetos1Tareas.ForeColor = Color.White;
             buttonProyetos1Tareas.Location = new Point(22, 255);
@@ -133,6 +147,7 @@
             // buttonInicioForm1Tareas
             // 
             buttonInicioForm1Tareas.BackColor = Color.FromArgb(41, 195, 205);
+            buttonInicioForm1Tareas.Cursor = Cursors.Hand;
             buttonInicioForm1Tareas.Font = new Font("Montserrat Medium", 8.999999F, FontStyle.Bold, GraphicsUnit.Point, 0);
             buttonInicioForm1Tareas.ForeColor = Color.White;
             buttonInicioForm1Tareas.Location = new Point(22, 212);
@@ -149,19 +164,6 @@
             monthCalendarReuniones.Name = "monthCalendarReuniones";
             monthCalendarReuniones.TabIndex = 4;
             // 
-            // button1
-            // 
-            button1.BackColor = SystemColors.ControlLightLight;
-            button1.FlatAppearance.BorderSize = 0;
-            button1.FlatStyle = FlatStyle.Flat;
-            button1.Font = new Font("Montserrat", 14F, FontStyle.Bold);
-            button1.ForeColor = Color.FromArgb(41, 191, 205);
-            button1.Location = new Point(225, 212);
-            button1.Name = "button1";
-            button1.Size = new Size(137, 37);
-            button1.TabIndex = 5;
-            button1.UseVisualStyleBackColor = false;
-            // 
             // panelParaHoy
             // 
             panelParaHoy.BorderStyle = BorderStyle.FixedSingle;
@@ -171,30 +173,31 @@
             panelParaHoy.Name = "panelParaHoy";
             panelParaHoy.Size = new Size(598, 317);
             panelParaHoy.TabIndex = 6;
+            panelParaHoy.Paint += panelParaHoy_Paint;
             // 
             // dataGridViewTarea
             // 
             dataGridViewTarea.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridViewTarea.BackgroundColor = SystemColors.ButtonHighlight;
             dataGridViewTarea.BorderStyle = BorderStyle.Fixed3D;
-            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.BackColor = SystemColors.Control;
-            dataGridViewCellStyle3.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle3.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
-            dataGridViewTarea.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = SystemColors.Control;
+            dataGridViewCellStyle1.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle1.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
+            dataGridViewTarea.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dataGridViewTarea.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridViewTarea.Columns.AddRange(new DataGridViewColumn[] { ColumnTarea, ColumnEspecificaciones, ColumnUsuario });
             dataGridViewTarea.GridColor = SystemColors.Control;
-            dataGridViewTarea.Location = new Point(14, 38);
+            dataGridViewTarea.Location = new Point(13, 38);
             dataGridViewTarea.Margin = new Padding(3, 2, 3, 2);
             dataGridViewTarea.Name = "dataGridViewTarea";
             dataGridViewTarea.ReadOnly = true;
             dataGridViewTarea.RowHeadersWidth = 51;
-            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewTarea.RowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewTarea.RowsDefaultCellStyle = dataGridViewCellStyle2;
             dataGridViewTarea.Size = new Size(570, 255);
             dataGridViewTarea.TabIndex = 11;
             // 
@@ -232,6 +235,7 @@
             // labelCrearReunion
             // 
             labelCrearReunion.AutoSize = true;
+            labelCrearReunion.Cursor = Cursors.Hand;
             labelCrearReunion.Font = new Font("Montserrat", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             labelCrearReunion.ForeColor = Color.FromArgb(41, 191, 205);
             labelCrearReunion.Location = new Point(250, 227);
@@ -239,6 +243,7 @@
             labelCrearReunion.Size = new Size(168, 29);
             labelCrearReunion.TabIndex = 7;
             labelCrearReunion.Text = "+ Crear Reunión";
+            labelCrearReunion.Click += labelCrearReunion_Click;
             // 
             // panel1
             // 
@@ -323,23 +328,12 @@
             // 
             buttonIdioma.BackgroundImage = (Image)resources.GetObject("buttonIdioma.BackgroundImage");
             buttonIdioma.BackgroundImageLayout = ImageLayout.Zoom;
+            buttonIdioma.Cursor = Cursors.Hand;
             buttonIdioma.Location = new Point(1217, 12);
             buttonIdioma.Name = "buttonIdioma";
             buttonIdioma.Size = new Size(35, 29);
             buttonIdioma.TabIndex = 16;
             buttonIdioma.UseVisualStyleBackColor = true;
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Montserrat", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label1.ForeColor = SystemColors.ControlLightLight;
-            label1.Location = new Point(41, 566);
-            label1.Name = "label1";
-            label1.Size = new Size(124, 25);
-            label1.TabIndex = 5;
-            label1.Text = "Configuración";
-            label1.Visible = false;
             // 
             // FormReunionesDy1
             // 
@@ -351,7 +345,6 @@
             Controls.Add(panel1);
             Controls.Add(labelCrearReunion);
             Controls.Add(panelParaHoy);
-            Controls.Add(button1);
             Controls.Add(monthCalendarReuniones);
             Controls.Add(panelBarraOpciones);
             Name = "FormReunionesDy1";
@@ -377,7 +370,6 @@
         private Button buttonProyetos1Tareas;
         private Button buttonInicioForm1Tareas;
         private MonthCalendar monthCalendarReuniones;
-        private Button button1;
         private Panel panelParaHoy;
         private Label labelParaHoy;
         private Label labelCrearReunion;
