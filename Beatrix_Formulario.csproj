@@ -9,7 +9,14 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="JSON\Usuarios.json" />
     <None Remove="Resources\Montserrat\Montserrat-VariableFont_wght.ttf" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="JSON\Usuarios.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
 
   <ItemGroup>
