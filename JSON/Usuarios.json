@@ -8,25 +8,25 @@
         "rol": "Administrador"
     },
     {
-        "nombreApellidos": "Marcos Gómez",
+        "nombreApellidos": "Marcos Gomez",
         "nombreUsuario": "mgomez",
-        "contraseña": "P@ssw0rd987",
+        "contrasena": "P@ssw0rd987",
         "email": "marcos.g@ejemplo.com",
         "telefono": "+525512345678",
         "rol": "Editor"
     },
     {
-        "nombreApellidos": "Ana Fernández",
+        "nombreApellidos": "Ana Fernandez",
         "nombreUsuario": "afernandez",
-        "contraseña": "AnaFer.2024*",
+        "contrasena": "AnaFer.2024*",
         "email": "ana.fernandez@ejemplo.com",
         "telefono": "+5491112345678",
         "rol": "Usuario"
     },
     {
-        "nombreApellidos": "Carlos Santana",
+        "nombreApellidos": "Carlos Santana",    
         "nombreUsuario": "csantana",
-        "contraseña": "Carlos.Santana#1",
+        "contrasena": "Carlos.Santana#1",
         "email": "c.santana@ejemplo.com",
         "telefono": "+13055551234",
         "rol": "Visitante"

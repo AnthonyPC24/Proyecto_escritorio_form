@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.Json;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Beatrix_Formulario.ClasesTareas;
@@ -20,17 +21,14 @@ namespace Beatrix_Formulario
             InitializeComponent();
         }
 
+
+
         private void label4_Click(object sender, EventArgs e)
         {
 
         }
 
         private void monthCalendar1_DateChanged(object sender, DateRangeEventArgs e)
-        {
-
-        }
-
-        private void groupBox1_Enter(object sender, EventArgs e)
         {
 
         }
@@ -42,47 +40,103 @@ namespace Beatrix_Formulario
                 MessageBox.Show("El campo 'Nombre' es obligatorio.", "Error de Validación", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            if (string.IsNullOrWhiteSpace(txtUsuarios.Text))
+            if (comboBox1.CheckedItems.Count == 0)
             {
-                MessageBox.Show("Debe seleccionar un 'Usuario'.", "Error de Validación", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Debe seleccionar al menos un 'Usuario'.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
             Proyectos proyectoTemporal = new Proyectos
             {
-                // Asignamos los datos del formulario a la instancia
                 NombreProyecto = txtNombre.Text,
-                fechaInicio = DateTime.Now, // Fecha de creación
-                fechaEntrega = monthCalendar.SelectionStart // Fecha del calendario
+                fechaInicio = DateTime.Now,
+                fechaEntrega = monthCalendar1_DateChanged.SelectionStart
 
-                // La propiedad 'Tareas' ya se inicializa sola como una lista vacía
             };
 
-            string[] nombresDeUsuarios = txtUsuarios.Text.Split(new[] { ',' }, StringSplitOptions.RemoveEmptyEntries);
 
-            foreach (string nombre in nombresDeUsuarios)
+
+            foreach (object itemMarcado in comboBox1.CheckedItems)
             {
-                // 3. Crea un nuevo objeto 'Usuarios' para cada nombre
-                Usuarios nuevoUsuario = new Usuarios
-                {
-                    // Usamos Trim() para quitar espacios en blanco (ej: " Anna" -> "Anna")
-                    nombreApellidos = nombre.Trim()
+                // 2. Convierte el 'item' de nuevo a un objeto 'Usuarios'
+                Usuarios usuarioSeleccionado = (Usuarios)itemMarcado;
 
-                    // Las otras propiedades de Usuarios (email, rol, etc.)
-                    // quedarán con sus valores por defecto (null o 0)
-                };
-
-                // 4. Añade el nuevo usuario a la lista del proyecto
-                proyectoTemporal.UsuariosAsignados.Add(nuevoUsuario);
+                // 3. Añádelo a la lista del proyecto
+                proyectoTemporal.UsuariosAsignados.Add(usuarioSeleccionado);
             }
 
+            // --- D. Guardar y Cerrar ---
             this.NuevoProyecto = proyectoTemporal;
-
-            // 2. Le decimos a Form1 que todo salió "OK"
             this.DialogResult = DialogResult.OK;
-
-            // 3. Cerramos este formulario (Form2)
             this.Close();
+        }
+
+        // --- CÓDIGO DEL BOTÓN "CANCELAR" ---
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            this.DialogResult = DialogResult.Cancel;
+            this.Close();
+        }
+
+        private void FormProyectosGerard2_Load_1(object sender, EventArgs e)
+        {
+            MessageBox.Show("¡El evento LOAD se está ejecutando!");
+            // Define la ruta de tu archivo de usuarios
+            string rutaUsuariosJson = @"JSON\Usuarios.JSON";
+
+            if (File.Exists(rutaUsuariosJson))
+            {
+                try
+                {
+                    // 1. Leer el texto del archivo
+                    string json = File.ReadAllText(rutaUsuariosJson);
+
+                    // 2. Convertir el JSON en una lista de objetos 'Usuarios'
+                    List<Usuarios> listaTotalUsuarios = JsonSerializer.Deserialize<List<Usuarios>>(json);
+
+                    // 3. Rellenar el CheckedListBox
+                    // (Limpia la lista por si acaso)
+                    comboBox1.Items.Clear();
+
+                    foreach (Usuarios user in listaTotalUsuarios)
+                    {
+                        // Añadimos el OBJETO 'Usuarios' completo.
+                        // Gracias al método 'ToString()' que sobrescribiste en la
+                        // clase 'Usuarios', el control mostrará 'nombreApellidos'.
+                        comboBox1.Items.Add(user);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Error al cargar los usuarios: {ex.Message}");
+                }
+            }
+            else
+            {
+                MessageBox.Show("No se encontró el archivo 'Usuarios.JSON'.");
+            }
+        }
+
+        private void txtDescripcion_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void listBoxUsuarios_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (comboBox1.SelectedItem != null) {
+                String usuario = comboBox1.SelectedItem.ToString();
+
+                if (!listBoxUsuarios.Items.Contains(usuario)) {
+                    listBoxUsuarios.Items.Add(usuario);
+                 }
+                comboBox1.SelectedItem = -1;
+            }
         }
     }
 }
