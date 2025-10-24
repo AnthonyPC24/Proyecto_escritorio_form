@@ -67,6 +67,7 @@ namespace Beatrix_Formulario
             this.Close();
         }
 
+        //ComboBox para seleccionar los usuarios y añadirlos a la listbox
         private void comboBoxUsuariosAsignarTareas_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (comboBoxUsuariosAsignarTareas.SelectedItem != null)
@@ -82,7 +83,7 @@ namespace Beatrix_Formulario
 
         }
 
-        //
+        //Boton para quitar los usuarios dentro de la listbox
         private void buttonQuitarUsuario_Click(object sender, EventArgs e)
         {
             if(listBoxUsuarios.SelectedItem != null)
