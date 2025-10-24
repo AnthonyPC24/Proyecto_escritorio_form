@@ -2,7 +2,7 @@
     {
         "nombreApellidos": "Elena Ruiz",
         "nombreUsuario": "eruiz",
-        "contrasena": "MiClaveSecreta!2025",
+        "contraseña": "MiClaveSecreta!2025",
         "email": "elena.ruiz@ejemplo.com",
         "telefono": "+34600123456",
         "rol": "Administrador"

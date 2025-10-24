@@ -34,12 +34,12 @@
             labelFechaHora = new Label();
             dateTimePickerFechaHoraNuevaReunion = new DateTimePicker();
             labelParticipantes = new Label();
-            comboBoxParticipantes = new ComboBox();
             panelParaHoy = new Panel();
-            richTextBoxInformacion = new RichTextBox();
-            labelInformacion = new Label();
-            buttonCrear = new Button();
+            checkedListBoxParticipantes = new CheckedListBox();
             buttonCancelar = new Button();
+            buttonCrear = new Button();
+            labelInformacion = new Label();
+            richTextBoxInformacion = new RichTextBox();
             panelParaHoy.SuspendLayout();
             SuspendLayout();
             // 
@@ -99,23 +99,15 @@
             labelParticipantes.TabIndex = 14;
             labelParticipantes.Text = "Participantes";
             // 
-            // comboBoxParticipantes
-            // 
-            comboBoxParticipantes.FormattingEnabled = true;
-            comboBoxParticipantes.Location = new Point(216, 255);
-            comboBoxParticipantes.Name = "comboBoxParticipantes";
-            comboBoxParticipantes.Size = new Size(121, 23);
-            comboBoxParticipantes.TabIndex = 15;
-            // 
             // panelParaHoy
             // 
-            panelParaHoy.BackColor = Color.FromArgb(41, 191, 225);
+            panelParaHoy.BackColor = Color.FromArgb(41, 191, 205);
             panelParaHoy.BorderStyle = BorderStyle.FixedSingle;
+            panelParaHoy.Controls.Add(checkedListBoxParticipantes);
             panelParaHoy.Controls.Add(buttonCancelar);
             panelParaHoy.Controls.Add(buttonCrear);
             panelParaHoy.Controls.Add(labelInformacion);
             panelParaHoy.Controls.Add(richTextBoxInformacion);
-            panelParaHoy.Controls.Add(comboBoxParticipantes);
             panelParaHoy.Controls.Add(labelParticipantes);
             panelParaHoy.Controls.Add(dateTimePickerFechaHoraNuevaReunion);
             panelParaHoy.Controls.Add(labelFechaHora);
@@ -125,57 +117,70 @@
             panelParaHoy.Dock = DockStyle.Fill;
             panelParaHoy.Location = new Point(0, 0);
             panelParaHoy.Name = "panelParaHoy";
-            panelParaHoy.Size = new Size(570, 520);
+            panelParaHoy.Size = new Size(570, 929);
             panelParaHoy.TabIndex = 7;
             // 
-            // richTextBoxInformacion
+            // checkedListBoxParticipantes
             // 
-            richTextBoxInformacion.Location = new Point(75, 315);
-            richTextBoxInformacion.Name = "richTextBoxInformacion";
-            richTextBoxInformacion.Size = new Size(453, 96);
-            richTextBoxInformacion.TabIndex = 16;
-            richTextBoxInformacion.Text = "";
-            // 
-            // labelInformacion
-            // 
-            labelInformacion.AutoSize = true;
-            labelInformacion.Font = new Font("Montserrat", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            labelInformacion.Location = new Point(215, 281);
-            labelInformacion.Name = "labelInformacion";
-            labelInformacion.Size = new Size(130, 29);
-            labelInformacion.TabIndex = 17;
-            labelInformacion.Text = "Información";
-            // 
-            // buttonCrear
-            // 
-            buttonCrear.BackColor = Color.FromArgb(41, 195, 205);
-            buttonCrear.Font = new Font("Montserrat Medium", 8.999999F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            buttonCrear.ForeColor = Color.White;
-            buttonCrear.Location = new Point(60, 445);
-            buttonCrear.Name = "buttonCrear";
-            buttonCrear.Size = new Size(170, 37);
-            buttonCrear.TabIndex = 18;
-            buttonCrear.Text = "Crear";
-            buttonCrear.UseVisualStyleBackColor = false;
+            checkedListBoxParticipantes.FormattingEnabled = true;
+            checkedListBoxParticipantes.HorizontalScrollbar = true;
+            checkedListBoxParticipantes.Location = new Point(75, 267);
+            checkedListBoxParticipantes.Name = "checkedListBoxParticipantes";
+            checkedListBoxParticipantes.Size = new Size(415, 94);
+            checkedListBoxParticipantes.TabIndex = 20;
             // 
             // buttonCancelar
             // 
             buttonCancelar.BackColor = Color.FromArgb(245, 168, 125);
+            buttonCancelar.Cursor = Cursors.Hand;
             buttonCancelar.Font = new Font("Montserrat Medium", 8.999999F, FontStyle.Bold, GraphicsUnit.Point, 0);
             buttonCancelar.ForeColor = Color.White;
-            buttonCancelar.Location = new Point(330, 445);
+            buttonCancelar.Location = new Point(320, 546);
             buttonCancelar.Name = "buttonCancelar";
             buttonCancelar.Size = new Size(170, 37);
             buttonCancelar.TabIndex = 19;
             buttonCancelar.Text = "Cancelar";
             buttonCancelar.UseVisualStyleBackColor = false;
+            buttonCancelar.Click += buttonCancelar_Click;
+            // 
+            // buttonCrear
+            // 
+            buttonCrear.BackColor = Color.FromArgb(41, 195, 205);
+            buttonCrear.Cursor = Cursors.Hand;
+            buttonCrear.Font = new Font("Montserrat Medium", 8.999999F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            buttonCrear.ForeColor = Color.White;
+            buttonCrear.Location = new Point(75, 546);
+            buttonCrear.Name = "buttonCrear";
+            buttonCrear.Size = new Size(170, 37);
+            buttonCrear.TabIndex = 18;
+            buttonCrear.Text = "Crear";
+            buttonCrear.UseVisualStyleBackColor = false;
+            buttonCrear.Click += buttonCrear_Click;
+            // 
+            // labelInformacion
+            // 
+            labelInformacion.AutoSize = true;
+            labelInformacion.Font = new Font("Montserrat", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            labelInformacion.Location = new Point(215, 386);
+            labelInformacion.Name = "labelInformacion";
+            labelInformacion.Size = new Size(130, 29);
+            labelInformacion.TabIndex = 17;
+            labelInformacion.Text = "Información";
+            // 
+            // richTextBoxInformacion
+            // 
+            richTextBoxInformacion.Location = new Point(75, 435);
+            richTextBoxInformacion.Name = "richTextBoxInformacion";
+            richTextBoxInformacion.Size = new Size(415, 96);
+            richTextBoxInformacion.TabIndex = 16;
+            richTextBoxInformacion.Text = "";
             // 
             // FormReunionesDy2
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ControlLightLight;
-            ClientSize = new Size(570, 520);
+            ClientSize = new Size(570, 929);
             Controls.Add(panelParaHoy);
             Name = "FormReunionesDy2";
             Text = "FormReunionesDy2";
@@ -192,11 +197,11 @@
         private Label labelFechaHora;
         private DateTimePicker dateTimePickerFechaHoraNuevaReunion;
         private Label labelParticipantes;
-        private ComboBox comboBoxParticipantes;
         private Panel panelParaHoy;
         private RichTextBox richTextBoxInformacion;
         private Label labelInformacion;
         private Button buttonCancelar;
         private Button buttonCrear;
+        private CheckedListBox checkedListBoxParticipantes;
     }
 }

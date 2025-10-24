@@ -40,6 +40,24 @@
             comboBoxTareas = new ComboBox();
             buttonNuevaTarea = new Button();
             groupBoxTarea = new GroupBox();
+            groupBoxSubtareas = new GroupBox();
+            labelUsuariosSubtareas = new Label();
+            dateTimePicker1 = new DateTimePicker();
+            labelFechaFin = new Label();
+            dateTimePickerFechaInicioSubtarea = new DateTimePicker();
+            labelFechaInicioSubTarea = new Label();
+            groupBoxSubtareaEstados = new GroupBox();
+            radioButtonCancelada = new RadioButton();
+            radioButtonCompletada = new RadioButton();
+            radioButtonRevision = new RadioButton();
+            radioButtonEnEspera = new RadioButton();
+            radioButtonEnProceso = new RadioButton();
+            radioButtonPendiente = new RadioButton();
+            buttonSubTarea = new Button();
+            comboBoxSubTareas = new ComboBox();
+            labelEstado = new Label();
+            labelUsuarios = new Label();
+            dateTimePickerFechaInicio = new DateTimePicker();
             richTextBox1 = new RichTextBox();
             labelDescripcion = new Label();
             comboBoxUsuarios = new ComboBox();
@@ -49,9 +67,13 @@
             labelFecha = new Label();
             textBoxNombreTarea = new TextBox();
             labelNombreTarea = new Label();
-            dateTimePickerFechaInicio = new DateTimePicker();
+            comboBoxUsuariosSubTarea = new ComboBox();
+            labelDescripcionSubtarea = new Label();
+            richTextBoxDescripcionSubTareas = new RichTextBox();
             panelBarraOpciones.SuspendLayout();
             groupBoxTarea.SuspendLayout();
+            groupBoxSubtareas.SuspendLayout();
+            groupBoxSubtareaEstados.SuspendLayout();
             SuspendLayout();
             // 
             // buttonInicioForm1Tareas
@@ -163,6 +185,7 @@
             comboBoxTareas.Name = "comboBoxTareas";
             comboBoxTareas.Size = new Size(209, 23);
             comboBoxTareas.TabIndex = 6;
+            comboBoxTareas.SelectedIndexChanged += comboBoxTareas_SelectedIndexChanged;
             // 
             // buttonNuevaTarea
             // 
@@ -177,6 +200,9 @@
             // 
             // groupBoxTarea
             // 
+            groupBoxTarea.Controls.Add(groupBoxSubtareas);
+            groupBoxTarea.Controls.Add(labelEstado);
+            groupBoxTarea.Controls.Add(labelUsuarios);
             groupBoxTarea.Controls.Add(dateTimePickerFechaInicio);
             groupBoxTarea.Controls.Add(richTextBox1);
             groupBoxTarea.Controls.Add(labelDescripcion);
@@ -193,11 +219,204 @@
             groupBoxTarea.TabIndex = 8;
             groupBoxTarea.TabStop = false;
             // 
+            // groupBoxSubtareas
+            // 
+            groupBoxSubtareas.Controls.Add(richTextBoxDescripcionSubTareas);
+            groupBoxSubtareas.Controls.Add(labelDescripcionSubtarea);
+            groupBoxSubtareas.Controls.Add(comboBoxUsuariosSubTarea);
+            groupBoxSubtareas.Controls.Add(labelUsuariosSubtareas);
+            groupBoxSubtareas.Controls.Add(dateTimePicker1);
+            groupBoxSubtareas.Controls.Add(labelFechaFin);
+            groupBoxSubtareas.Controls.Add(dateTimePickerFechaInicioSubtarea);
+            groupBoxSubtareas.Controls.Add(labelFechaInicioSubTarea);
+            groupBoxSubtareas.Controls.Add(groupBoxSubtareaEstados);
+            groupBoxSubtareas.Controls.Add(buttonSubTarea);
+            groupBoxSubtareas.Controls.Add(comboBoxSubTareas);
+            groupBoxSubtareas.Location = new Point(543, 41);
+            groupBoxSubtareas.Name = "groupBoxSubtareas";
+            groupBoxSubtareas.Size = new Size(432, 402);
+            groupBoxSubtareas.TabIndex = 17;
+            groupBoxSubtareas.TabStop = false;
+            groupBoxSubtareas.Text = "Sub tareas";
+            // 
+            // labelUsuariosSubtareas
+            // 
+            labelUsuariosSubtareas.AutoSize = true;
+            labelUsuariosSubtareas.Font = new Font("Montserrat Medium", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            labelUsuariosSubtareas.Location = new Point(17, 231);
+            labelUsuariosSubtareas.Name = "labelUsuariosSubtareas";
+            labelUsuariosSubtareas.Size = new Size(77, 24);
+            labelUsuariosSubtareas.TabIndex = 21;
+            labelUsuariosSubtareas.Text = "Usuarios";
+            // 
+            // dateTimePicker1
+            // 
+            dateTimePicker1.Location = new Point(176, 192);
+            dateTimePicker1.Name = "dateTimePicker1";
+            dateTimePicker1.Size = new Size(236, 23);
+            dateTimePicker1.TabIndex = 20;
+            dateTimePicker1.Value = new DateTime(2025, 10, 16, 16, 42, 9, 0);
+            // 
+            // labelFechaFin
+            // 
+            labelFechaFin.AutoSize = true;
+            labelFechaFin.Font = new Font("Montserrat Medium", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            labelFechaFin.Location = new Point(17, 193);
+            labelFechaFin.Name = "labelFechaFin";
+            labelFechaFin.Size = new Size(143, 24);
+            labelFechaFin.TabIndex = 19;
+            labelFechaFin.Text = "Fecha de entrega";
+            // 
+            // dateTimePickerFechaInicioSubtarea
+            // 
+            dateTimePickerFechaInicioSubtarea.Location = new Point(176, 159);
+            dateTimePickerFechaInicioSubtarea.Name = "dateTimePickerFechaInicioSubtarea";
+            dateTimePickerFechaInicioSubtarea.Size = new Size(236, 23);
+            dateTimePickerFechaInicioSubtarea.TabIndex = 18;
+            dateTimePickerFechaInicioSubtarea.Value = new DateTime(2025, 10, 16, 16, 42, 9, 0);
+            // 
+            // labelFechaInicioSubTarea
+            // 
+            labelFechaInicioSubTarea.AutoSize = true;
+            labelFechaInicioSubTarea.Font = new Font("Montserrat Medium", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            labelFechaInicioSubTarea.Location = new Point(17, 160);
+            labelFechaInicioSubTarea.Name = "labelFechaInicioSubTarea";
+            labelFechaInicioSubTarea.Size = new Size(125, 24);
+            labelFechaInicioSubTarea.TabIndex = 18;
+            labelFechaInicioSubTarea.Text = "Fecha de inicio";
+            // 
+            // groupBoxSubtareaEstados
+            // 
+            groupBoxSubtareaEstados.Controls.Add(radioButtonCancelada);
+            groupBoxSubtareaEstados.Controls.Add(radioButtonCompletada);
+            groupBoxSubtareaEstados.Controls.Add(radioButtonRevision);
+            groupBoxSubtareaEstados.Controls.Add(radioButtonEnEspera);
+            groupBoxSubtareaEstados.Controls.Add(radioButtonEnProceso);
+            groupBoxSubtareaEstados.Controls.Add(radioButtonPendiente);
+            groupBoxSubtareaEstados.Location = new Point(17, 59);
+            groupBoxSubtareaEstados.Name = "groupBoxSubtareaEstados";
+            groupBoxSubtareaEstados.Size = new Size(398, 87);
+            groupBoxSubtareaEstados.TabIndex = 11;
+            groupBoxSubtareaEstados.TabStop = false;
+            groupBoxSubtareaEstados.Text = "Estado";
+            // 
+            // radioButtonCancelada
+            // 
+            radioButtonCancelada.AutoSize = true;
+            radioButtonCancelada.Location = new Point(285, 52);
+            radioButtonCancelada.Name = "radioButtonCancelada";
+            radioButtonCancelada.Size = new Size(80, 19);
+            radioButtonCancelada.TabIndex = 5;
+            radioButtonCancelada.TabStop = true;
+            radioButtonCancelada.Text = "Cancelada";
+            radioButtonCancelada.UseVisualStyleBackColor = true;
+            // 
+            // radioButtonCompletada
+            // 
+            radioButtonCompletada.AutoSize = true;
+            radioButtonCompletada.Location = new Point(157, 52);
+            radioButtonCompletada.Name = "radioButtonCompletada";
+            radioButtonCompletada.Size = new Size(90, 19);
+            radioButtonCompletada.TabIndex = 4;
+            radioButtonCompletada.TabStop = true;
+            radioButtonCompletada.Text = "Completada";
+            radioButtonCompletada.UseVisualStyleBackColor = true;
+            // 
+            // radioButtonRevision
+            // 
+            radioButtonRevision.AutoSize = true;
+            radioButtonRevision.Location = new Point(29, 55);
+            radioButtonRevision.Name = "radioButtonRevision";
+            radioButtonRevision.Size = new Size(69, 19);
+            radioButtonRevision.TabIndex = 3;
+            radioButtonRevision.TabStop = true;
+            radioButtonRevision.Text = "Revisión";
+            radioButtonRevision.UseVisualStyleBackColor = true;
+            // 
+            // radioButtonEnEspera
+            // 
+            radioButtonEnEspera.AutoSize = true;
+            radioButtonEnEspera.Location = new Point(285, 27);
+            radioButtonEnEspera.Name = "radioButtonEnEspera";
+            radioButtonEnEspera.Size = new Size(75, 19);
+            radioButtonEnEspera.TabIndex = 2;
+            radioButtonEnEspera.TabStop = true;
+            radioButtonEnEspera.Text = "En espera";
+            radioButtonEnEspera.UseVisualStyleBackColor = true;
+            // 
+            // radioButtonEnProceso
+            // 
+            radioButtonEnProceso.AutoSize = true;
+            radioButtonEnProceso.Location = new Point(157, 27);
+            radioButtonEnProceso.Name = "radioButtonEnProceso";
+            radioButtonEnProceso.Size = new Size(83, 19);
+            radioButtonEnProceso.TabIndex = 1;
+            radioButtonEnProceso.TabStop = true;
+            radioButtonEnProceso.Text = "En proceso";
+            radioButtonEnProceso.UseVisualStyleBackColor = true;
+            // 
+            // radioButtonPendiente
+            // 
+            radioButtonPendiente.AutoSize = true;
+            radioButtonPendiente.Location = new Point(29, 27);
+            radioButtonPendiente.Name = "radioButtonPendiente";
+            radioButtonPendiente.Size = new Size(78, 19);
+            radioButtonPendiente.TabIndex = 0;
+            radioButtonPendiente.TabStop = true;
+            radioButtonPendiente.Text = "Pendiente";
+            radioButtonPendiente.UseVisualStyleBackColor = true;
+            // 
+            // buttonSubTarea
+            // 
+            buttonSubTarea.BackColor = Color.Transparent;
+            buttonSubTarea.Location = new Point(232, 25);
+            buttonSubTarea.Name = "buttonSubTarea";
+            buttonSubTarea.Size = new Size(89, 23);
+            buttonSubTarea.TabIndex = 10;
+            buttonSubTarea.Text = "Nueva Tarea";
+            buttonSubTarea.UseVisualStyleBackColor = false;
+            // 
+            // comboBoxSubTareas
+            // 
+            comboBoxSubTareas.FormattingEnabled = true;
+            comboBoxSubTareas.Location = new Point(17, 25);
+            comboBoxSubTareas.Name = "comboBoxSubTareas";
+            comboBoxSubTareas.Size = new Size(209, 23);
+            comboBoxSubTareas.TabIndex = 9;
+            // 
+            // labelEstado
+            // 
+            labelEstado.AutoSize = true;
+            labelEstado.Font = new Font("Montserrat Medium", 14.25F, FontStyle.Bold);
+            labelEstado.Location = new Point(26, 162);
+            labelEstado.Name = "labelEstado";
+            labelEstado.Size = new Size(80, 30);
+            labelEstado.TabIndex = 13;
+            labelEstado.Text = "Estado";
+            // 
+            // labelUsuarios
+            // 
+            labelUsuarios.AutoSize = true;
+            labelUsuarios.Font = new Font("Montserrat Medium", 14.25F, FontStyle.Bold);
+            labelUsuarios.Location = new Point(26, 199);
+            labelUsuarios.Name = "labelUsuarios";
+            labelUsuarios.Size = new Size(97, 30);
+            labelUsuarios.TabIndex = 12;
+            labelUsuarios.Text = "Usuarios";
+            // 
+            // dateTimePickerFechaInicio
+            // 
+            dateTimePickerFechaInicio.Location = new Point(252, 85);
+            dateTimePickerFechaInicio.Name = "dateTimePickerFechaInicio";
+            dateTimePickerFechaInicio.Size = new Size(236, 23);
+            dateTimePickerFechaInicio.TabIndex = 11;
+            dateTimePickerFechaInicio.Value = new DateTime(2025, 10, 16, 16, 42, 9, 0);
+            // 
             // richTextBox1
             // 
-            richTextBox1.Location = new Point(26, 221);
+            richTextBox1.Location = new Point(26, 290);
             richTextBox1.Name = "richTextBox1";
-            richTextBox1.Size = new Size(971, 215);
+            richTextBox1.Size = new Size(462, 153);
             richTextBox1.TabIndex = 10;
             richTextBox1.Text = "";
             // 
@@ -205,7 +424,7 @@
             // 
             labelDescripcion.AutoSize = true;
             labelDescripcion.Font = new Font("Montserrat Medium", 14.25F, FontStyle.Bold);
-            labelDescripcion.Location = new Point(26, 179);
+            labelDescripcion.Location = new Point(26, 248);
             labelDescripcion.Name = "labelDescripcion";
             labelDescripcion.Size = new Size(129, 30);
             labelDescripcion.TabIndex = 9;
@@ -214,17 +433,17 @@
             // comboBoxUsuarios
             // 
             comboBoxUsuarios.FormattingEnabled = true;
-            comboBoxUsuarios.Location = new Point(582, 85);
+            comboBoxUsuarios.Location = new Point(252, 205);
             comboBoxUsuarios.Name = "comboBoxUsuarios";
-            comboBoxUsuarios.Size = new Size(121, 23);
+            comboBoxUsuarios.Size = new Size(236, 23);
             comboBoxUsuarios.TabIndex = 8;
             // 
             // comboBoxEstadosTarea
             // 
             comboBoxEstadosTarea.FormattingEnabled = true;
-            comboBoxEstadosTarea.Location = new Point(582, 41);
+            comboBoxEstadosTarea.Location = new Point(252, 168);
             comboBoxEstadosTarea.Name = "comboBoxEstadosTarea";
-            comboBoxEstadosTarea.Size = new Size(121, 23);
+            comboBoxEstadosTarea.Size = new Size(236, 23);
             comboBoxEstadosTarea.TabIndex = 7;
             comboBoxEstadosTarea.SelectedIndexChanged += comboBoxEstadosTarea_SelectedIndexChanged;
             // 
@@ -273,13 +492,31 @@
             labelNombreTarea.TabIndex = 0;
             labelNombreTarea.Text = "Tarea";
             // 
-            // dateTimePickerFechaInicio
+            // comboBoxUsuariosSubTarea
             // 
-            dateTimePickerFechaInicio.Location = new Point(252, 85);
-            dateTimePickerFechaInicio.Name = "dateTimePickerFechaInicio";
-            dateTimePickerFechaInicio.Size = new Size(236, 23);
-            dateTimePickerFechaInicio.TabIndex = 11;
-            dateTimePickerFechaInicio.Value = new DateTime(2025, 10, 16, 16, 42, 9, 0);
+            comboBoxUsuariosSubTarea.FormattingEnabled = true;
+            comboBoxUsuariosSubTarea.Location = new Point(176, 231);
+            comboBoxUsuariosSubTarea.Name = "comboBoxUsuariosSubTarea";
+            comboBoxUsuariosSubTarea.Size = new Size(236, 23);
+            comboBoxUsuariosSubTarea.TabIndex = 18;
+            // 
+            // labelDescripcionSubtarea
+            // 
+            labelDescripcionSubtarea.AutoSize = true;
+            labelDescripcionSubtarea.Font = new Font("Montserrat Medium", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            labelDescripcionSubtarea.Location = new Point(17, 264);
+            labelDescripcionSubtarea.Name = "labelDescripcionSubtarea";
+            labelDescripcionSubtarea.Size = new Size(101, 24);
+            labelDescripcionSubtarea.TabIndex = 22;
+            labelDescripcionSubtarea.Text = "Descripción";
+            // 
+            // richTextBoxDescripcionSubTareas
+            // 
+            richTextBoxDescripcionSubTareas.Location = new Point(17, 291);
+            richTextBoxDescripcionSubTareas.Name = "richTextBoxDescripcionSubTareas";
+            richTextBoxDescripcionSubTareas.Size = new Size(395, 91);
+            richTextBoxDescripcionSubTareas.TabIndex = 23;
+            richTextBoxDescripcionSubTareas.Text = "";
             // 
             // FormTareasTho1
             // 
@@ -300,6 +537,10 @@
             panelBarraOpciones.PerformLayout();
             groupBoxTarea.ResumeLayout(false);
             groupBoxTarea.PerformLayout();
+            groupBoxSubtareas.ResumeLayout(false);
+            groupBoxSubtareas.PerformLayout();
+            groupBoxSubtareaEstados.ResumeLayout(false);
+            groupBoxSubtareaEstados.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -328,5 +569,25 @@
         private Label labelDescripcion;
         private RichTextBox richTextBox1;
         private DateTimePicker dateTimePickerFechaInicio;
+        private Label labelEstado;
+        private Label labelUsuarios;
+        private GroupBox groupBoxSubtareas;
+        private Button buttonSubTarea;
+        private ComboBox comboBoxSubTareas;
+        private GroupBox groupBoxSubtareaEstados;
+        private RadioButton radioButtonCancelada;
+        private RadioButton radioButtonCompletada;
+        private RadioButton radioButtonRevision;
+        private RadioButton radioButtonEnEspera;
+        private RadioButton radioButtonEnProceso;
+        private RadioButton radioButtonPendiente;
+        private Label labelFechaInicioSubTarea;
+        private DateTimePicker dateTimePicker1;
+        private Label labelFechaFin;
+        private DateTimePicker dateTimePickerFechaInicioSubtarea;
+        private Label labelUsuariosSubtareas;
+        private Label labelDescripcionSubtarea;
+        private ComboBox comboBoxUsuariosSubTarea;
+        private RichTextBox richTextBoxDescripcionSubTareas;
     }
 }
