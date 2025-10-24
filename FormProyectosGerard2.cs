@@ -40,7 +40,7 @@ namespace Beatrix_Formulario
                 MessageBox.Show("El campo 'Nombre' es obligatorio.", "Error de Validación", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            if (chkUsuarios.CheckedItems.Count == 0)
+            if (comboBox1.CheckedItems.Count == 0)
             {
                 MessageBox.Show("Debe seleccionar al menos un 'Usuario'.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
@@ -50,13 +50,13 @@ namespace Beatrix_Formulario
             {
                 NombreProyecto = txtNombre.Text,
                 fechaInicio = DateTime.Now,
-                fechaEntrega = monthCalendar.SelectionStart
+                fechaEntrega = monthCalendar1_DateChanged.SelectionStart
 
             };
 
 
 
-            foreach (object itemMarcado in chkUsuarios.CheckedItems)
+            foreach (object itemMarcado in comboBox1.CheckedItems)
             {
                 // 2. Convierte el 'item' de nuevo a un objeto 'Usuarios'
                 Usuarios usuarioSeleccionado = (Usuarios)itemMarcado;

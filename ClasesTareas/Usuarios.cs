@@ -14,7 +14,15 @@ namespace Beatrix_Formulario.ClasesTareas
 
         public string email { get; set; }
 
-        public int telefono { get; set; }
+        public string telefono { get; set; }
         public string rol { get; set; }
+
+        public override string ToString()
+        {
+            return this.nombreApellidos;
+        }
+
     }
+
+
 }
