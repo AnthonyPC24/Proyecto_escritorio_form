@@ -117,7 +117,7 @@
             panelParaHoy.Dock = DockStyle.Fill;
             panelParaHoy.Location = new Point(0, 0);
             panelParaHoy.Name = "panelParaHoy";
-            panelParaHoy.Size = new Size(570, 929);
+            panelParaHoy.Size = new Size(570, 623);
             panelParaHoy.TabIndex = 7;
             // 
             // checkedListBoxParticipantes
@@ -180,7 +180,7 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ControlLightLight;
-            ClientSize = new Size(570, 929);
+            ClientSize = new Size(570, 623);
             Controls.Add(panelParaHoy);
             Name = "FormReunionesDy2";
             Text = "FormReunionesDy2";
