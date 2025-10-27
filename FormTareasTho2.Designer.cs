@@ -43,13 +43,11 @@
             comboBoxProyectoNuevaTarea = new ComboBox();
             buttonCrearNuevaTarea = new Button();
             buttonCancelarTarea = new Button();
-            dateTimePicker1 = new DateTimePicker();
             groupBoxNuevaTarea.SuspendLayout();
             SuspendLayout();
             // 
             // groupBoxNuevaTarea
             // 
-            groupBoxNuevaTarea.Controls.Add(dateTimePicker1);
             groupBoxNuevaTarea.Controls.Add(buttonQuitarUsuario);
             groupBoxNuevaTarea.Controls.Add(listBoxUsuarios);
             groupBoxNuevaTarea.Controls.Add(labelDescripcionNuevaTarea);
@@ -206,13 +204,6 @@
             buttonCancelarTarea.UseVisualStyleBackColor = false;
             buttonCancelarTarea.Click += buttonCancelarTarea_Click;
             // 
-            // dateTimePicker1
-            // 
-            dateTimePicker1.Location = new Point(236, 30);
-            dateTimePicker1.Name = "dateTimePicker1";
-            dateTimePicker1.Size = new Size(200, 23);
-            dateTimePicker1.TabIndex = 11;
-            // 
             // FormTareasTho2
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -248,6 +239,5 @@
         private Button buttonCancelarTarea;
         private ListBox listBoxUsuarios;
         private Button buttonQuitarUsuario;
-        private DateTimePicker dateTimePicker1;
     }
 }

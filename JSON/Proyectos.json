@@ -10,7 +10,7 @@
                 "estado": "En Progreso",
                 "usuariosAsignados": [
                     {
-                        "nombre_usuario": "afernandez",
+                        "nombreUsuario": "afernandez",
                         "email": "ana.fernandez@ejemplo.com"
                     }
                 ]
@@ -23,7 +23,7 @@
                 "estado": "Pendiente",
                 "usuariosAsignados": [
                     {
-                        "nombre_usuario": "mgomez",
+                        "nombreUsuario": "mgomez",
                         "email": "marcos.g@ejemplo.com"
                     }
                 ]
@@ -36,7 +36,7 @@
                 "estado": "Completada",
                 "usuariosAsignados": [
                     {
-                        "nombre_usuario": "eruiz",
+                        "nombreUsuario": "eruiz",
                         "email": "elena.ruiz@ejemplo.com"
                     },
                     {
@@ -50,13 +50,13 @@
         "fechaInicio": "2024-11-15T09:00:00Z",
         "UsuariosAsignados": [
             {
-                "nombre_usuario": "eruiz"
+                "nombreUsuario": "eruiz"
             },
             {
-                "nombre_usuario": "mgomez"
+                "nombreUsuario": "mgomez"
             },
             {
-                "nombre_usuario": "afernandez"
+                "nombreUsuario": "afernandez"
             }
         ]
     },
@@ -71,7 +71,7 @@
                 "estado": "Pendiente",
                 "usuariosAsignados": [
                     {
-                        "nombre_usuario": "csantana",
+                        "nombreUsuario": "csantana",
                         "email": "c.santana@ejemplo.com"
                     }
                 ]
@@ -84,7 +84,7 @@
                 "estado": "Pendiente",
                 "usuariosAsignados": [
                     {
-                        "nombre_usuario": "csantana",
+                        "nombreUsuario": "csantana",
                         "email": "c.santana@ejemplo.com"
                     }
                 ]
@@ -94,10 +94,10 @@
         "fechaInicio": "2024-12-01T09:00:00Z",
         "UsuariosAsignados": [
             {
-                "nombre_usuario": "csantana"
+                "nombreUsuario": "csantana"
             },
             {
-                "nombre_usuario": "eruiz"
+                "nombreUsuario": "eruiz"
             }
         ]
     }

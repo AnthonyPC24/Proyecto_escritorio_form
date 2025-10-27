@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.Json;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Beatrix_Formulario.ClasesTareas;
@@ -14,16 +15,48 @@ namespace Beatrix_Formulario
 {
     public partial class FormTareasTho2 : Form
     {
+
         public Tareas NuevaTareaCreada { get; private set; }
         public FormTareasTho2()
         {
             InitializeComponent();
             comboBoxProyectoNuevaTarea.Items.Add("Proyectos");
 
-            comboBoxUsuariosAsignarTareas.Items.Add("pedro");
-            comboBoxUsuariosAsignarTareas.Items.Add("maria");
+            cargarUsuariosDesdeJson();
         }
 
+        private void cargarUsuariosDesdeJson()
+        {
+            try
+            {
+                string rutaArchivo = Path.Combine(Application.StartupPath, "JSON", "Usuarios.json");
+
+                if (!File.Exists(rutaArchivo))
+                {
+                    MessageBox.Show("No se encontró el archivo de usuarios.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                string json = File.ReadAllText(rutaArchivo);
+                var listaUsuarios = JsonSerializer.Deserialize<List<Usuarios>>(json);
+
+                if (listaUsuarios == null || listaUsuarios.Count == 0)
+                {
+                    MessageBox.Show("No hay usuarios en el archivo JSON.", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return;
+                }
+
+                comboBoxUsuariosAsignarTareas.Items.Clear();
+                foreach (var usuario in listaUsuarios)
+                {
+                    comboBoxUsuariosAsignarTareas.Items.Add(usuario.nombreApellidos);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error al cargar usuarios: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
 
         private void comboBoxProyectoNuevaTarea_SelectedIndexChanged(object sender, EventArgs e)
         {
