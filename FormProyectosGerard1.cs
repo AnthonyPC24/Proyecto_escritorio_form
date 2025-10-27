@@ -38,22 +38,6 @@ namespace Beatrix_Formulario
             {
                 DialogResult resultado = formCrear.ShowDialog();
 
-                if (resultado == DialogResult.OK)
-                {
-                    Proyectos proyectoCreado = formCrear.NuevoProyecto;
-
-                    if (proyectoCreado != null)
-                    {
-                        // 1. Añadir el nuevo proyecto a nuestra lista principal
-                        listaDeProyectos.Add(proyectoCreado);
-
-                        // 2. Añadir el nuevo proyecto visualmente a la tabla
-                        AgregarFilaAGrid(proyectoCreado);
-
-                        // 3. Guardar la lista actualizada en el archivo JSON
-                        GuardarProyectosEnJson();
-                    }
-                }
             }
         }
 
@@ -82,9 +66,6 @@ namespace Beatrix_Formulario
 
         }
 
-        private void FormProyectosGerard1_Load(object sender, EventArgs e)
-        {
-            CargarProyectosDesdeJson();
-        }
+        
     }
 }
