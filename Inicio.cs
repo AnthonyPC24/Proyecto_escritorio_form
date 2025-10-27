@@ -1,12 +1,16 @@
-﻿using System;
+﻿using Beatrix_Formulario.ClasesTareas;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.Json;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+
+
 
 namespace Beatrix_Formulario
 {
@@ -15,11 +19,13 @@ namespace Beatrix_Formulario
         public Inicio()
         {
             InitializeComponent();
-            LoadJsonToTarea();
+          
         }
 
         private void Inicio_Load(object sender, EventArgs e)
         {
+            string jsonPath = @"D:\GIT\Proyecto_escritorio_form\JSON\Proyectos.json";  
+            LoadJsonToTarea(jsonPath, dataGridViewTarea);
 
         }
 
@@ -43,17 +49,39 @@ namespace Beatrix_Formulario
         }
 
         //cargar los datos de tareas
-        private void LoadJsonToTarea()
+        private void LoadJsonToTarea(string jsonPath, DataGridView dgv)
         {
-            string jsonPath = "JSON\\Proyectos.json";
             if (!File.Exists(jsonPath))
             {
-                MessageBox.Show("El archivo JSON no encontrado");
+                MessageBox.Show("Archivo JSON no encontrado: " + jsonPath);
                 return;
             }
 
-            string json = File.ReadAllText(jsonPath);
+            try
+            {
+                string jsonString = File.ReadAllText(jsonPath);
 
+                var options = new JsonSerializerOptions
+                {
+                    PropertyNameCaseInsensitive = true
+                };
+
+                Proyectos proyecto = JsonSerializer.Deserialize<Proyectos>(jsonString, options);
+
+                if (proyecto == null || proyecto.Tareas == null || proyecto.Tareas.Count == 0)
+                {
+                    MessageBox.Show("No se encontraron tareas en el archivo JSON.");
+                    return;
+                }
+
+                
+
+               
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al cargar JSON: " + ex.Message);
+            }
         }
 
 
