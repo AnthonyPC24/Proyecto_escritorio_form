@@ -1,74 +1,107 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Text.Json;
-using System.Threading.Tasks;
+﻿// --- AÑADE ESTOS 'USING' AL PRINCIPIO DE TU ARCHIVO ---
+using Beatrix_Formulario.ClasesTareas; // Para tus clases
+using System;
+using System.Collections.Generic; // Para List<T>
+using System.IO;                  // Para leer/escribir archivos
+using System.Text.Json;           // Para procesar JSON
 using System.Windows.Forms;
-using Beatrix_Formulario.ClasesTareas;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace Beatrix_Formulario
 {
     public partial class FormProyectosGerard2 : Form
     {
-
+        // Esta propiedad sigue siendo útil si Form1 necesita saber
+        // que la operación fue un éxito.
         public Proyectos NuevoProyecto { get; private set; }
+
         public FormProyectosGerard2()
         {
             InitializeComponent();
         }
 
-
-
-        private void label4_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void monthCalendar1_DateChanged(object sender, DateRangeEventArgs e)
-        {
-
-        }
-
+        // --- CÓDIGO DEL BOTÓN "CREAR" (CORREGIDO Y CON LÓGICA JSON) ---
         private void btnCrear_Click_1(object sender, EventArgs e)
         {
+            // --- 1. VALIDACIÓN ---
             if (string.IsNullOrWhiteSpace(txtNombre.Text))
             {
-                MessageBox.Show("El campo 'Nombre' es obligatorio.", "Error de Validación", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("El campo 'Nombre' es obligatorio.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            if (comboBox1.CheckedItems.Count == 0)
+
+            if (listBoxUsuarios.Items.Count == 0)
             {
                 MessageBox.Show("Debe seleccionar al menos un 'Usuario'.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
+            // --- 2. CREACIÓN DEL OBJETO PROYECTO (¡CON LA CORRECCIÓN!) ---
             Proyectos proyectoTemporal = new Proyectos
             {
                 NombreProyecto = txtNombre.Text,
-                fechaInicio = DateTime.Now,
-                fechaEntrega = monthCalendar1_DateChanged.SelectionStart
 
+                // --- ¡AQUÍ ESTÁ EL CAMBIO! ---
+                // Cogemos el valor del primer 'DateTimePicker'
+                fechaInicio = dateTimePicker1.Value,
+
+                // Cogemos el valor del segundo 'DateTimePicker'
+                fechaEntrega = dateTimePicker2.Value
             };
 
-
-
-            foreach (object itemMarcado in comboBox1.CheckedItems)
+            // --- 3. PROCESAMIENTO DE USUARIOS ---
+            // (Esto ya estaba bien)
+            foreach (object item in listBoxUsuarios.Items)
             {
-                // 2. Convierte el 'item' de nuevo a un objeto 'Usuarios'
-                Usuarios usuarioSeleccionado = (Usuarios)itemMarcado;
-
-                // 3. Añádelo a la lista del proyecto
-                proyectoTemporal.UsuariosAsignados.Add(usuarioSeleccionado);
+                string nombreUsuario = item.ToString();
+                Usuarios usuarioAsignado = new Usuarios
+                {
+                    nombreApellidos = nombreUsuario
+                };
+                proyectoTemporal.UsuariosAsignados.Add(usuarioAsignado);
             }
 
-            // --- D. Guardar y Cerrar ---
-            this.NuevoProyecto = proyectoTemporal;
-            this.DialogResult = DialogResult.OK;
-            this.Close();
+            // --- 4. LÓGICA DE GUARDADO EN JSON ---
+            try
+            {
+                string rutaArchivoJson = @"JSON\Proyectos.JSON";
+                List<Proyectos> listaDeProyectos;
+
+                // A. Leer el archivo JSON existente
+                if (File.Exists(rutaArchivoJson))
+                {
+                    string jsonExistente = File.ReadAllText(rutaArchivoJson);
+                    if (string.IsNullOrWhiteSpace(jsonExistente))
+                    {
+                        listaDeProyectos = new List<Proyectos>();
+                    }
+                    else
+                    {
+                        listaDeProyectos = JsonSerializer.Deserialize<List<Proyectos>>(jsonExistente);
+                    }
+                }
+                else
+                {
+                    listaDeProyectos = new List<Proyectos>();
+                }
+
+                // B. Añadir el nuevo proyecto a la lista
+                listaDeProyectos.Add(proyectoTemporal);
+
+                // C. Serializar y Escribir el archivo de nuevo
+                var options = new JsonSerializerOptions { WriteIndented = true };
+                string jsonActualizado = JsonSerializer.Serialize(listaDeProyectos, options);
+                File.WriteAllText(rutaArchivoJson, jsonActualizado);
+
+                // --- 5. GUARDAR Y CERRAR ---
+                this.NuevoProyecto = proyectoTemporal;
+                this.DialogResult = DialogResult.OK;
+                this.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error al guardar el proyecto en JSON: {ex.Message}");
+            }
         }
 
         // --- CÓDIGO DEL BOTÓN "CANCELAR" ---
@@ -78,32 +111,27 @@ namespace Beatrix_Formulario
             this.Close();
         }
 
+        // --- CÓDIGO DE CARGA DE FORMULARIO ---
         private void FormProyectosGerard2_Load_1(object sender, EventArgs e)
         {
             MessageBox.Show("¡El evento LOAD se está ejecutando!");
-            // Define la ruta de tu archivo de usuarios
             string rutaUsuariosJson = @"JSON\Usuarios.JSON";
 
             if (File.Exists(rutaUsuariosJson))
             {
                 try
                 {
-                    // 1. Leer el texto del archivo
                     string json = File.ReadAllText(rutaUsuariosJson);
-
-                    // 2. Convertir el JSON en una lista de objetos 'Usuarios'
                     List<Usuarios> listaTotalUsuarios = JsonSerializer.Deserialize<List<Usuarios>>(json);
 
-                    // 3. Rellenar el CheckedListBox
-                    // (Limpia la lista por si acaso)
-                    comboBox1.Items.Clear();
-
+                    // Aquí estás cargando 'comboBox1', lo cual es correcto
+                    // para tu lógica de 'comboBox1_SelectedIndexChanged'
+                    comboBoxUsuarios.Items.Clear();
                     foreach (Usuarios user in listaTotalUsuarios)
                     {
-                        // Añadimos el OBJETO 'Usuarios' completo.
-                        // Gracias al método 'ToString()' que sobrescribiste en la
-                        // clase 'Usuarios', el control mostrará 'nombreApellidos'.
-                        comboBox1.Items.Add(user);
+                        // Añadimos el objeto 'Usuarios'
+                        // (el método ToString() mostrará el nombre)
+                        comboBoxUsuarios.Items.Add(user);
                     }
                 }
                 catch (Exception ex)
@@ -117,26 +145,30 @@ namespace Beatrix_Formulario
             }
         }
 
-        private void txtDescripcion_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void listBoxUsuarios_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
+        // --- LÓGICA DEL COMBOBOX -> LISTBOX ---
+        // (Tu código de aquí está bien, pero asegúrate 
+        // de que 'comboBox1.SelectedItem = -1;' sea 
+        // 'comboBox1.SelectedIndex = -1;')
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (comboBox1.SelectedItem != null) {
-                String usuario = comboBox1.SelectedItem.ToString();
+            if (comboBoxUsuarios.SelectedItem != null)
+            {
+                // 'usuario' aquí es un objeto 'Usuarios'
+                Usuarios usuarioSeleccionado = (Usuarios)comboBoxUsuarios.SelectedItem;
 
-                if (!listBoxUsuarios.Items.Contains(usuario)) {
-                    listBoxUsuarios.Items.Add(usuario);
-                 }
-                comboBox1.SelectedItem = -1;
+                // Usamos el 'ToString()' (nombreApellidos) para añadir al ListBox
+                string nombreUsuario = usuarioSeleccionado.ToString();
+
+                if (!listBoxUsuarios.Items.Contains(nombreUsuario))
+                {
+                    listBoxUsuarios.Items.Add(nombreUsuario);
+                }
+
+                // Corrección: Así se deselecciona un ComboBox
+                comboBoxUsuarios.SelectedIndex = -1;
             }
         }
+
+        // ... (otros métodos vacíos que tenías) ...
     }
 }

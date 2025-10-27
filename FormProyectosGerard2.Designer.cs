@@ -31,20 +31,20 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormProyectosGerard2));
             button2 = new Button();
             groupBox1 = new GroupBox();
-            button3 = new Button();
-            btnCrear = new Button();
+            comboBoxUsuarios = new ComboBox();
+            richTextBox1 = new RichTextBox();
+            listBoxUsuarios = new ListBox();
+            dateTimePicker2 = new DateTimePicker();
+            dateTimePicker1 = new DateTimePicker();
+            label6 = new Label();
             label4 = new Label();
             txtNombre = new TextBox();
             label3 = new Label();
             label2 = new Label();
             label1 = new Label();
+            button3 = new Button();
+            btnCrear = new Button();
             label5 = new Label();
-            label6 = new Label();
-            dateTimePicker1 = new DateTimePicker();
-            dateTimePicker2 = new DateTimePicker();
-            listBoxUsuarios = new ListBox();
-            richTextBox1 = new RichTextBox();
-            comboBox1 = new ComboBox();
             groupBox1.SuspendLayout();
             SuspendLayout();
             // 
@@ -60,7 +60,7 @@
             // 
             // groupBox1
             // 
-            groupBox1.Controls.Add(comboBox1);
+            groupBox1.Controls.Add(comboBoxUsuarios);
             groupBox1.Controls.Add(richTextBox1);
             groupBox1.Controls.Add(listBoxUsuarios);
             groupBox1.Controls.Add(dateTimePicker2);
@@ -78,24 +78,54 @@
             groupBox1.TabStop = false;
             groupBox1.Text = "groupBox1";
             // 
-            // button3
+            // comboBoxUsuarios
             // 
-            button3.Location = new Point(611, 386);
-            button3.Name = "button3";
-            button3.Size = new Size(75, 23);
-            button3.TabIndex = 9;
-            button3.Text = "Cancelar";
-            button3.UseVisualStyleBackColor = true;
+            comboBoxUsuarios.FormattingEnabled = true;
+            comboBoxUsuarios.Location = new Point(497, 45);
+            comboBoxUsuarios.Name = "comboBoxUsuarios";
+            comboBoxUsuarios.Size = new Size(177, 23);
+            comboBoxUsuarios.TabIndex = 17;
+            comboBoxUsuarios.SelectedIndexChanged += comboBox1_SelectedIndexChanged;
             // 
-            // btnCrear
+            // richTextBox1
             // 
-            btnCrear.Location = new Point(512, 386);
-            btnCrear.Name = "btnCrear";
-            btnCrear.Size = new Size(75, 23);
-            btnCrear.TabIndex = 8;
-            btnCrear.Text = "Crear";
-            btnCrear.UseVisualStyleBackColor = true;
-            btnCrear.Click += btnCrear_Click_1;
+            richTextBox1.Location = new Point(169, 161);
+            richTextBox1.Name = "richTextBox1";
+            richTextBox1.Size = new Size(253, 109);
+            richTextBox1.TabIndex = 16;
+            richTextBox1.Text = "";
+            // 
+            // listBoxUsuarios
+            // 
+            listBoxUsuarios.FormattingEnabled = true;
+            listBoxUsuarios.ItemHeight = 15;
+            listBoxUsuarios.Location = new Point(497, 81);
+            listBoxUsuarios.Name = "listBoxUsuarios";
+            listBoxUsuarios.Size = new Size(177, 94);
+            listBoxUsuarios.TabIndex = 15;
+            // 
+            // dateTimePicker2
+            // 
+            dateTimePicker2.Location = new Point(169, 112);
+            dateTimePicker2.Name = "dateTimePicker2";
+            dateTimePicker2.Size = new Size(253, 23);
+            dateTimePicker2.TabIndex = 14;
+            // 
+            // dateTimePicker1
+            // 
+            dateTimePicker1.Location = new Point(169, 81);
+            dateTimePicker1.Name = "dateTimePicker1";
+            dateTimePicker1.Size = new Size(253, 23);
+            dateTimePicker1.TabIndex = 13;
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Location = new Point(54, 81);
+            label6.Name = "label6";
+            label6.Size = new Size(86, 15);
+            label6.TabIndex = 12;
+            label6.Text = "Fecha de Inicio";
             // 
             // label4
             // 
@@ -105,7 +135,6 @@
             label4.Size = new Size(97, 15);
             label4.TabIndex = 7;
             label4.Text = "Fechad e entrega";
-            label4.Click += label4_Click;
             // 
             // txtNombre
             // 
@@ -141,6 +170,25 @@
             label1.TabIndex = 0;
             label1.Text = "Nombre";
             // 
+            // button3
+            // 
+            button3.Location = new Point(611, 386);
+            button3.Name = "button3";
+            button3.Size = new Size(75, 23);
+            button3.TabIndex = 9;
+            button3.Text = "Cancelar";
+            button3.UseVisualStyleBackColor = true;
+            // 
+            // btnCrear
+            // 
+            btnCrear.Location = new Point(512, 386);
+            btnCrear.Name = "btnCrear";
+            btnCrear.Size = new Size(75, 23);
+            btnCrear.TabIndex = 8;
+            btnCrear.Text = "Crear";
+            btnCrear.UseVisualStyleBackColor = true;
+            btnCrear.Click += btnCrear_Click_1;
+            // 
             // label5
             // 
             label5.AutoSize = true;
@@ -150,56 +198,6 @@
             label5.Size = new Size(223, 38);
             label5.TabIndex = 28;
             label5.Text = "Nuevo Proyecto";
-            // 
-            // label6
-            // 
-            label6.AutoSize = true;
-            label6.Location = new Point(54, 81);
-            label6.Name = "label6";
-            label6.Size = new Size(86, 15);
-            label6.TabIndex = 12;
-            label6.Text = "Fecha de Inicio";
-            // 
-            // dateTimePicker1
-            // 
-            dateTimePicker1.Location = new Point(169, 81);
-            dateTimePicker1.Name = "dateTimePicker1";
-            dateTimePicker1.Size = new Size(253, 23);
-            dateTimePicker1.TabIndex = 13;
-            // 
-            // dateTimePicker2
-            // 
-            dateTimePicker2.Location = new Point(169, 112);
-            dateTimePicker2.Name = "dateTimePicker2";
-            dateTimePicker2.Size = new Size(253, 23);
-            dateTimePicker2.TabIndex = 14;
-            // 
-            // listBoxUsuarios
-            // 
-            listBoxUsuarios.FormattingEnabled = true;
-            listBoxUsuarios.ItemHeight = 15;
-            listBoxUsuarios.Location = new Point(497, 81);
-            listBoxUsuarios.Name = "listBoxUsuarios";
-            listBoxUsuarios.Size = new Size(177, 94);
-            listBoxUsuarios.TabIndex = 15;
-            listBoxUsuarios.SelectedIndexChanged += listBoxUsuarios_SelectedIndexChanged;
-            // 
-            // richTextBox1
-            // 
-            richTextBox1.Location = new Point(169, 161);
-            richTextBox1.Name = "richTextBox1";
-            richTextBox1.Size = new Size(253, 109);
-            richTextBox1.TabIndex = 16;
-            richTextBox1.Text = "";
-            // 
-            // comboBox1
-            // 
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Location = new Point(497, 45);
-            comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(177, 23);
-            comboBox1.TabIndex = 17;
-            comboBox1.SelectedIndexChanged += comboBox1_SelectedIndexChanged;
             // 
             // FormProyectosGerard2
             // 
@@ -237,6 +235,6 @@
         private DateTimePicker dateTimePicker2;
         private DateTimePicker dateTimePicker1;
         private RichTextBox richTextBox1;
-        private ComboBox comboBox1;
+        private ComboBox comboBoxUsuarios;
     }
 }
