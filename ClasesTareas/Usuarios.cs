@@ -19,7 +19,7 @@ namespace Beatrix_Formulario.ClasesTareas
 
         public override string ToString()
         {
-            return this.nombreApellidos;
+            return this.nombreUsuario;
         }
 
     }
