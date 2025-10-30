@@ -1,9 +1,9 @@
 [
     {
-        "NombreProyecto": "Lanzamiento App M�vil",
+        "NombreProyecto": "Lanzamiento App Móvil",
         "Tareas": [
             {
-                "nombreTarea": "Dise�o UI/UX (Figma)",
+                "nombreTarea": "Diseño UI/UX (Figma)",
                 "descripcion": "Crear los mockups y prototipos de alta fidelidad en Figma.",
                 "fechaInicio": "2024-11-18T09:00:00Z",
                 "fechaEntrega": "2024-12-15T18:00:00Z",
@@ -40,31 +40,18 @@
                         "email": "elena.ruiz@ejemplo.com"
                     },
                     {
-                        "nombre_usuario": "mgomez",
+                        "nombreUsuario": "mgomez",
                         "email": "marcos.g@ejemplo.com"
                     }
                 ]
             }
-        ],
-        "fechaEntrega": "2025-03-01T23:59:59Z",
-        "fechaInicio": "2024-11-15T09:00:00Z",
-        "UsuariosAsignados": [
-            {
-                "nombreUsuario": "eruiz"
-            },
-            {
-                "nombreUsuario": "mgomez"
-            },
-            {
-                "nombreUsuario": "afernandez"
-            }
         ]
     },
     {
-        "NombreProyecto": "Migraci�n a la Nube (AWS)",
+        "NombreProyecto": "Migración a la Nube (AWS)",
         "Tareas": [
             {
-                "nombreTarea": "Auditor�a de infraestructura",
+                "nombreTarea": "Auditoría de infraestructura",
                 "descripcion": "Revisar todos los servicios y bases de datos actuales.",
                 "fechaInicio": "2024-12-02T09:00:00Z",
                 "fechaEntrega": "2024-12-10T18:00:00Z",
@@ -77,7 +64,7 @@
                 ]
             },
             {
-                "nombreTarea": "Configuraci�n de VPC",
+                "nombreTarea": "Configuración de VPC",
                 "descripcion": "Definir la red privada, subredes p�blicas y privadas, y gateways.",
                 "fechaInicio": "2024-12-11T09:00:00Z",
                 "fechaEntrega": "2024-12-15T18:00:00Z",
@@ -88,16 +75,6 @@
                         "email": "c.santana@ejemplo.com"
                     }
                 ]
-            }
-        ],
-        "fechaEntrega": "2025-01-31T18:00:00Z",
-        "fechaInicio": "2024-12-01T09:00:00Z",
-        "UsuariosAsignados": [
-            {
-                "nombreUsuario": "csantana"
-            },
-            {
-                "nombreUsuario": "eruiz"
             }
         ]
     }
