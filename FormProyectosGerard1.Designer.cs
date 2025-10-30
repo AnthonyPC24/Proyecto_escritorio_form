@@ -260,6 +260,7 @@
             Controls.Add(panel1);
             Name = "FormProyectosGerard1";
             Text = "FormProyectosGerard1";
+            Load += FormProyectosGerard1_Load_1;
             panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ((System.ComponentModel.ISupportInitialize)dataGridViewTarea).EndInit();
