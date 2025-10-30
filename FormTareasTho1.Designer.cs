@@ -41,6 +41,9 @@
             buttonNuevaTarea = new Button();
             groupBoxTarea = new GroupBox();
             groupBoxSubtareas = new GroupBox();
+            richTextBoxDescripcionSubTareas = new RichTextBox();
+            labelDescripcionSubtarea = new Label();
+            comboBoxUsuariosSubTarea = new ComboBox();
             labelUsuariosSubtareas = new Label();
             dateTimePicker1 = new DateTimePicker();
             labelFechaFin = new Label();
@@ -58,7 +61,7 @@
             labelEstado = new Label();
             labelUsuarios = new Label();
             dateTimePickerFechaInicio = new DateTimePicker();
-            richTextBox1 = new RichTextBox();
+            richTextBoxDescripcionTare = new RichTextBox();
             labelDescripcion = new Label();
             comboBoxUsuarios = new ComboBox();
             comboBoxEstadosTarea = new ComboBox();
@@ -67,9 +70,6 @@
             labelFecha = new Label();
             textBoxNombreTarea = new TextBox();
             labelNombreTarea = new Label();
-            comboBoxUsuariosSubTarea = new ComboBox();
-            labelDescripcionSubtarea = new Label();
-            richTextBoxDescripcionSubTareas = new RichTextBox();
             panelBarraOpciones.SuspendLayout();
             groupBoxTarea.SuspendLayout();
             groupBoxSubtareas.SuspendLayout();
@@ -177,6 +177,7 @@
             comboBoxProyectos.Name = "comboBoxProyectos";
             comboBoxProyectos.Size = new Size(209, 23);
             comboBoxProyectos.TabIndex = 5;
+            comboBoxProyectos.SelectedIndexChanged += comboBoxProyectos_SelectedIndexChanged;
             // 
             // comboBoxTareas
             // 
@@ -204,7 +205,7 @@
             groupBoxTarea.Controls.Add(labelEstado);
             groupBoxTarea.Controls.Add(labelUsuarios);
             groupBoxTarea.Controls.Add(dateTimePickerFechaInicio);
-            groupBoxTarea.Controls.Add(richTextBox1);
+            groupBoxTarea.Controls.Add(richTextBoxDescripcionTare);
             groupBoxTarea.Controls.Add(labelDescripcion);
             groupBoxTarea.Controls.Add(comboBoxUsuarios);
             groupBoxTarea.Controls.Add(comboBoxEstadosTarea);
@@ -238,6 +239,32 @@
             groupBoxSubtareas.TabIndex = 17;
             groupBoxSubtareas.TabStop = false;
             groupBoxSubtareas.Text = "Sub tareas";
+            // 
+            // richTextBoxDescripcionSubTareas
+            // 
+            richTextBoxDescripcionSubTareas.Location = new Point(17, 291);
+            richTextBoxDescripcionSubTareas.Name = "richTextBoxDescripcionSubTareas";
+            richTextBoxDescripcionSubTareas.Size = new Size(395, 91);
+            richTextBoxDescripcionSubTareas.TabIndex = 23;
+            richTextBoxDescripcionSubTareas.Text = "";
+            // 
+            // labelDescripcionSubtarea
+            // 
+            labelDescripcionSubtarea.AutoSize = true;
+            labelDescripcionSubtarea.Font = new Font("Montserrat Medium", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            labelDescripcionSubtarea.Location = new Point(17, 264);
+            labelDescripcionSubtarea.Name = "labelDescripcionSubtarea";
+            labelDescripcionSubtarea.Size = new Size(101, 24);
+            labelDescripcionSubtarea.TabIndex = 22;
+            labelDescripcionSubtarea.Text = "Descripción";
+            // 
+            // comboBoxUsuariosSubTarea
+            // 
+            comboBoxUsuariosSubTarea.FormattingEnabled = true;
+            comboBoxUsuariosSubTarea.Location = new Point(176, 231);
+            comboBoxUsuariosSubTarea.Name = "comboBoxUsuariosSubTarea";
+            comboBoxUsuariosSubTarea.Size = new Size(236, 23);
+            comboBoxUsuariosSubTarea.TabIndex = 18;
             // 
             // labelUsuariosSubtareas
             // 
@@ -412,13 +439,13 @@
             dateTimePickerFechaInicio.TabIndex = 11;
             dateTimePickerFechaInicio.Value = new DateTime(2025, 10, 16, 16, 42, 9, 0);
             // 
-            // richTextBox1
+            // richTextBoxDescripcionTare
             // 
-            richTextBox1.Location = new Point(26, 290);
-            richTextBox1.Name = "richTextBox1";
-            richTextBox1.Size = new Size(462, 153);
-            richTextBox1.TabIndex = 10;
-            richTextBox1.Text = "";
+            richTextBoxDescripcionTare.Location = new Point(26, 290);
+            richTextBoxDescripcionTare.Name = "richTextBoxDescripcionTare";
+            richTextBoxDescripcionTare.Size = new Size(462, 153);
+            richTextBoxDescripcionTare.TabIndex = 10;
+            richTextBoxDescripcionTare.Text = "";
             // 
             // labelDescripcion
             // 
@@ -492,32 +519,6 @@
             labelNombreTarea.TabIndex = 0;
             labelNombreTarea.Text = "Tarea";
             // 
-            // comboBoxUsuariosSubTarea
-            // 
-            comboBoxUsuariosSubTarea.FormattingEnabled = true;
-            comboBoxUsuariosSubTarea.Location = new Point(176, 231);
-            comboBoxUsuariosSubTarea.Name = "comboBoxUsuariosSubTarea";
-            comboBoxUsuariosSubTarea.Size = new Size(236, 23);
-            comboBoxUsuariosSubTarea.TabIndex = 18;
-            // 
-            // labelDescripcionSubtarea
-            // 
-            labelDescripcionSubtarea.AutoSize = true;
-            labelDescripcionSubtarea.Font = new Font("Montserrat Medium", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            labelDescripcionSubtarea.Location = new Point(17, 264);
-            labelDescripcionSubtarea.Name = "labelDescripcionSubtarea";
-            labelDescripcionSubtarea.Size = new Size(101, 24);
-            labelDescripcionSubtarea.TabIndex = 22;
-            labelDescripcionSubtarea.Text = "Descripción";
-            // 
-            // richTextBoxDescripcionSubTareas
-            // 
-            richTextBoxDescripcionSubTareas.Location = new Point(17, 291);
-            richTextBoxDescripcionSubTareas.Name = "richTextBoxDescripcionSubTareas";
-            richTextBoxDescripcionSubTareas.Size = new Size(395, 91);
-            richTextBoxDescripcionSubTareas.TabIndex = 23;
-            richTextBoxDescripcionSubTareas.Text = "";
-            // 
             // FormTareasTho1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -567,7 +568,7 @@
         private DateTimePicker dateTimePickerFechaEntrega;
         private ComboBox comboBoxUsuarios;
         private Label labelDescripcion;
-        private RichTextBox richTextBox1;
+        private RichTextBox richTextBoxDescripcionTare;
         private DateTimePicker dateTimePickerFechaInicio;
         private Label labelEstado;
         private Label labelUsuarios;
