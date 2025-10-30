@@ -24,17 +24,6 @@ namespace Beatrix_Formulario
         {
             InitializeComponent();
         }
-
-        // --- PASO 2: Conecta el evento 'Load' ---
-        //
-        // CÓMO HACERLO:
-        // 1. Ve al diseñador de Form1.
-        // 2. Haz clic en una parte VACÍA del formulario.
-        // 3. Ve a la ventana 'Propiedades' (abajo a la derecha).
-        // 4. Haz clic en el icono del rayo (⚡) (Eventos).
-        // 5. Busca el evento 'Load' y haz DOBLE CLIC en él.
-        // 6. Visual Studio creará el método de abajo. Pega este código dentro.
-        //
         private void FormProyectosGerard1_Load_1(object sender, EventArgs e)
         {
             CargarProyectosDesdeJson();
@@ -52,19 +41,7 @@ namespace Beatrix_Formulario
                 // Comprueba si el usuario hizo clic en "Crear" en Form2
                 if (resultado == DialogResult.OK)
                 {
-                    // 1. Añadir el nuevo proyecto a nuestra lista
-                    // (Form2 ya lo guardó en el JSON, así que
-                    //  podríamos simplemente recargar el JSON)
                     CargarProyectosDesdeJson();
-
-                    // Opcionalmente, si Form2 NO guardara en el JSON:
-                    // Proyectos proyectoCreado = formCrear.NuevoProyecto;
-                    // if (proyectoCreado != null)
-                    // {
-                    //    listaDeProyectos.Add(proyectoCreado);
-                    //    AgregarFilaAGrid(proyectoCreado);
-                    //    GuardarProyectosEnJson();
-                    // }
                 }
             }
         }
@@ -80,7 +57,7 @@ namespace Beatrix_Formulario
             {
                 try
                 {
-                    string json = File.ReadAllText(rutaArchivoJson);
+                    string json = File.ReadAllText(rutaArchivoJson, Encoding.Default);
                     if (string.IsNullOrWhiteSpace(json))
                     {
                         listaDeProyectos = new List<Proyectos>();
@@ -98,11 +75,9 @@ namespace Beatrix_Formulario
             }
             else
             {
-                // Si el archivo no existe, empezamos con una lista vacía
                 listaDeProyectos = new List<Proyectos>();
             }
 
-            // Ahora, rellena el DataGridView con la lista cargada
             RefrescarDataGridView();
         }
 
@@ -150,11 +125,8 @@ namespace Beatrix_Formulario
             // Comprobación para evitar error si 'UsuariosAsignados' es null
             if (proyecto.UsuariosAsignados != null)
             {
-                // Formatea la lista de usuarios (ej: "Gerard, Anna")
-                // Nota: Esto solo funcionará si los objetos 'Usuarios'
-                // en tu JSON tienen la propiedad 'nombreApellidos'.
                 usuariosStr = string.Join(", ",
-                    proyecto.UsuariosAsignados.Select(u => u.nombreApellidos)
+                    proyecto.UsuariosAsignados.Select(u => u.nombreUsuario)
                 );
             }
 
