@@ -35,6 +35,8 @@
             dateTimePickerFechaHoraNuevaReunion = new DateTimePicker();
             labelParticipantes = new Label();
             panelParaHoy = new Panel();
+            labelContador1 = new Label();
+            labelContador2 = new Label();
             checkedListBoxParticipantes = new CheckedListBox();
             buttonCancelar = new Button();
             buttonCrear = new Button();
@@ -57,8 +59,9 @@
             // 
             textBoxAsunto.Location = new Point(75, 125);
             textBoxAsunto.Name = "textBoxAsunto";
-            textBoxAsunto.Size = new Size(453, 23);
+            textBoxAsunto.Size = new Size(423, 23);
             textBoxAsunto.TabIndex = 10;
+            textBoxAsunto.TextChanged += textBoxAsunto_TextChanged;
             // 
             // labelAsunto
             // 
@@ -103,6 +106,8 @@
             // 
             panelParaHoy.BackColor = Color.FromArgb(41, 191, 205);
             panelParaHoy.BorderStyle = BorderStyle.FixedSingle;
+            panelParaHoy.Controls.Add(labelContador1);
+            panelParaHoy.Controls.Add(labelContador2);
             panelParaHoy.Controls.Add(checkedListBoxParticipantes);
             panelParaHoy.Controls.Add(buttonCancelar);
             panelParaHoy.Controls.Add(buttonCrear);
@@ -120,6 +125,28 @@
             panelParaHoy.Size = new Size(570, 623);
             panelParaHoy.TabIndex = 7;
             // 
+            // labelContador1
+            // 
+            labelContador1.AutoSize = true;
+            labelContador1.Font = new Font("Montserrat", 8.999999F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            labelContador1.ForeColor = Color.White;
+            labelContador1.Location = new Point(504, 125);
+            labelContador1.Name = "labelContador1";
+            labelContador1.Size = new Size(34, 19);
+            labelContador1.TabIndex = 22;
+            labelContador1.Text = "0/30";
+            // 
+            // labelContador2
+            // 
+            labelContador2.AutoSize = true;
+            labelContador2.Font = new Font("Montserrat", 8.999999F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            labelContador2.ForeColor = Color.White;
+            labelContador2.Location = new Point(496, 448);
+            labelContador2.Name = "labelContador2";
+            labelContador2.Size = new Size(34, 19);
+            labelContador2.TabIndex = 21;
+            labelContador2.Text = "0/60";
+            // 
             // checkedListBoxParticipantes
             // 
             checkedListBoxParticipantes.FormattingEnabled = true;
@@ -135,7 +162,7 @@
             buttonCancelar.Cursor = Cursors.Hand;
             buttonCancelar.Font = new Font("Montserrat Medium", 8.999999F, FontStyle.Bold, GraphicsUnit.Point, 0);
             buttonCancelar.ForeColor = Color.White;
-            buttonCancelar.Location = new Point(320, 546);
+            buttonCancelar.Location = new Point(320, 503);
             buttonCancelar.Name = "buttonCancelar";
             buttonCancelar.Size = new Size(170, 37);
             buttonCancelar.TabIndex = 19;
@@ -149,7 +176,7 @@
             buttonCrear.Cursor = Cursors.Hand;
             buttonCrear.Font = new Font("Montserrat Medium", 8.999999F, FontStyle.Bold, GraphicsUnit.Point, 0);
             buttonCrear.ForeColor = Color.White;
-            buttonCrear.Location = new Point(75, 546);
+            buttonCrear.Location = new Point(75, 503);
             buttonCrear.Name = "buttonCrear";
             buttonCrear.Size = new Size(170, 37);
             buttonCrear.TabIndex = 18;
@@ -171,9 +198,10 @@
             // 
             richTextBoxInformacion.Location = new Point(75, 435);
             richTextBoxInformacion.Name = "richTextBoxInformacion";
-            richTextBoxInformacion.Size = new Size(415, 96);
+            richTextBoxInformacion.Size = new Size(415, 43);
             richTextBoxInformacion.TabIndex = 16;
             richTextBoxInformacion.Text = "";
+            richTextBoxInformacion.TextChanged += richTextBoxInformacion_TextChanged;
             // 
             // FormReunionesDy2
             // 
@@ -203,5 +231,7 @@
         private Button buttonCancelar;
         private Button buttonCrear;
         private CheckedListBox checkedListBoxParticipantes;
+        private Label labelContador2;
+        private Label labelContador1;
     }
 }

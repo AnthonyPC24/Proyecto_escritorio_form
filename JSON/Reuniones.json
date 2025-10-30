@@ -1,43 +1,30 @@
 [
   {
-    "titulo": "Crear juegos para ni\u00F1os peque\u00F1os",
-    "fechaHora": "2025-10-27T19:20:30.8197427+01:00",
-    "usuariosReuniones": [
-      "Ana Fernandez"
-    ],
-    "descripcion": "Un silent hill estaria guapo"
-  },
-  {
-    "titulo": "BOOOOOOOF",
-    "fechaHora": "2025-10-27T20:08:17.3517151+01:00",
+    "titulo": "Crear \u0022El Gordon\u0022",
+    "fechaHora": "2025-10-30T18:42:05.1860363+01:00",
     "usuariosReuniones": [
       "Elena Ruiz"
     ],
-    "descripcion": "no se"
+    "descripcion": "Juego para todas las edades"
   },
   {
-    "titulo": "hola",
-    "fechaHora": "2025-10-27T20:20:23.7131372+01:00",
+    "titulo": "Crear Mister Cuestion",
+    "fechaHora": "2025-10-30T18:56:20.1305798+01:00",
     "usuariosReuniones": [
+      "Marcos Gomez",
       "Carlos Santana"
     ],
-    "descripcion": "adios"
+    "descripcion": "Juego para ni\u00F1os peque\u00F1os"
   },
   {
-    "titulo": "hola",
-    "fechaHora": "2025-10-27T20:20:23.7131372+01:00",
+    "titulo": "Ayudar a la vieja Jenkins jeje",
+    "fechaHora": "2025-10-30T20:09:57.0714587+01:00",
     "usuariosReuniones": [
-      "Carlos Santana"
-    ],
-    "descripcion": "adios"
-  },
-  {
-    "titulo": "aasadasadsasdasd",
-    "fechaHora": "2025-10-27T20:20:52.3936834+01:00",
-    "usuariosReuniones": [
+      "Elena Ruiz",
+      "Marcos Gomez",
       "Ana Fernandez",
       "Carlos Santana"
     ],
-    "descripcion": "asdasd"
+    "descripcion": "Es una se\u00F1ora muy agradable pero la pobre no sabe cruzar la calle"
   }
 ]

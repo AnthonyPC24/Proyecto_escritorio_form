@@ -447,12 +447,12 @@
             // 
             // labelInformaciónDeLaReunion3
             // 
-            labelInformaciónDeLaReunion3.AutoSize = true;
-            labelInformaciónDeLaReunion3.Font = new Font("Montserrat SemiBold", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            labelInformaciónDeLaReunion3.Font = new Font("Montserrat", 11.25F, FontStyle.Bold);
             labelInformaciónDeLaReunion3.ForeColor = SystemColors.ControlLightLight;
             labelInformaciónDeLaReunion3.Location = new Point(3, 154);
+            labelInformaciónDeLaReunion3.MaximumSize = new Size(250, 0);
             labelInformaciónDeLaReunion3.Name = "labelInformaciónDeLaReunion3";
-            labelInformaciónDeLaReunion3.Size = new Size(100, 23);
+            labelInformaciónDeLaReunion3.Size = new Size(250, 50);
             labelInformaciónDeLaReunion3.TabIndex = 13;
             labelInformaciónDeLaReunion3.Text = "Placeholder";
             // 
@@ -500,12 +500,12 @@
             // 
             // labelReunionPanel3
             // 
-            labelReunionPanel3.AutoSize = true;
             labelReunionPanel3.Font = new Font("Montserrat Black", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             labelReunionPanel3.ForeColor = SystemColors.ButtonHighlight;
             labelReunionPanel3.Location = new Point(3, 21);
+            labelReunionPanel3.MaximumSize = new Size(250, 0);
             labelReunionPanel3.Name = "labelReunionPanel3";
-            labelReunionPanel3.Size = new Size(114, 29);
+            labelReunionPanel3.Size = new Size(250, 40);
             labelReunionPanel3.TabIndex = 0;
             labelReunionPanel3.Text = "Reunión 3";
             // 

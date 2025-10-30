@@ -44,7 +44,10 @@ namespace Beatrix_Formulario
         private void labelCrearReunion_Click(object sender, EventArgs e)
         {
             FormReunionesDy2 formReunionesDy2 = new FormReunionesDy2();
-            formReunionesDy2.Show();
+
+            formReunionesDy2.ReunionCreada += (s, ev) => CargarReuniones();
+
+            formReunionesDy2.ShowDialog();
         }
 
 
@@ -74,32 +77,32 @@ namespace Beatrix_Formulario
 
             if (reuniones == null || reuniones.Count == 0)
             {
-                // Si no hay reuniones, ocultamos los tres paneles
+                
                 panelReunion1.Visible = false;
                 panelReunion2.Visible = false;
                 panelReunion3.Visible = false;
                 return;
             }
 
-            // Tomamos solo las tres primeras reuniones
+            
             var primerasTres = reuniones.Take(3).ToList();
 
-            // Arrays de labels
+          
             Label[] labelsTitulo = { labelReunionPanel1, labelReunionPanel2, labelReunionPanel3 };
             Label[] labelsParticipantes = { labelNombresReunion1, labelNombresReunion2, labelNombresReunion3 };
             Label[] labelsDescripcion = { labelInformaciónDeLaReunion1, labelInformaciónDeLaReunion2, labelInformaciónDeLaReunion3 };
             Label[] labelsHora = { labelHoraReunion1, labelHoraReunion2, labelHoraReunion3 };
 
-            // Arrays de paneles
+            
             Panel[] paneles = { panelReunion1, panelReunion2, panelReunion3 };
 
-            // Mostrar solo los paneles necesarios
+        
             for (int i = 0; i < paneles.Length; i++)
             {
                 if (i < primerasTres.Count)
                 {
                     var reunion = primerasTres[i];
-                    paneles[i].Visible = true; // mostrar panel
+                    paneles[i].Visible = true; 
 
                     labelsTitulo[i].Text = reunion.titulo;       
                     labelsTitulo[i].AutoEllipsis = false;                  
@@ -113,7 +116,7 @@ namespace Beatrix_Formulario
                 }
                 else
                 {
-                    // Ocultar panel si no hay reunión
+                    
                     paneles[i].Visible = false;
                 }
             }
