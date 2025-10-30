@@ -29,9 +29,13 @@
         private void InitializeComponent()
         {
             DataGridView dataGridViewTarea;
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
+            ColumnTarea = new DataGridViewTextBoxColumn();
+            ColumnEspecificaciones = new DataGridViewTextBoxColumn();
+            ColumnUsuario = new DataGridViewTextBoxColumn();
             btnReunion = new Button();
             btnTareas = new Button();
             btnProyectos = new Button();
@@ -43,18 +47,85 @@
             monthCalendar = new MonthCalendar();
             comboBoxProyecto = new ComboBox();
             btnIdioma = new Button();
-            ColumnTarea = new DataGridViewTextBoxColumn();
-            ColumnEspecificaciones = new DataGridViewTextBoxColumn();
-            ColumnUsuario = new DataGridViewTextBoxColumn();
             panelTareaHoy = new Panel();
-            labelTitle = new Label();
             labelHorario = new Label();
+            labelTitle = new Label();
             dataGridViewTarea = new DataGridView();
+            ((System.ComponentModel.ISupportInitialize)dataGridViewTarea).BeginInit();
             ((System.ComponentModel.ISupportInitialize)fotoUsuario).BeginInit();
             panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridViewTarea).BeginInit();
             panelTareaHoy.SuspendLayout();
             SuspendLayout();
+            // 
+            // dataGridViewTarea
+            // 
+            dataGridViewTarea.AllowUserToDeleteRows = false;
+            dataGridViewTarea.AllowUserToResizeColumns = false;
+            dataGridViewTarea.AllowUserToResizeRows = false;
+            dataGridViewTarea.BackgroundColor = Color.White;
+            dataGridViewTarea.CellBorderStyle = DataGridViewCellBorderStyle.SunkenHorizontal;
+            dataGridViewTarea.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = SystemColors.ControlLightLight;
+            dataGridViewCellStyle1.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle1.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
+            dataGridViewTarea.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewTarea.ColumnHeadersHeight = 50;
+            dataGridViewTarea.Columns.AddRange(new DataGridViewColumn[] { ColumnTarea, ColumnEspecificaciones, ColumnUsuario });
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = SystemColors.Window;
+            dataGridViewCellStyle2.Font = new Font("Montserrat", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle2.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
+            dataGridViewTarea.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewTarea.GridColor = Color.White;
+            dataGridViewTarea.Location = new Point(273, 54);
+            dataGridViewTarea.Name = "dataGridViewTarea";
+            dataGridViewTarea.ReadOnly = true;
+            dataGridViewTarea.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = Color.White;
+            dataGridViewCellStyle3.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle3.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
+            dataGridViewTarea.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewTarea.RowHeadersVisible = false;
+            dataGridViewTarea.RowHeadersWidth = 51;
+            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewTarea.RowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewTarea.Size = new Size(965, 281);
+            dataGridViewTarea.TabIndex = 10;
+            // 
+            // ColumnTarea
+            // 
+            ColumnTarea.HeaderText = "Tarea";
+            ColumnTarea.MinimumWidth = 6;
+            ColumnTarea.Name = "ColumnTarea";
+            ColumnTarea.ReadOnly = true;
+            ColumnTarea.Width = 321;
+            // 
+            // ColumnEspecificaciones
+            // 
+            ColumnEspecificaciones.HeaderText = "Especificaciones";
+            ColumnEspecificaciones.MinimumWidth = 6;
+            ColumnEspecificaciones.Name = "ColumnEspecificaciones";
+            ColumnEspecificaciones.ReadOnly = true;
+            ColumnEspecificaciones.Width = 321;
+            // 
+            // ColumnUsuario
+            // 
+            ColumnUsuario.HeaderText = "Usuario/s";
+            ColumnUsuario.MinimumWidth = 6;
+            ColumnUsuario.Name = "ColumnUsuario";
+            ColumnUsuario.ReadOnly = true;
+            ColumnUsuario.Width = 321;
             // 
             // btnReunion
             // 
@@ -161,44 +232,6 @@
             comboBoxProyecto.Text = "Proyecto 1";
             comboBoxProyecto.SelectedIndexChanged += comboBoxProyecto_SelectedIndexChanged;
             // 
-            // dataGridViewTarea
-            // 
-            dataGridViewTarea.AllowUserToDeleteRows = false;
-            dataGridViewTarea.AllowUserToResizeColumns = false;
-            dataGridViewTarea.AllowUserToResizeRows = false;
-            dataGridViewTarea.BackgroundColor = Color.White;
-            dataGridViewTarea.CellBorderStyle = DataGridViewCellBorderStyle.SunkenHorizontal;
-            dataGridViewTarea.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.BackColor = SystemColors.ControlLightLight;
-            dataGridViewCellStyle4.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle4.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle4.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = DataGridViewTriState.True;
-            dataGridViewTarea.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
-            dataGridViewTarea.ColumnHeadersHeight = 50;
-            dataGridViewTarea.Columns.AddRange(new DataGridViewColumn[] { ColumnTarea, ColumnEspecificaciones, ColumnUsuario });
-            dataGridViewTarea.GridColor = Color.White;
-            dataGridViewTarea.Location = new Point(273, 54);
-            dataGridViewTarea.Name = "dataGridViewTarea";
-            dataGridViewTarea.ReadOnly = true;
-            dataGridViewTarea.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = Color.White;
-            dataGridViewCellStyle5.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle5.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle5.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = DataGridViewTriState.True;
-            dataGridViewTarea.RowHeadersDefaultCellStyle = dataGridViewCellStyle5;
-            dataGridViewTarea.RowHeadersVisible = false;
-            dataGridViewTarea.RowHeadersWidth = 51;
-            dataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewTarea.RowsDefaultCellStyle = dataGridViewCellStyle6;
-            dataGridViewTarea.Size = new Size(965, 281);
-            dataGridViewTarea.TabIndex = 10;
-            // 
             // btnIdioma
             // 
             btnIdioma.Location = new Point(1181, 12);
@@ -207,30 +240,6 @@
             btnIdioma.TabIndex = 12;
             btnIdioma.UseVisualStyleBackColor = true;
             btnIdioma.Click += btnIdioma_Click;
-            // 
-            // ColumnTarea
-            // 
-            ColumnTarea.HeaderText = "Tarea";
-            ColumnTarea.MinimumWidth = 6;
-            ColumnTarea.Name = "ColumnTarea";
-            ColumnTarea.ReadOnly = true;
-            ColumnTarea.Width = 321;
-            // 
-            // ColumnEspecificaciones
-            // 
-            ColumnEspecificaciones.HeaderText = "Especificaciones";
-            ColumnEspecificaciones.MinimumWidth = 6;
-            ColumnEspecificaciones.Name = "ColumnEspecificaciones";
-            ColumnEspecificaciones.ReadOnly = true;
-            ColumnEspecificaciones.Width = 321;
-            // 
-            // ColumnUsuario
-            // 
-            ColumnUsuario.HeaderText = "Usuario/s";
-            ColumnUsuario.MinimumWidth = 6;
-            ColumnUsuario.Name = "ColumnUsuario";
-            ColumnUsuario.ReadOnly = true;
-            ColumnUsuario.Width = 321;
             // 
             // panelTareaHoy
             // 
@@ -242,6 +251,15 @@
             panelTareaHoy.Size = new Size(450, 269);
             panelTareaHoy.TabIndex = 13;
             // 
+            // labelHorario
+            // 
+            labelHorario.AutoSize = true;
+            labelHorario.Location = new Point(52, 81);
+            labelHorario.Name = "labelHorario";
+            labelHorario.Size = new Size(50, 20);
+            labelHorario.TabIndex = 1;
+            labelHorario.Text = "label1";
+            // 
             // labelTitle
             // 
             labelTitle.AutoSize = true;
@@ -252,15 +270,6 @@
             labelTitle.Size = new Size(85, 43);
             labelTitle.TabIndex = 0;
             labelTitle.Text = "HOY";
-            // 
-            // labelHorario
-            // 
-            labelHorario.AutoSize = true;
-            labelHorario.Location = new Point(52, 81);
-            labelHorario.Name = "labelHorario";
-            labelHorario.Size = new Size(50, 20);
-            labelHorario.TabIndex = 1;
-            labelHorario.Text = "label1";
             // 
             // Inicio
             // 
@@ -277,10 +286,10 @@
             Name = "Inicio";
             Text = "Inicio";
             Load += Inicio_Load;
+            ((System.ComponentModel.ISupportInitialize)dataGridViewTarea).EndInit();
             ((System.ComponentModel.ISupportInitialize)fotoUsuario).EndInit();
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridViewTarea).EndInit();
             panelTareaHoy.ResumeLayout(false);
             panelTareaHoy.PerformLayout();
             ResumeLayout(false);
