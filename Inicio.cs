@@ -19,14 +19,21 @@ namespace Beatrix_Formulario
         public Inicio()
         {
             InitializeComponent();
-          
+
+
         }
 
         private void Inicio_Load(object sender, EventArgs e)
         {
-            string jsonPath = @"D:\GIT\Proyecto_escritorio_form\JSON\Proyectos.json";  
-            LoadJsonToTarea(jsonPath, dataGridViewTarea);
+            string jsonPath = @"D:\GIT\Proyecto_escritorio_form\JSON\Proyectos.json";
 
+            if (dgvTarea == null)
+            {
+                MessageBox.Show("DataGridView no está inicializado");
+                return;
+            }
+
+            LoadJsonToTarea(jsonPath, dgvTarea);
         }
 
 
@@ -43,6 +50,7 @@ namespace Beatrix_Formulario
 
         }
 
+        // evento de 
         private void monthCalendar_DateChanged(object sender, DateRangeEventArgs e)
         {
 
@@ -59,24 +67,45 @@ namespace Beatrix_Formulario
 
             try
             {
-                string jsonString = File.ReadAllText(jsonPath);
+                string jsonString = File.ReadAllText(jsonPath).Trim();
 
                 var options = new JsonSerializerOptions
                 {
                     PropertyNameCaseInsensitive = true
                 };
 
-                Proyectos proyecto = JsonSerializer.Deserialize<Proyectos>(jsonString, options);
+                List<Proyectos> proyectos = JsonSerializer.Deserialize<List<Proyectos>>(jsonString, options);
 
-                if (proyecto == null || proyecto.Tareas == null || proyecto.Tareas.Count == 0)
+                if (proyectos == null || proyectos.Count == 0)
                 {
-                    MessageBox.Show("No se encontraron tareas en el archivo JSON.");
+                    MessageBox.Show("No se encontraron proyectos en el archivo JSON.");
                     return;
                 }
 
-                
 
-               
+                dgv.Rows.Clear();
+
+                foreach (var proyecto in proyectos)
+                {
+                    if (proyecto.Tareas == null) continue;
+
+                    foreach (var tarea in proyecto.Tareas)
+                    {
+                        string usuarios = "";
+                        if (tarea.usuariosAsignados != null && tarea.usuariosAsignados.Count > 0)
+                        {
+                            usuarios = string.Join(", ", tarea.usuariosAsignados.Select(u => u.nombreUsuario));
+                        }
+
+                        dgv.Rows.Add(
+                            tarea.nombreTarea,
+                            tarea.descripcion,
+                            usuarios
+                        );
+                    }
+                }
+
+                dgv.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             }
             catch (Exception ex)
             {
