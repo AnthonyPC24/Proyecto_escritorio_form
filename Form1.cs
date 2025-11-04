@@ -11,18 +11,21 @@ namespace Beatrix_Formulario
         private void buttonLogin_Click(object sender, EventArgs e)
         {
             this.Close();
-            Form inicio = new Form();
-            inicio.ShowDialog();
+            Application.Run(new Inicio());
         }
 
         private void Beatrix_Load(object sender, EventArgs e)
         {
+            txtContrasena.PasswordChar = '*';
+
 
         }
 
+
+       
         private void Logo_Click(object sender, EventArgs e)
         {
-           
+
 
         }
     }
