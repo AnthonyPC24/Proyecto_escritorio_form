@@ -13,6 +13,7 @@ using static System.Windows.Forms.DataFormats;
 
 namespace Beatrix_Formulario
 {
+
     public partial class FormReunionesDy1 : Form
     {
         public FormReunionesDy1()
@@ -45,12 +46,52 @@ namespace Beatrix_Formulario
         {
             FormReunionesDy2 formReunionesDy2 = new FormReunionesDy2();
 
-            formReunionesDy2.ReunionCreada += (s, ev) => CargarReuniones();
+            formReunionesDy2.ReunionCreada += (s, ev) =>
+            {
+                CargarReuniones();         
+                CargarReunionesDataGrid();  
+            };
 
             formReunionesDy2.ShowDialog();
         }
 
+        private void FormReunionesLista_Load(object sender, EventArgs e)
+        {
+            CargarReunionesDataGrid();
+        }
 
+        private void CargarReunionesDataGrid()
+        {
+            try
+            {
+                string rutaProyecto = Directory.GetParent(Application.StartupPath).Parent.Parent.Parent.FullName;
+                string rutaArchivo = Path.Combine(rutaProyecto, "JSON", "Reuniones.json");
+
+                if (File.Exists(rutaArchivo))
+                {
+                    string json = File.ReadAllText(rutaArchivo);
+                    List<Reunion> listaReuniones = JsonSerializer.Deserialize<List<Reunion>>(json);
+
+                    var reunionesFormateadas = listaReuniones.Select(r => new
+                    {
+                        Tarea = r.titulo,
+                        Especificaciones = r.descripcion,
+                        Usuario_s = string.Join(", ", r.usuariosReuniones),
+                        Fecha = r.fechaHora.ToString("dd/MM/yyyy HH:mm")
+                    }).ToList();
+
+                    dataGridViewTarea.DataSource = reunionesFormateadas;
+                }
+                else
+                {
+                    MessageBox.Show("No se encontró el archivo Reuniones.json.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error al cargar las reuniones: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
 
         private void CargarReuniones()
         {
@@ -84,10 +125,13 @@ namespace Beatrix_Formulario
                 return;
             }
 
-            
-            var primerasTres = reuniones.Take(3).ToList();
 
-          
+            var proximasTres = reuniones
+             .OrderBy(r => Math.Abs((r.fechaHora - DateTime.Now).TotalMinutes)) // diferencia en minutos
+             .Take(3)
+             .ToList();
+
+
             Label[] labelsTitulo = { labelReunionPanel1, labelReunionPanel2, labelReunionPanel3 };
             Label[] labelsParticipantes = { labelNombresReunion1, labelNombresReunion2, labelNombresReunion3 };
             Label[] labelsDescripcion = { labelInformaciónDeLaReunion1, labelInformaciónDeLaReunion2, labelInformaciónDeLaReunion3 };
@@ -99,9 +143,9 @@ namespace Beatrix_Formulario
         
             for (int i = 0; i < paneles.Length; i++)
             {
-                if (i < primerasTres.Count)
+                if (i < proximasTres.Count)
                 {
-                    var reunion = primerasTres[i];
+                    var reunion = proximasTres[i];
                     paneles[i].Visible = true; 
 
                     labelsTitulo[i].Text = reunion.titulo;       

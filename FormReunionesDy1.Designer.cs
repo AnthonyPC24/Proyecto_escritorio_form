@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormReunionesDy1));
             contextMenuStrip1 = new ContextMenuStrip(components);
             panelBarraOpciones = new Panel();
@@ -42,11 +42,9 @@
             buttonInicioForm1Tareas = new Button();
             monthCalendarReuniones = new MonthCalendar();
             panelParaHoy = new Panel();
-            labelParaHoy = new Label();
+            label2 = new Label();
             dataGridViewTarea = new DataGridView();
-            ColumnTarea = new DataGridViewTextBoxColumn();
-            ColumnEspecificaciones = new DataGridViewTextBoxColumn();
-            ColumnUsuario = new DataGridViewTextBoxColumn();
+            labelReunionesProximas = new Label();
             labelCrearReunion = new Label();
             panelReunion1 = new Panel();
             labelInformaciónDeLaReunion1 = new Label();
@@ -183,7 +181,7 @@
             // panelParaHoy
             // 
             panelParaHoy.BorderStyle = BorderStyle.FixedSingle;
-            panelParaHoy.Controls.Add(labelParaHoy);
+            panelParaHoy.Controls.Add(label2);
             panelParaHoy.Controls.Add(dataGridViewTarea);
             panelParaHoy.Location = new Point(603, 18);
             panelParaHoy.Name = "panelParaHoy";
@@ -191,62 +189,50 @@
             panelParaHoy.TabIndex = 6;
             panelParaHoy.Paint += panelParaHoy_Paint;
             // 
-            // labelParaHoy
+            // label2
             // 
-            labelParaHoy.AutoSize = true;
-            labelParaHoy.Font = new Font("Montserrat", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            labelParaHoy.Location = new Point(243, 7);
-            labelParaHoy.Name = "labelParaHoy";
-            labelParaHoy.Size = new Size(96, 29);
-            labelParaHoy.TabIndex = 0;
-            labelParaHoy.Text = "Para hoy";
+            label2.AutoSize = true;
+            label2.Font = new Font("Montserrat", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label2.Location = new Point(222, 7);
+            label2.Name = "label2";
+            label2.Size = new Size(199, 29);
+            label2.TabIndex = 17;
+            label2.Text = "Todas las reuniones";
             // 
             // dataGridViewTarea
             // 
             dataGridViewTarea.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridViewTarea.BackgroundColor = SystemColors.ButtonHighlight;
             dataGridViewTarea.BorderStyle = BorderStyle.Fixed3D;
-            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = SystemColors.Control;
-            dataGridViewCellStyle1.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle1.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
-            dataGridViewTarea.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = SystemColors.Control;
+            dataGridViewCellStyle3.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle3.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
+            dataGridViewTarea.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             dataGridViewTarea.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewTarea.Columns.AddRange(new DataGridViewColumn[] { ColumnTarea, ColumnEspecificaciones, ColumnUsuario });
             dataGridViewTarea.GridColor = SystemColors.Control;
-            dataGridViewTarea.Location = new Point(23, 38);
+            dataGridViewTarea.Location = new Point(14, 38);
             dataGridViewTarea.Margin = new Padding(3, 2, 3, 2);
             dataGridViewTarea.Name = "dataGridViewTarea";
             dataGridViewTarea.ReadOnly = true;
             dataGridViewTarea.RowHeadersWidth = 51;
-            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewTarea.RowsDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewTarea.RowsDefaultCellStyle = dataGridViewCellStyle4;
             dataGridViewTarea.Size = new Size(570, 255);
             dataGridViewTarea.TabIndex = 11;
             // 
-            // ColumnTarea
+            // labelReunionesProximas
             // 
-            ColumnTarea.HeaderText = "Tarea";
-            ColumnTarea.MinimumWidth = 6;
-            ColumnTarea.Name = "ColumnTarea";
-            ColumnTarea.ReadOnly = true;
-            // 
-            // ColumnEspecificaciones
-            // 
-            ColumnEspecificaciones.HeaderText = "Especificaciones";
-            ColumnEspecificaciones.MinimumWidth = 6;
-            ColumnEspecificaciones.Name = "ColumnEspecificaciones";
-            ColumnEspecificaciones.ReadOnly = true;
-            // 
-            // ColumnUsuario
-            // 
-            ColumnUsuario.HeaderText = "Usuario/s";
-            ColumnUsuario.MinimumWidth = 6;
-            ColumnUsuario.Name = "ColumnUsuario";
-            ColumnUsuario.ReadOnly = true;
+            labelReunionesProximas.AutoSize = true;
+            labelReunionesProximas.Font = new Font("Montserrat", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            labelReunionesProximas.Location = new Point(234, 360);
+            labelReunionesProximas.Name = "labelReunionesProximas";
+            labelReunionesProximas.Size = new Size(206, 29);
+            labelReunionesProximas.TabIndex = 0;
+            labelReunionesProximas.Text = "Reuniones proximas";
             // 
             // labelCrearReunion
             // 
@@ -278,12 +264,12 @@
             // 
             // labelInformaciónDeLaReunion1
             // 
-            labelInformaciónDeLaReunion1.AutoSize = true;
             labelInformaciónDeLaReunion1.Font = new Font("Montserrat SemiBold", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             labelInformaciónDeLaReunion1.ForeColor = SystemColors.ControlLightLight;
             labelInformaciónDeLaReunion1.Location = new Point(3, 154);
+            labelInformaciónDeLaReunion1.MaximumSize = new Size(250, 0);
             labelInformaciónDeLaReunion1.Name = "labelInformaciónDeLaReunion1";
-            labelInformaciónDeLaReunion1.Size = new Size(100, 23);
+            labelInformaciónDeLaReunion1.Size = new Size(250, 50);
             labelInformaciónDeLaReunion1.TabIndex = 13;
             labelInformaciónDeLaReunion1.Text = "Placeholder";
             // 
@@ -331,12 +317,12 @@
             // 
             // labelReunionPanel1
             // 
-            labelReunionPanel1.AutoSize = true;
             labelReunionPanel1.Font = new Font("Montserrat Black", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             labelReunionPanel1.ForeColor = SystemColors.ButtonHighlight;
             labelReunionPanel1.Location = new Point(3, 21);
+            labelReunionPanel1.MaximumSize = new Size(250, 0);
             labelReunionPanel1.Name = "labelReunionPanel1";
-            labelReunionPanel1.Size = new Size(114, 29);
+            labelReunionPanel1.Size = new Size(250, 40);
             labelReunionPanel1.TabIndex = 0;
             labelReunionPanel1.Text = "Reunión 1";
             // 
@@ -368,12 +354,12 @@
             // 
             // labelInformaciónDeLaReunion2
             // 
-            labelInformaciónDeLaReunion2.AutoSize = true;
             labelInformaciónDeLaReunion2.Font = new Font("Montserrat SemiBold", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             labelInformaciónDeLaReunion2.ForeColor = SystemColors.ControlLightLight;
             labelInformaciónDeLaReunion2.Location = new Point(3, 154);
+            labelInformaciónDeLaReunion2.MaximumSize = new Size(250, 0);
             labelInformaciónDeLaReunion2.Name = "labelInformaciónDeLaReunion2";
-            labelInformaciónDeLaReunion2.Size = new Size(100, 23);
+            labelInformaciónDeLaReunion2.Size = new Size(250, 50);
             labelInformaciónDeLaReunion2.TabIndex = 13;
             labelInformaciónDeLaReunion2.Text = "Placeholder";
             // 
@@ -421,12 +407,12 @@
             // 
             // labelReunionPanel2
             // 
-            labelReunionPanel2.AutoSize = true;
             labelReunionPanel2.Font = new Font("Montserrat Black", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             labelReunionPanel2.ForeColor = SystemColors.ButtonHighlight;
             labelReunionPanel2.Location = new Point(3, 21);
+            labelReunionPanel2.MaximumSize = new Size(250, 0);
             labelReunionPanel2.Name = "labelReunionPanel2";
-            labelReunionPanel2.Size = new Size(114, 29);
+            labelReunionPanel2.Size = new Size(250, 40);
             labelReunionPanel2.TabIndex = 0;
             labelReunionPanel2.Text = "Reunión 2";
             // 
@@ -515,6 +501,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ButtonHighlight;
             ClientSize = new Size(1264, 681);
+            Controls.Add(labelReunionesProximas);
             Controls.Add(panelReunion3);
             Controls.Add(panelReunion2);
             Controls.Add(buttonIdioma);
@@ -525,6 +512,7 @@
             Controls.Add(panelBarraOpciones);
             Name = "FormReunionesDy1";
             Text = "FormReunionesDy1";
+            Load += FormReunionesLista_Load;
             panelBarraOpciones.ResumeLayout(false);
             panelBarraOpciones.PerformLayout();
             panelParaHoy.ResumeLayout(false);
@@ -551,7 +539,7 @@
         private Button buttonInicioForm1Tareas;
         private MonthCalendar monthCalendarReuniones;
         private Panel panelParaHoy;
-        private Label labelParaHoy;
+        private Label labelReunionesProximas;
         private Label labelCrearReunion;
         private Panel panelReunion1;
         private Label labelInformaciónDeLaReunion1;
@@ -561,9 +549,6 @@
         private Label labelParticipantes1;
         private Label labelReunionPanel1;
         private DataGridView dataGridViewTarea;
-        private DataGridViewTextBoxColumn ColumnTarea;
-        private DataGridViewTextBoxColumn ColumnEspecificaciones;
-        private DataGridViewTextBoxColumn ColumnUsuario;
         private Button buttonIdioma;
         private Label label1;
         private Panel panelReunion2;
@@ -580,5 +565,6 @@
         private Label labelHoraReunion2;
         private Label labelParticipantes2;
         private Label labelReunionPanel2;
+        private Label label2;
     }
 }

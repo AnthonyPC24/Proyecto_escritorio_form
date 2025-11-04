@@ -44,7 +44,8 @@ namespace Beatrix_Formulario
                     
                     List<Usuarios> listaUsuarios = JsonSerializer.Deserialize<List<Usuarios>>(json);
 
-                    
+                    listaUsuarios = listaUsuarios.OrderBy(u => u.nombreApellidos).ToList();
+
                     checkedListBoxParticipantes.DataSource = listaUsuarios;
                     checkedListBoxParticipantes.DisplayMember = "nombreApellidos";
                     checkedListBoxParticipantes.ValueMember = "email";
@@ -84,9 +85,19 @@ namespace Beatrix_Formulario
                 usuariosReuniones = participantesSeleccionados,
                 descripcion = richTextBoxInformacion.Text
             };
-            
-            string rutaBase = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "GitHub", "Proyecto_escritorio_form", "JSON");
-            string rutaArchivo = Path.Combine(rutaBase, "Reuniones.json");
+
+
+            // Sube tres niveles desde bin\Debug\net8.0-windows
+            string rutaProyecto = Directory.GetParent(Application.StartupPath).Parent.Parent.Parent.FullName;
+
+            // Asegura que la carpeta JSON exista
+            string carpetaJson = Path.Combine(rutaProyecto, "JSON");
+            Directory.CreateDirectory(carpetaJson);
+
+            // Ruta completa al archivo Reuniones.json
+            string rutaArchivo = Path.Combine(carpetaJson, "Reuniones.json");
+
+
 
             try
             {
