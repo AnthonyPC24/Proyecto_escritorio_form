@@ -36,7 +36,7 @@ namespace Beatrix_Formulario
                 return;
             }
 
-            // --- 2. CREACIÓN DEL OBJETO PROYECTO (¡CON LA CORRECCIÓN!) ---
+            // --- 2. CREACIÓN DEL OBJETO PROYECTO
             Proyectos proyectoTemporal = new Proyectos
             {
                 NombreProyecto = txtNombre.Text,
@@ -58,7 +58,7 @@ namespace Beatrix_Formulario
             // --- 4. LÓGICA DE GUARDADO EN JSON ---
             try
             {
-                string rutaArchivoJson = @"JSON\Proyectos.JSON";
+                string rutaArchivoJson = Path.Combine(Application.StartupPath, "JSON", "Proyectos.JSON");
                 List<Proyectos> listaDeProyectos;
 
                 // A. Leer el archivo JSON existente
@@ -84,7 +84,7 @@ namespace Beatrix_Formulario
 
                 // C. Serializar y Escribir el archivo de nuevo
                 var options = new JsonSerializerOptions { WriteIndented = true };
-                string jsonActualizado = JsonSerializer.Serialize(listaDeProyectos, options);
+                string jsonActualizado = JsonSerializer.Serialize(listaDeProyectos, new JsonSerializerOptions { WriteIndented=true});
                 File.WriteAllText(rutaArchivoJson, jsonActualizado);
 
                 // --- 5. GUARDAR Y CERRAR ---
@@ -108,7 +108,7 @@ namespace Beatrix_Formulario
         // --- CÓDIGO DE CARGA DE FORMULARIO ---
         private void FormProyectosGerard2_Load_1(object sender, EventArgs e)
         {
-            string rutaUsuariosJson = @"JSON\Usuarios.JSON";
+            string rutaUsuariosJson = Path.Combine(Application.StartupPath, "JSON", "Usuarios.JSON");
 
             if (File.Exists(rutaUsuariosJson))
             {
