@@ -1,63 +1,56 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
+using System.Text.Json;
 using System.Windows.Forms;
 using Beatrix_Formulario.ClasesTareas;
-
-// --- PASO 1: Añade estos 'using' ---
-using System.IO;                  // Para leer/escribir archivos
-using System.Text.Json;           // Para procesar JSON
 
 namespace Beatrix_Formulario
 {
     public partial class FormProyectosGerard1 : Form
     {
         private List<Proyectos> listaDeProyectos;
-        private string rutaArchivoJson = @"JSON\Proyectos.JSON";
+        private string rutaArchivoJson;
 
         public FormProyectosGerard1()
         {
             InitializeComponent();
+
+            // ✅ Usa una ruta segura (siempre relativa al ejecutable)
+            rutaArchivoJson = Path.Combine(Application.StartupPath, "JSON", "Proyectos.JSON");
         }
+
         private void FormProyectosGerard1_Load_1(object sender, EventArgs e)
         {
             CargarProyectosDesdeJson();
         }
 
-        // --- PASO 3: Código ACTUALIZADO para "+ Crear Proyecto" ---
-        // (Tu método se llama label1_Click)
+        // --- Al hacer clic en "Crear Proyecto" ---
         private void label1_Click(object sender, EventArgs e)
         {
             using (FormProyectosGerard2 formCrear = new FormProyectosGerard2())
             {
                 DialogResult resultado = formCrear.ShowDialog();
 
-                // --- ¡AÑADE ESTA LÓGICA! ---
-                // Comprueba si el usuario hizo clic en "Crear" en Form2
+                // ✅ Ya no llamamos a GuardarProyectosEnJson()
+                // porque Form2 ya guarda el proyecto directamente.
                 if (resultado == DialogResult.OK)
                 {
-                    CargarProyectosDesdeJson();
+                    CargarProyectosDesdeJson(); // Solo recargamos los datos
                 }
             }
         }
 
-        // --- PASO 4: Añade estos nuevos métodos ---
-
-        /// <summary>
-        /// Carga el archivo JSON y rellena la lista 'listaDeProyectos'
-        /// </summary>
+        // --- Cargar proyectos desde JSON ---
         private void CargarProyectosDesdeJson()
         {
             if (File.Exists(rutaArchivoJson))
             {
                 try
                 {
-                    string json = File.ReadAllText(rutaArchivoJson, Encoding.Default);
+                    string json = File.ReadAllText(rutaArchivoJson, Encoding.UTF8);
                     if (string.IsNullOrWhiteSpace(json))
                     {
                         listaDeProyectos = new List<Proyectos>();
@@ -81,30 +74,9 @@ namespace Beatrix_Formulario
             RefrescarDataGridView();
         }
 
-        /// <summary>
-        /// Guarda la 'listaDeProyectos' actual en el archivo JSON
-        /// (Es útil si Form2 no guardara directamente)
-        /// </summary>
-        private void GuardarProyectosEnJson()
-        {
-            try
-            {
-                var options = new JsonSerializerOptions { WriteIndented = true };
-                string json = JsonSerializer.Serialize(listaDeProyectos, options);
-                File.WriteAllText(rutaArchivoJson, json);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Error al guardar en el archivo JSON: {ex.Message}");
-            }
-        }
-
-        /// <summary>
-        /// Borra el DataGridView y lo rellena con la 'listaDeProyectos'
-        /// </summary>
+        // --- Refrescar la tabla ---
         private void RefrescarDataGridView()
         {
-            // ¡Asegúrate de que tu DataGridView se llama 'dataGridViewTarea'!
             dataGridViewTarea.Rows.Clear();
 
             if (listaDeProyectos == null) return;
@@ -115,22 +87,15 @@ namespace Beatrix_Formulario
             }
         }
 
-        /// <summary>
-        /// Método ayudante para añadir una fila al DataGridView
-        /// </summary>
         private void AgregarFilaAGrid(Proyectos proyecto)
         {
             string usuariosStr = "N/A";
 
-            // Comprobación para evitar error si 'UsuariosAsignados' es null
-            if (proyecto.UsuariosAsignados != null)
+            if (proyecto.UsuariosAsignados != null && proyecto.UsuariosAsignados.Any())
             {
-                usuariosStr = string.Join(", ",
-                    proyecto.UsuariosAsignados.Select(u => u.nombreUsuario)
-                );
+                usuariosStr = string.Join(", ", proyecto.UsuariosAsignados.Select(u => u.nombreApellidos));
             }
 
-            // Añade la fila
             dataGridViewTarea.Rows.Add(
                 proyecto.NombreProyecto,
                 usuariosStr,
@@ -138,9 +103,7 @@ namespace Beatrix_Formulario
             );
         }
 
-
-        // --- Tus otros métodos (déjalos como están) ---
-
+        // --- Otros métodos del form ---
         private void pictureBox1_Click(object sender, EventArgs e) { }
         private void pictureBox1_Click_1(object sender, EventArgs e) { }
         private void button1_Click(object sender, EventArgs e) { }
@@ -148,7 +111,5 @@ namespace Beatrix_Formulario
         private void btnTareas_Click(object sender, EventArgs e) { }
         private void button4_Click(object sender, EventArgs e) { }
         private void dataGridViewTarea_CellContentClick(object sender, DataGridViewCellEventArgs e) { }
-
-        
     }
 }

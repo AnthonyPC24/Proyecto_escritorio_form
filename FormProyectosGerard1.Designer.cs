@@ -41,8 +41,6 @@
             textBox1 = new TextBox();
             label1 = new Label();
             button2 = new Button();
-            button3 = new Button();
-            button4 = new Button();
             dataGridViewTarea = new DataGridView();
             Column1 = new DataGridViewTextBoxColumn();
             ColumnUsuario = new DataGridViewTextBoxColumn();
@@ -156,7 +154,7 @@
             label1.AutoSize = true;
             label1.Font = new Font("Montserrat Medium", 8.999999F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label1.ForeColor = Color.FromArgb(41, 191, 205);
-            label1.Location = new Point(270, 77);
+            label1.Location = new Point(266, 93);
             label1.Name = "label1";
             label1.Size = new Size(103, 18);
             label1.TabIndex = 11;
@@ -172,31 +170,6 @@
             button2.Size = new Size(35, 29);
             button2.TabIndex = 15;
             button2.UseVisualStyleBackColor = true;
-            // 
-            // button3
-            // 
-            button3.BackColor = Color.White;
-            button3.Font = new Font("Montserrat Light", 8.999999F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            button3.ForeColor = Color.Black;
-            button3.Location = new Point(266, 130);
-            button3.Name = "button3";
-            button3.Size = new Size(172, 38);
-            button3.TabIndex = 16;
-            button3.Text = "Ordenar por";
-            button3.UseVisualStyleBackColor = false;
-            // 
-            // button4
-            // 
-            button4.BackColor = Color.White;
-            button4.Font = new Font("Montserrat Light", 8.999999F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            button4.ForeColor = Color.Black;
-            button4.Location = new Point(457, 130);
-            button4.Name = "button4";
-            button4.Size = new Size(172, 38);
-            button4.TabIndex = 17;
-            button4.Text = "Filtrar por";
-            button4.UseVisualStyleBackColor = false;
-            button4.Click += button4_Click;
             // 
             // dataGridViewTarea
             // 
@@ -214,14 +187,14 @@
             dataGridViewTarea.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridViewTarea.Columns.AddRange(new DataGridViewColumn[] { Column1, ColumnUsuario, Column2 });
             dataGridViewTarea.GridColor = SystemColors.Control;
-            dataGridViewTarea.Location = new Point(266, 203);
+            dataGridViewTarea.Location = new Point(266, 145);
             dataGridViewTarea.Margin = new Padding(3, 2, 3, 2);
             dataGridViewTarea.Name = "dataGridViewTarea";
             dataGridViewTarea.ReadOnly = true;
             dataGridViewTarea.RowHeadersWidth = 51;
             dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridViewTarea.RowsDefaultCellStyle = dataGridViewCellStyle2;
-            dataGridViewTarea.Size = new Size(907, 382);
+            dataGridViewTarea.Size = new Size(973, 413);
             dataGridViewTarea.TabIndex = 18;
             dataGridViewTarea.CellContentClick += dataGridViewTarea_CellContentClick;
             // 
@@ -251,8 +224,6 @@
             BackColor = Color.White;
             ClientSize = new Size(1264, 681);
             Controls.Add(dataGridViewTarea);
-            Controls.Add(button4);
-            Controls.Add(button3);
             Controls.Add(button2);
             Controls.Add(label1);
             Controls.Add(textBox1);
@@ -279,8 +250,6 @@
         private TextBox textBox1;
         private Label label1;
         private Button button2;
-        private Button button3;
-        private Button button4;
         private DataGridView dataGridViewTarea;
         private PictureBox pictureBox1;
         private DataGridViewTextBoxColumn Column1;
