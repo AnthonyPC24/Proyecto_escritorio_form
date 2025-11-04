@@ -105,10 +105,8 @@ namespace Beatrix_Formulario
         {
             if (string.IsNullOrWhiteSpace(textBoxNombreNuevaTarea.Text))
             {
-
                 MessageBox.Show("Introduzca el nombre de la tarea.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
-
             }
 
             if (comboBoxProyectoNuevaTarea.SelectedItem == null)
@@ -117,16 +115,16 @@ namespace Beatrix_Formulario
                 return;
             }
 
-            if(listBoxUsuarios.Items.Count == 0)
+            if (listBoxUsuarios.Items.Count == 0)
             {
                 MessageBox.Show("Asigne al menos un usuario a la tarea.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
-            try 
+            try
             {
+                // Crear la nueva tarea
                 NuevaTareaCreada = new Tareas
-
                 {
                     nombreTarea = textBoxNombreNuevaTarea.Text,
                     descripcion = richTextBoxDescripcion.Text,
@@ -136,40 +134,51 @@ namespace Beatrix_Formulario
                     usuariosAsignados = new List<Usuarios>()
                 };
 
-                //Añadir los usuarios seleccionados en la listbox a la nueva tarea
+                // Añadir los usuarios seleccionados en la listbox a la nueva tarea
                 foreach (var item in listBoxUsuarios.Items)
                 {
                     NuevaTareaCreada.usuariosAsignados.Add(new Usuarios { nombreUsuario = item.ToString() });
                 }
 
+                // Ruta donde encuentra el proyecto
+                string rutaArchivoProyecto = Path.GetFullPath(
+                    Path.Combine(Application.StartupPath, @"..\..\..\JSON\Proyectos.json")
+                );
 
-                // Cargar proyectos desde JSON para verificar
-                string rutaArchivoProyecto = Path.Combine(Application.StartupPath, "JSON", "Proyectos.json");
-                string jsonProyectos = File.ReadAllText(rutaArchivoProyecto);
-
-                var listaProyectos = JsonSerializer.Deserialize<List<Proyectos>>(jsonProyectos);
-
-                if (listaProyectos == null) {
-                    MessageBox.Show("No se pudieron cargar los proyectos.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                // Verificar que el archivo existe
+                if (!File.Exists(rutaArchivoProyecto))
+                {
+                    MessageBox.Show($"No se encontró el archivo JSON en:\n{rutaArchivoProyecto}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
-
                 }
 
-                //Buscar el proyecto seleccionado
+                //  Leer el JSON correctamente
+                string jsonProyectos = File.ReadAllText(rutaArchivoProyecto);
+                var listaProyectos = JsonSerializer.Deserialize<List<Proyectos>>(jsonProyectos);
 
+                if (listaProyectos == null)
+                {
+                    MessageBox.Show("No se pudieron cargar los proyectos.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                // Buscar el proyecto seleccionado
                 string nombreProyectoSeleccionado = comboBoxProyectoNuevaTarea.SelectedItem.ToString();
                 var proyectoSeleccionado = listaProyectos.FirstOrDefault(p => p.NombreProyecto == nombreProyectoSeleccionado);
 
-                if(proyectoSeleccionado == null)
+                if (proyectoSeleccionado == null)
                 {
-                    MessageBox.Show("No se encontró el proyecto seleccionado en el archivo Json.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("No se encontró el proyecto seleccionado en el archivo JSON.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
 
-                //Añadir la nueva tarea al proyecto seleccionado
+                // Añadir la nueva tarea al proyecto seleccionado
+                if (proyectoSeleccionado.Tareas == null)
+                    proyectoSeleccionado.Tareas = new List<Tareas>();
+
                 proyectoSeleccionado.Tareas.Add(NuevaTareaCreada);
 
-                //Guardar los cambios en el archivo JSON
+                // Guardar los cambios en el archivo JSON
                 string proyectosActualizadosJson = JsonSerializer.Serialize(listaProyectos, new JsonSerializerOptions { WriteIndented = true });
                 File.WriteAllText(rutaArchivoProyecto, proyectosActualizadosJson);
 
@@ -182,12 +191,8 @@ namespace Beatrix_Formulario
             {
                 MessageBox.Show($"Error al crear la tarea: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-
-           
-
-            this.DialogResult = DialogResult.OK;
-            this.Close();
         }
+
 
         private void buttonCancelarTarea_Click(object sender, EventArgs e)
         {
