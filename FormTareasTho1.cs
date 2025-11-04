@@ -66,32 +66,51 @@ namespace Beatrix_Formulario
 
         private void buttonNuevaTarea_Click(object sender, EventArgs e)
         {
-            FormTareasTho2 nuevaTarea = new FormTareasTho2();
+            FormTareasTho2 nuevaTareaForm = new FormTareasTho2();
 
-            if (nuevaTarea.ShowDialog() == DialogResult.OK)
+            if (nuevaTareaForm.ShowDialog() == DialogResult.OK)
             {
-                Tareas tareaCreada = nuevaTarea.NuevaTareaCreada;
-              
                 string nombreProyecto = comboBoxProyectos.SelectedItem?.ToString();
-                if (nombreProyecto == null) return;
+
+                Proyectos proyecto;
+
+                // Si no hay proyecto seleccionado, crear uno temporal o general
+                if (string.IsNullOrEmpty(nombreProyecto))
                 {
-                    MessageBox.Show("Seleccione un proyecto para añadir la tarea.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
-
+                    proyecto = new Proyectos { NombreProyecto = "Proyecto sin asignar" };
+                    listaProyectos.Add(proyecto);
+                    comboBoxProyectos.Items.Add(proyecto.NombreProyecto);
                 }
-                Proyectos proyecto = listaProyectos.FirstOrDefault(p => p.NombreProyecto == nombreProyecto);
-
-                if(proyecto != null)
+                else
                 {
-                    proyecto.Tareas.Add(tareaCreada);
-                    comboBoxTareas.Items.Add(tareaCreada.nombreTarea);
+                    proyecto = listaProyectos.FirstOrDefault(p => p.NombreProyecto == nombreProyecto);
 
-                    string rutaArchivoProyectos = System.IO.Path.Combine(Application.StartupPath, "JSON", "Proyectos.json");
-                    string jsonActualizado = jsonActualizado = JsonSerializer.Serialize(listaProyectos, new JsonSerializerOptions { WriteIndented = true });
-
-                    MessageBox.Show("Tarea añadida al proyecto correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    if (proyecto == null)
+                    {
+                        MessageBox.Show("No se encontró el proyecto en la lista.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
                 }
 
+                // Asegurar lista de tareas
+                if (proyecto.Tareas == null)
+                    proyecto.Tareas = new List<Tareas>();
+
+                // Agregar la nueva tarea
+                proyecto.Tareas.Add(nuevaTareaForm.NuevaTareaCreada);
+
+                // Guardar en JSON
+                string rutaArchivo = Path.Combine(Application.StartupPath, "JSON", "Proyectos.json");
+                string jsonActualizado = JsonSerializer.Serialize(listaProyectos, new JsonSerializerOptions { WriteIndented = true });
+                File.WriteAllText(rutaArchivo, jsonActualizado);
+
+                // Si estamos viendo ese proyecto en el comboBox, actualizamos la lista de tareas
+                if (comboBoxProyectos.SelectedItem?.ToString() == proyecto.NombreProyecto)
+                {
+                    comboBoxTareas.Items.Add(nuevaTareaForm.NuevaTareaCreada.nombreTarea);
+                }
+
+                MessageBox.Show("Tarea añadida correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 

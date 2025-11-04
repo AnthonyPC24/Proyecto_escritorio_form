@@ -24,5 +24,4 @@ namespace Beatrix_Formulario.ClasesTareas
 
     }
 
-
 }

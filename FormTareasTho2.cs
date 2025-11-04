@@ -20,9 +20,47 @@ namespace Beatrix_Formulario
         public FormTareasTho2()
         {
             InitializeComponent();
-            comboBoxProyectoNuevaTarea.Items.Add("Proyectos");
 
+            //Carga los usuarios del Json al combobox
             cargarUsuariosDesdeJson();
+
+            //Carga los proyectos del Json al combobox
+            cargarProyectosDesdeJson();
+
+        }
+
+        private void cargarProyectosDesdeJson()
+        {
+            try
+            {
+                string rutaArchivoProyecto = Path.Combine(Application.StartupPath, "JSON", "Proyectos.json");
+
+                if (!File.Exists(rutaArchivoProyecto))
+                {
+                    MessageBox.Show("No se encontró el archivo de proyectos.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                string jsonProyectos = File.ReadAllText(rutaArchivoProyecto);
+                var listaProyectos = JsonSerializer.Deserialize<List<Proyectos>>(jsonProyectos);
+
+                if (listaProyectos == null || listaProyectos.Count == 0)
+                {
+                    MessageBox.Show("No hay proyectos en el archivo JSON.", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return;
+                }
+
+                comboBoxProyectoNuevaTarea.Items.Clear();
+                foreach (var proyectos in listaProyectos)
+                {
+                    comboBoxProyectoNuevaTarea.Items.Add(proyectos.NombreProyecto);
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error al cargar proyectos: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void cargarUsuariosDesdeJson()
@@ -49,7 +87,7 @@ namespace Beatrix_Formulario
                 comboBoxUsuariosAsignarTareas.Items.Clear();
                 foreach (var usuario in listaUsuarios)
                 {
-                    comboBoxUsuariosAsignarTareas.Items.Add(usuario.nombreApellidos);
+                    comboBoxUsuariosAsignarTareas.Items.Add(usuario.nombreUsuario);
                 }
             }
             catch (Exception ex)
@@ -60,7 +98,7 @@ namespace Beatrix_Formulario
 
         private void comboBoxProyectoNuevaTarea_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            
         }
 
         private void buttonCrearNuevaTarea_Click(object sender, EventArgs e)
@@ -73,22 +111,79 @@ namespace Beatrix_Formulario
 
             }
 
-            if (comboBoxUsuariosAsignarTareas == null)
+            if (comboBoxProyectoNuevaTarea.SelectedItem == null)
             {
-                MessageBox.Show("Seleccine un usuario");
+                MessageBox.Show("Seleccione un proyecto para la tarea.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
-
             }
 
-            NuevaTareaCreada = new Tareas
-
+            if(listBoxUsuarios.Items.Count == 0)
             {
-                nombreTarea = textBoxNombreNuevaTarea.Text,
-                descripcion = richTextBoxDescripcion.Text,
-                fechaEntrega = dateTimePickerFechaTareaFin.Value,
-                fechaInicio = dateTimePickerFechaTareaInicio.Value,
-                estado = "Pendiente"
-            };
+                MessageBox.Show("Asigne al menos un usuario a la tarea.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            try 
+            {
+                NuevaTareaCreada = new Tareas
+
+                {
+                    nombreTarea = textBoxNombreNuevaTarea.Text,
+                    descripcion = richTextBoxDescripcion.Text,
+                    fechaEntrega = dateTimePickerFechaTareaFin.Value,
+                    fechaInicio = dateTimePickerFechaTareaInicio.Value,
+                    estado = "Pendiente",
+                    usuariosAsignados = new List<Usuarios>()
+                };
+
+                //Añadir los usuarios seleccionados en la listbox a la nueva tarea
+                foreach (var item in listBoxUsuarios.Items)
+                {
+                    NuevaTareaCreada.usuariosAsignados.Add(new Usuarios { nombreUsuario = item.ToString() });
+                }
+
+
+                // Cargar proyectos desde JSON para verificar
+                string rutaArchivoProyecto = Path.Combine(Application.StartupPath, "JSON", "Proyectos.json");
+                string jsonProyectos = File.ReadAllText(rutaArchivoProyecto);
+
+                var listaProyectos = JsonSerializer.Deserialize<List<Proyectos>>(jsonProyectos);
+
+                if (listaProyectos == null) {
+                    MessageBox.Show("No se pudieron cargar los proyectos.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+
+                }
+
+                //Buscar el proyecto seleccionado
+
+                string nombreProyectoSeleccionado = comboBoxProyectoNuevaTarea.SelectedItem.ToString();
+                var proyectoSeleccionado = listaProyectos.FirstOrDefault(p => p.NombreProyecto == nombreProyectoSeleccionado);
+
+                if(proyectoSeleccionado == null)
+                {
+                    MessageBox.Show("No se encontró el proyecto seleccionado en el archivo Json.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                //Añadir la nueva tarea al proyecto seleccionado
+                proyectoSeleccionado.Tareas.Add(NuevaTareaCreada);
+
+                //Guardar los cambios en el archivo JSON
+                string proyectosActualizadosJson = JsonSerializer.Serialize(listaProyectos, new JsonSerializerOptions { WriteIndented = true });
+                File.WriteAllText(rutaArchivoProyecto, proyectosActualizadosJson);
+
+                MessageBox.Show("Tarea creada y asignada al proyecto correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                this.DialogResult = DialogResult.OK;
+                this.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error al crear la tarea: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+           
 
             this.DialogResult = DialogResult.OK;
             this.Close();
