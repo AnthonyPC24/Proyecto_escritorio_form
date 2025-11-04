@@ -40,17 +40,11 @@ namespace Beatrix_Formulario
             Proyectos proyectoTemporal = new Proyectos
             {
                 NombreProyecto = txtNombre.Text,
-
-                // --- ¡AQUÍ ESTÁ EL CAMBIO! ---
-                // Cogemos el valor del primer 'DateTimePicker'
                 fechaInicio = dateTimePicker1.Value,
-
-                // Cogemos el valor del segundo 'DateTimePicker'
                 fechaEntrega = dateTimePicker2.Value
             };
 
             // --- 3. PROCESAMIENTO DE USUARIOS ---
-            // (Esto ya estaba bien)
             foreach (object item in listBoxUsuarios.Items)
             {
                 string nombreUsuario = item.ToString();
@@ -114,7 +108,6 @@ namespace Beatrix_Formulario
         // --- CÓDIGO DE CARGA DE FORMULARIO ---
         private void FormProyectosGerard2_Load_1(object sender, EventArgs e)
         {
-            MessageBox.Show("¡El evento LOAD se está ejecutando!");
             string rutaUsuariosJson = @"JSON\Usuarios.JSON";
 
             if (File.Exists(rutaUsuariosJson))
@@ -145,10 +138,6 @@ namespace Beatrix_Formulario
             }
         }
 
-        // --- LÓGICA DEL COMBOBOX -> LISTBOX ---
-        // (Tu código de aquí está bien, pero asegúrate 
-        // de que 'comboBox1.SelectedItem = -1;' sea 
-        // 'comboBox1.SelectedIndex = -1;')
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (comboBoxUsuarios.SelectedItem != null)
