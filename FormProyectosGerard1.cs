@@ -18,7 +18,6 @@ namespace Beatrix_Formulario
         {
             InitializeComponent();
 
-            // ✅ Usa una ruta segura (siempre relativa al ejecutable)
             rutaArchivoJson = Path.Combine(Application.StartupPath, "JSON", "Proyectos.JSON");
         }
 
@@ -28,20 +27,6 @@ namespace Beatrix_Formulario
         }
 
         // --- Al hacer clic en "Crear Proyecto" ---
-        private void label1_Click(object sender, EventArgs e)
-        {
-            using (FormProyectosGerard2 formCrear = new FormProyectosGerard2())
-            {
-                DialogResult resultado = formCrear.ShowDialog();
-
-                // ✅ Ya no llamamos a GuardarProyectosEnJson()
-                // porque Form2 ya guarda el proyecto directamente.
-                if (resultado == DialogResult.OK)
-                {
-                    CargarProyectosDesdeJson(); // Solo recargamos los datos
-                }
-            }
-        }
 
         // --- Cargar proyectos desde JSON ---
         private void CargarProyectosDesdeJson()
@@ -57,7 +42,11 @@ namespace Beatrix_Formulario
                     }
                     else
                     {
-                        listaDeProyectos = JsonSerializer.Deserialize<List<Proyectos>>(json);
+                        var options = new JsonSerializerOptions
+                        {
+                            PropertyNameCaseInsensitive = true
+                        };
+                        listaDeProyectos = JsonSerializer.Deserialize<List<Proyectos>>(json, options);
                     }
                 }
                 catch (Exception ex)
@@ -93,7 +82,7 @@ namespace Beatrix_Formulario
 
             if (proyecto.UsuariosAsignados != null && proyecto.UsuariosAsignados.Any())
             {
-                usuariosStr = string.Join(", ", proyecto.UsuariosAsignados.Select(u => u.nombreApellidos));
+                usuariosStr = string.Join(", ", proyecto.UsuariosAsignados.Select(u => u.nombreUsuario));
             }
 
             dataGridViewTarea.Rows.Add(
