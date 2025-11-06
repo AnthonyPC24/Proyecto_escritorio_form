@@ -48,8 +48,8 @@ namespace Beatrix_Formulario
 
             formReunionesDy2.ReunionCreada += (s, ev) =>
             {
-                CargarReuniones();         
-                CargarReunionesDataGrid();  
+                CargarReuniones();
+                CargarReunionesDataGrid();
             };
 
             formReunionesDy2.ShowDialog();
@@ -118,7 +118,7 @@ namespace Beatrix_Formulario
 
             if (reuniones == null || reuniones.Count == 0)
             {
-                
+
                 panelReunion1.Visible = false;
                 panelReunion2.Visible = false;
                 panelReunion3.Visible = false;
@@ -137,20 +137,20 @@ namespace Beatrix_Formulario
             Label[] labelsDescripcion = { labelInformaciónDeLaReunion1, labelInformaciónDeLaReunion2, labelInformaciónDeLaReunion3 };
             Label[] labelsHora = { labelHoraReunion1, labelHoraReunion2, labelHoraReunion3 };
 
-            
+
             Panel[] paneles = { panelReunion1, panelReunion2, panelReunion3 };
 
-        
+
             for (int i = 0; i < paneles.Length; i++)
             {
                 if (i < proximasTres.Count)
                 {
                     var reunion = proximasTres[i];
-                    paneles[i].Visible = true; 
+                    paneles[i].Visible = true;
 
-                    labelsTitulo[i].Text = reunion.titulo;       
-                    labelsTitulo[i].AutoEllipsis = false;                  
-                    labelsTitulo[i].TextAlign = ContentAlignment.TopLeft;  
+                    labelsTitulo[i].Text = reunion.titulo;
+                    labelsTitulo[i].AutoEllipsis = false;
+                    labelsTitulo[i].TextAlign = ContentAlignment.TopLeft;
                     labelsTitulo[i].Font = new Font("Arial", 11, FontStyle.Bold);
                     labelsTitulo[i].ForeColor = Color.White;
                     labelsTitulo[i].UseCompatibleTextRendering = true;
@@ -160,10 +160,31 @@ namespace Beatrix_Formulario
                 }
                 else
                 {
-                    
+
                     paneles[i].Visible = false;
                 }
             }
+        }
+
+        private void buttonInicioForm1Tareas_Click(object sender, EventArgs e)
+        {
+            Inicio inicio = new Inicio();
+            inicio.Show();
+            this.Hide();
+        }
+
+        private void buttonProyetos1Tareas_Click(object sender, EventArgs e)
+        {
+            FormProyectosGerard1 formProyectosGerard1 = new FormProyectosGerard1();
+            formProyectosGerard1.Show();
+            this.Hide();
+        }
+
+        private void buttonTareas1Tareas_Click(object sender, EventArgs e)
+        {
+            FormTareasTho1 formTareasTho1 = new FormTareasTho1();
+            formTareasTho1.Show();
+            this.Hide();
         }
     }
 }

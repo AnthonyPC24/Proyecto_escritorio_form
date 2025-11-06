@@ -58,6 +58,55 @@
             ((System.ComponentModel.ISupportInitialize)dgvTarea).BeginInit();
             SuspendLayout();
             // 
+            // dgvTarea
+            // 
+            dgvTarea.AllowUserToResizeColumns = false;
+            dgvTarea.AllowUserToResizeRows = false;
+            dgvTarea.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvTarea.BackgroundColor = Color.White;
+            dgvTarea.CellBorderStyle = DataGridViewCellBorderStyle.SunkenHorizontal;
+            dgvTarea.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = SystemColors.ControlLightLight;
+            dataGridViewCellStyle1.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle1.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
+            dgvTarea.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dgvTarea.ColumnHeadersHeight = 50;
+            dgvTarea.Columns.AddRange(new DataGridViewColumn[] { ColumnTarea, ColumnEspecificaciones, ColumnUsuario });
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = SystemColors.Window;
+            dataGridViewCellStyle2.Font = new Font("Montserrat", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle2.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
+            dgvTarea.DefaultCellStyle = dataGridViewCellStyle2;
+            dgvTarea.GridColor = Color.White;
+            dgvTarea.Location = new Point(239, 40);
+            dgvTarea.Margin = new Padding(3, 2, 3, 2);
+            dgvTarea.Name = "dgvTarea";
+            dgvTarea.ReadOnly = true;
+            dgvTarea.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = Color.White;
+            dataGridViewCellStyle3.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle3.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
+            dgvTarea.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dgvTarea.RowHeadersVisible = false;
+            dgvTarea.RowHeadersWidth = 51;
+            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dgvTarea.RowsDefaultCellStyle = dataGridViewCellStyle4;
+            dgvTarea.RowTemplate.DefaultCellStyle.WrapMode = DataGridViewTriState.True;
+            dgvTarea.RowTemplate.Height = 50;
+            dgvTarea.Size = new Size(844, 211);
+            dgvTarea.TabIndex = 10;
+            // 
             // ColumnTarea
             // 
             ColumnTarea.HeaderText = "Tarea";
@@ -82,7 +131,8 @@
             // monthCalendar
             // 
             monthCalendar.Font = new Font("Montserrat", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            monthCalendar.Location = new Point(273, 396);
+            monthCalendar.Location = new Point(239, 305);
+            monthCalendar.Margin = new Padding(8, 7, 8, 7);
             monthCalendar.Name = "monthCalendar";
             monthCalendar.TabIndex = 6;
             monthCalendar.DateChanged += monthCalendar_DateChanged;
@@ -92,18 +142,20 @@
             comboBoxProyecto.Font = new Font("Montserrat Medium", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             comboBoxProyecto.FormattingEnabled = true;
             comboBoxProyecto.Items.AddRange(new object[] { "Proyecto 1", "Proyecto 2", "Proyecto 3" });
-            comboBoxProyecto.Location = new Point(273, 12);
+            comboBoxProyecto.Location = new Point(239, 9);
+            comboBoxProyecto.Margin = new Padding(3, 2, 3, 2);
             comboBoxProyecto.Name = "comboBoxProyecto";
-            comboBoxProyecto.Size = new Size(151, 32);
+            comboBoxProyecto.Size = new Size(133, 26);
             comboBoxProyecto.TabIndex = 7;
             comboBoxProyecto.Text = "Proyecto 1";
             comboBoxProyecto.SelectedIndexChanged += comboBoxProyecto_SelectedIndexChanged;
             // 
             // btnIdioma
             // 
-            btnIdioma.Location = new Point(1181, 12);
+            btnIdioma.Location = new Point(1033, 9);
+            btnIdioma.Margin = new Padding(3, 2, 3, 2);
             btnIdioma.Name = "btnIdioma";
-            btnIdioma.Size = new Size(57, 29);
+            btnIdioma.Size = new Size(50, 22);
             btnIdioma.TabIndex = 12;
             btnIdioma.UseVisualStyleBackColor = true;
             btnIdioma.Click += btnIdioma_Click;
@@ -118,9 +170,8 @@
             panelBarraOpciones.Controls.Add(buttonInicioForm1Tareas);
             panelBarraOpciones.Dock = DockStyle.Left;
             panelBarraOpciones.Location = new Point(0, 0);
-            panelBarraOpciones.Margin = new Padding(3, 4, 3, 4);
             panelBarraOpciones.Name = "panelBarraOpciones";
-            panelBarraOpciones.Size = new Size(250, 673);
+            panelBarraOpciones.Size = new Size(219, 505);
             panelBarraOpciones.TabIndex = 14;
             // 
             // labelBeatrix
@@ -128,9 +179,9 @@
             labelBeatrix.AutoSize = true;
             labelBeatrix.Font = new Font("Montserrat Black", 17.9999981F, FontStyle.Bold, GraphicsUnit.Point, 0);
             labelBeatrix.ForeColor = Color.Transparent;
-            labelBeatrix.Location = new Point(14, 24);
+            labelBeatrix.Location = new Point(12, 18);
             labelBeatrix.Name = "labelBeatrix";
-            labelBeatrix.Size = new Size(139, 47);
+            labelBeatrix.Size = new Size(112, 38);
             labelBeatrix.TabIndex = 4;
             labelBeatrix.Text = "Beatrix";
             // 
@@ -139,49 +190,48 @@
             buttonReuniones1Tareas.BackColor = Color.FromArgb(41, 195, 205);
             buttonReuniones1Tareas.Font = new Font("Montserrat Medium", 8.999999F, FontStyle.Bold, GraphicsUnit.Point, 0);
             buttonReuniones1Tareas.ForeColor = Color.White;
-            buttonReuniones1Tareas.Location = new Point(14, 567);
-            buttonReuniones1Tareas.Margin = new Padding(3, 4, 3, 4);
+            buttonReuniones1Tareas.Location = new Point(12, 425);
             buttonReuniones1Tareas.Name = "buttonReuniones1Tareas";
-            buttonReuniones1Tareas.Size = new Size(213, 71);
+            buttonReuniones1Tareas.Size = new Size(186, 53);
             buttonReuniones1Tareas.TabIndex = 3;
             buttonReuniones1Tareas.Text = "Reuniones";
             buttonReuniones1Tareas.UseVisualStyleBackColor = false;
+            buttonReuniones1Tareas.Click += buttonReuniones1Tareas_Click;
             // 
             // buttonTareas1Tareas
             // 
             buttonTareas1Tareas.BackColor = Color.FromArgb(41, 195, 205);
             buttonTareas1Tareas.Font = new Font("Montserrat Medium", 8.999999F, FontStyle.Bold, GraphicsUnit.Point, 0);
             buttonTareas1Tareas.ForeColor = Color.White;
-            buttonTareas1Tareas.Location = new Point(14, 488);
-            buttonTareas1Tareas.Margin = new Padding(3, 4, 3, 4);
+            buttonTareas1Tareas.Location = new Point(12, 366);
             buttonTareas1Tareas.Name = "buttonTareas1Tareas";
-            buttonTareas1Tareas.Size = new Size(213, 71);
+            buttonTareas1Tareas.Size = new Size(186, 53);
             buttonTareas1Tareas.TabIndex = 2;
             buttonTareas1Tareas.Text = "Tareas";
             buttonTareas1Tareas.UseVisualStyleBackColor = false;
+            buttonTareas1Tareas.Click += buttonTareas1Tareas_Click;
             // 
             // buttonProyetos1Tareas
             // 
             buttonProyetos1Tareas.BackColor = Color.FromArgb(41, 195, 205);
             buttonProyetos1Tareas.Font = new Font("Montserrat Medium", 8.999999F, FontStyle.Bold, GraphicsUnit.Point, 0);
             buttonProyetos1Tareas.ForeColor = Color.White;
-            buttonProyetos1Tareas.Location = new Point(14, 409);
-            buttonProyetos1Tareas.Margin = new Padding(3, 4, 3, 4);
+            buttonProyetos1Tareas.Location = new Point(12, 307);
             buttonProyetos1Tareas.Name = "buttonProyetos1Tareas";
-            buttonProyetos1Tareas.Size = new Size(213, 71);
+            buttonProyetos1Tareas.Size = new Size(186, 53);
             buttonProyetos1Tareas.TabIndex = 1;
             buttonProyetos1Tareas.Text = "Proyectos";
             buttonProyetos1Tareas.UseVisualStyleBackColor = false;
+            buttonProyetos1Tareas.Click += buttonProyetos1Tareas_Click;
             // 
             // buttonInicioForm1Tareas
             // 
             buttonInicioForm1Tareas.BackColor = Color.FromArgb(41, 195, 205);
             buttonInicioForm1Tareas.Font = new Font("Montserrat Medium", 8.999999F, FontStyle.Bold, GraphicsUnit.Point, 0);
             buttonInicioForm1Tareas.ForeColor = Color.White;
-            buttonInicioForm1Tareas.Location = new Point(14, 331);
-            buttonInicioForm1Tareas.Margin = new Padding(3, 4, 3, 4);
+            buttonInicioForm1Tareas.Location = new Point(12, 248);
             buttonInicioForm1Tareas.Name = "buttonInicioForm1Tareas";
-            buttonInicioForm1Tareas.Size = new Size(213, 71);
+            buttonInicioForm1Tareas.Size = new Size(186, 53);
             buttonInicioForm1Tareas.TabIndex = 0;
             buttonInicioForm1Tareas.Text = "Inicio";
             buttonInicioForm1Tareas.UseVisualStyleBackColor = false;
@@ -298,17 +348,18 @@
             // 
             // Inicio
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ControlLightLight;
-            ClientSize = new Size(1262, 673);
-            Controls.Add(dgvReuniones);
+            ClientSize = new Size(1104, 505);
             Controls.Add(panelBarraOpciones);
             Controls.Add(btnIdioma);
             Controls.Add(dgvTarea);
             Controls.Add(comboBoxProyecto);
             Controls.Add(monthCalendar);
+            Margin = new Padding(3, 2, 3, 2);
             Name = "Inicio";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Inicio";
             Load += Inicio_Load;
             panelBarraOpciones.ResumeLayout(false);
