@@ -43,6 +43,8 @@
             txtCorreu = new TextBox();
             txtNombre = new TextBox();
             pictureBoxUsuario = new PictureBox();
+            lblCrearUsuario = new Label();
+            lblTitulo = new Label();
             panelBarraOpciones.SuspendLayout();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBoxUsuario).BeginInit();
@@ -140,10 +142,9 @@
             // 
             // btnEditar
             // 
-            btnEditar.Location = new Point(463, 162);
-            btnEditar.Margin = new Padding(3, 2, 3, 2);
+            btnEditar.Location = new Point(529, 216);
             btnEditar.Name = "btnEditar";
-            btnEditar.Size = new Size(82, 22);
+            btnEditar.Size = new Size(94, 29);
             btnEditar.TabIndex = 7;
             btnEditar.Text = "Editar";
             btnEditar.UseVisualStyleBackColor = true;
@@ -227,6 +228,7 @@
             panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBoxUsuario).EndInit();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -246,5 +248,7 @@
         private Label label2;
         private Button btnEditar;
         private Label lblTele;
+        private Label lblCrearUsuario;
+        private Label lblTitulo;
     }
 }
