@@ -88,6 +88,7 @@
             btnReunion.TabIndex = 4;
             btnReunion.Text = "Reuniones";
             btnReunion.UseVisualStyleBackColor = false;
+            btnReunion.Click += btnReunion_Click;
             // 
             // btnTareas
             // 
@@ -115,6 +116,7 @@
             btnInicio.TabIndex = 1;
             btnInicio.Text = "Inicio";
             btnInicio.UseVisualStyleBackColor = false;
+            btnInicio.Click += btnInicio_Click;
             // 
             // btnProyectos
             // 
@@ -127,6 +129,7 @@
             btnProyectos.TabIndex = 2;
             btnProyectos.Text = "Proyectos";
             btnProyectos.UseVisualStyleBackColor = true;
+            btnProyectos.Click += btnProyectos_Click;
             // 
             // button1
             // 
@@ -139,7 +142,6 @@
             button1.TabIndex = 8;
             button1.Text = "Buscar";
             button1.UseVisualStyleBackColor = false;
-            button1.Click += button1_Click;
             // 
             // textBox1
             // 
@@ -230,6 +232,7 @@
             Controls.Add(button1);
             Controls.Add(panel1);
             Name = "FormProyectosGerard1";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "FormProyectosGerard1";
             Load += FormProyectosGerard1_Load_1;
             panel1.ResumeLayout(false);

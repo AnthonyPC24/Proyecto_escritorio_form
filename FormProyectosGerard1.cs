@@ -106,10 +106,34 @@ namespace Beatrix_Formulario
         // --- Otros métodos del form ---
         private void pictureBox1_Click(object sender, EventArgs e) { }
         private void pictureBox1_Click_1(object sender, EventArgs e) { }
-        private void button1_Click(object sender, EventArgs e) { }
-        private void btnReunion_Click(object sender, EventArgs e) { }
-        private void btnTareas_Click(object sender, EventArgs e) { }
+
         private void button4_Click(object sender, EventArgs e) { }
         private void dataGridViewTarea_CellContentClick(object sender, DataGridViewCellEventArgs e) { }
+
+        private void btnInicio_Click(object sender, EventArgs e)
+        {
+            Inicio Inicio = new Inicio();
+            Inicio.Show();
+            this.Hide();
+        }
+
+        private void btnProyectos_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnTareas_Click(object sender, EventArgs e)
+        {
+            FormTareasTho1 TareasTho1 = new FormTareasTho1();
+            TareasTho1.Show();
+            this.Hide();
+        }
+
+        private void btnReunion_Click(object sender, EventArgs e)
+        {
+            FormReunionesDy1 formReunionesDy1 = new FormReunionesDy1();
+            formReunionesDy1.Show();
+            this.Hide();
+        }
     }
 }
