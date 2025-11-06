@@ -29,10 +29,8 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
-            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormReunionesDy1));
-            contextMenuStrip1 = new ContextMenuStrip(components);
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             panelBarraOpciones = new Panel();
             label1 = new Label();
             labelBeatrix = new Label();
@@ -42,7 +40,8 @@
             buttonInicioForm1Tareas = new Button();
             monthCalendarReuniones = new MonthCalendar();
             panelParaHoy = new Panel();
-            label2 = new Label();
+            labelVerTodasLasReuniones = new Label();
+            labelReuniones = new Label();
             dataGridViewTarea = new DataGridView();
             labelReunionesProximas = new Label();
             labelCrearReunion = new Label();
@@ -53,7 +52,6 @@
             labelHoraReunion1 = new Label();
             labelParticipantes1 = new Label();
             labelReunionPanel1 = new Label();
-            buttonIdioma = new Button();
             panelReunion2 = new Panel();
             labelInformaciónDeLaReunion2 = new Label();
             labelInformacion2 = new Label();
@@ -68,18 +66,19 @@
             labelHoraReunion3 = new Label();
             labelParticipantes3 = new Label();
             labelReunionPanel3 = new Label();
+            buttonIdioma = new Button();
+            contextMenuStripMenuIdiomas = new ContextMenuStrip(components);
+            españolToolStripMenuItem = new ToolStripMenuItem();
+            englishToolStripMenuItem = new ToolStripMenuItem();
+            catalàToolStripMenuItem = new ToolStripMenuItem();
             panelBarraOpciones.SuspendLayout();
             panelParaHoy.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridViewTarea).BeginInit();
             panelReunion1.SuspendLayout();
             panelReunion2.SuspendLayout();
             panelReunion3.SuspendLayout();
+            contextMenuStripMenuIdiomas.SuspendLayout();
             SuspendLayout();
-            // 
-            // contextMenuStrip1
-            // 
-            contextMenuStrip1.Name = "contextMenuStrip1";
-            contextMenuStrip1.Size = new Size(61, 4);
             // 
             // panelBarraOpciones
             // 
@@ -174,14 +173,16 @@
             // monthCalendarReuniones
             // 
             monthCalendarReuniones.Font = new Font("Montserrat", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            monthCalendarReuniones.Location = new Point(250, 38);
+            monthCalendarReuniones.Location = new Point(326, 56);
             monthCalendarReuniones.Name = "monthCalendarReuniones";
             monthCalendarReuniones.TabIndex = 4;
+            monthCalendarReuniones.DateChanged += monthCalendar1_DateChanged;
             // 
             // panelParaHoy
             // 
             panelParaHoy.BorderStyle = BorderStyle.FixedSingle;
-            panelParaHoy.Controls.Add(label2);
+            panelParaHoy.Controls.Add(labelVerTodasLasReuniones);
+            panelParaHoy.Controls.Add(labelReuniones);
             panelParaHoy.Controls.Add(dataGridViewTarea);
             panelParaHoy.Location = new Point(603, 18);
             panelParaHoy.Name = "panelParaHoy";
@@ -189,29 +190,42 @@
             panelParaHoy.TabIndex = 6;
             panelParaHoy.Paint += panelParaHoy_Paint;
             // 
-            // label2
+            // labelVerTodasLasReuniones
             // 
-            label2.AutoSize = true;
-            label2.Font = new Font("Montserrat", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label2.Location = new Point(222, 7);
-            label2.Name = "label2";
-            label2.Size = new Size(199, 29);
-            label2.TabIndex = 17;
-            label2.Text = "Todas las reuniones";
+            labelVerTodasLasReuniones.AutoSize = true;
+            labelVerTodasLasReuniones.Cursor = Cursors.Hand;
+            labelVerTodasLasReuniones.Font = new Font("Montserrat", 9.749999F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            labelVerTodasLasReuniones.ForeColor = Color.FromArgb(41, 191, 205);
+            labelVerTodasLasReuniones.Location = new Point(14, 7);
+            labelVerTodasLasReuniones.Name = "labelVerTodasLasReuniones";
+            labelVerTodasLasReuniones.Size = new Size(169, 20);
+            labelVerTodasLasReuniones.TabIndex = 17;
+            labelVerTodasLasReuniones.Text = "Ver todas las reuniones";
+            labelVerTodasLasReuniones.Click += labelVerTodasLasReuniones_Click;
+            // 
+            // labelReuniones
+            // 
+            labelReuniones.AutoSize = true;
+            labelReuniones.Font = new Font("Montserrat", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            labelReuniones.Location = new Point(222, 7);
+            labelReuniones.Name = "labelReuniones";
+            labelReuniones.Size = new Size(199, 29);
+            labelReuniones.TabIndex = 17;
+            labelReuniones.Text = "Todas las reuniones";
             // 
             // dataGridViewTarea
             // 
             dataGridViewTarea.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridViewTarea.BackgroundColor = SystemColors.ButtonHighlight;
             dataGridViewTarea.BorderStyle = BorderStyle.Fixed3D;
-            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.BackColor = SystemColors.Control;
-            dataGridViewCellStyle3.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle3.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
-            dataGridViewTarea.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = SystemColors.Control;
+            dataGridViewCellStyle1.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle1.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
+            dataGridViewTarea.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dataGridViewTarea.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridViewTarea.GridColor = SystemColors.Control;
             dataGridViewTarea.Location = new Point(14, 38);
@@ -219,8 +233,8 @@
             dataGridViewTarea.Name = "dataGridViewTarea";
             dataGridViewTarea.ReadOnly = true;
             dataGridViewTarea.RowHeadersWidth = 51;
-            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewTarea.RowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewTarea.RowsDefaultCellStyle = dataGridViewCellStyle2;
             dataGridViewTarea.Size = new Size(570, 255);
             dataGridViewTarea.TabIndex = 11;
             // 
@@ -240,7 +254,7 @@
             labelCrearReunion.Cursor = Cursors.Hand;
             labelCrearReunion.Font = new Font("Montserrat", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             labelCrearReunion.ForeColor = Color.FromArgb(41, 191, 205);
-            labelCrearReunion.Location = new Point(250, 227);
+            labelCrearReunion.Location = new Point(237, 299);
             labelCrearReunion.Name = "labelCrearReunion";
             labelCrearReunion.Size = new Size(168, 29);
             labelCrearReunion.TabIndex = 7;
@@ -325,17 +339,6 @@
             labelReunionPanel1.Size = new Size(250, 40);
             labelReunionPanel1.TabIndex = 0;
             labelReunionPanel1.Text = "Reunión 1";
-            // 
-            // buttonIdioma
-            // 
-            buttonIdioma.BackgroundImage = (Image)resources.GetObject("buttonIdioma.BackgroundImage");
-            buttonIdioma.BackgroundImageLayout = ImageLayout.Zoom;
-            buttonIdioma.Cursor = Cursors.Hand;
-            buttonIdioma.Location = new Point(1217, 12);
-            buttonIdioma.Name = "buttonIdioma";
-            buttonIdioma.Size = new Size(35, 29);
-            buttonIdioma.TabIndex = 16;
-            buttonIdioma.UseVisualStyleBackColor = true;
             // 
             // panelReunion2
             // 
@@ -495,6 +498,51 @@
             labelReunionPanel3.TabIndex = 0;
             labelReunionPanel3.Text = "Reunión 3";
             // 
+            // buttonIdioma
+            // 
+            buttonIdioma.BackgroundImageLayout = ImageLayout.Zoom;
+            buttonIdioma.ContextMenuStrip = contextMenuStripMenuIdiomas;
+            buttonIdioma.Cursor = Cursors.Hand;
+            buttonIdioma.FlatAppearance.BorderSize = 0;
+            buttonIdioma.FlatStyle = FlatStyle.Flat;
+            buttonIdioma.Image = Properties.Resources.mini_espana;
+            buttonIdioma.Location = new Point(1217, 12);
+            buttonIdioma.Name = "buttonIdioma";
+            buttonIdioma.Size = new Size(40, 25);
+            buttonIdioma.TabIndex = 16;
+            buttonIdioma.UseVisualStyleBackColor = true;
+            buttonIdioma.Click += buttonIdioma_Click;
+            // 
+            // contextMenuStripMenuIdiomas
+            // 
+            contextMenuStripMenuIdiomas.Items.AddRange(new ToolStripItem[] { españolToolStripMenuItem, englishToolStripMenuItem, catalàToolStripMenuItem });
+            contextMenuStripMenuIdiomas.Name = "contextMenuStripMenuIdiomas";
+            contextMenuStripMenuIdiomas.Size = new Size(116, 70);
+            // 
+            // españolToolStripMenuItem
+            // 
+            españolToolStripMenuItem.Image = Properties.Resources.espana;
+            españolToolStripMenuItem.Name = "españolToolStripMenuItem";
+            españolToolStripMenuItem.Size = new Size(115, 22);
+            españolToolStripMenuItem.Text = "Español";
+            españolToolStripMenuItem.Click += españolToolStripMenuItem_Click;
+            // 
+            // englishToolStripMenuItem
+            // 
+            englishToolStripMenuItem.Image = Properties.Resources.estados_unidos;
+            englishToolStripMenuItem.Name = "englishToolStripMenuItem";
+            englishToolStripMenuItem.Size = new Size(115, 22);
+            englishToolStripMenuItem.Text = "English";
+            englishToolStripMenuItem.Click += englishToolStripMenuItem_Click;
+            // 
+            // catalàToolStripMenuItem
+            // 
+            catalàToolStripMenuItem.Image = Properties.Resources.cataluna;
+            catalàToolStripMenuItem.Name = "catalàToolStripMenuItem";
+            catalàToolStripMenuItem.Size = new Size(115, 22);
+            catalàToolStripMenuItem.Text = "Català";
+            catalàToolStripMenuItem.Click += catalàToolStripMenuItem_Click;
+            // 
             // FormReunionesDy1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -524,13 +572,12 @@
             panelReunion2.PerformLayout();
             panelReunion3.ResumeLayout(false);
             panelReunion3.PerformLayout();
+            contextMenuStripMenuIdiomas.ResumeLayout(false);
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
-
-        private ContextMenuStrip contextMenuStrip1;
         private Panel panelBarraOpciones;
         private Label labelBeatrix;
         private Button buttonReuniones1Tareas;
@@ -549,7 +596,6 @@
         private Label labelParticipantes1;
         private Label labelReunionPanel1;
         private DataGridView dataGridViewTarea;
-        private Button buttonIdioma;
         private Label label1;
         private Panel panelReunion2;
         private Panel panelReunion3;
@@ -565,6 +611,12 @@
         private Label labelHoraReunion2;
         private Label labelParticipantes2;
         private Label labelReunionPanel2;
-        private Label label2;
+        private Label labelReuniones;
+        private Label labelVerTodasLasReuniones;
+        private Button buttonIdioma;
+        private ContextMenuStrip contextMenuStripMenuIdiomas;
+        private ToolStripMenuItem españolToolStripMenuItem;
+        private ToolStripMenuItem englishToolStripMenuItem;
+        private ToolStripMenuItem catalàToolStripMenuItem;
     }
 }
