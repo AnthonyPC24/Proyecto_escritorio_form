@@ -76,7 +76,7 @@ namespace Beatrix_Formulario
                     {
                         Tarea = r.titulo,
                         Especificaciones = r.descripcion,
-                        Usuario_s = string.Join(", ", r.usuariosReuniones),
+                        Usuarios = string.Join(", ", r.usuariosReuniones),
                         Fecha = r.fechaHora.ToString("dd/MM/yyyy HH:mm")
                     }).ToList();
 
