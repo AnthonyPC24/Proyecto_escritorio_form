@@ -166,107 +166,25 @@ namespace Beatrix_Formulario
             }
         }
 
-        private void monthCalendar1_DateChanged(object sender, DateRangeEventArgs e)
+        private void buttonInicioForm1Tareas_Click(object sender, EventArgs e)
         {
-            DateTime fechaSeleccionada = e.Start.Date;
-            labelReuniones.Text = $"Reuniones del día {fechaSeleccionada:dd 'de' MMMM}";
-            FiltrarReunionesPorFecha(fechaSeleccionada);
+            Inicio inicio = new Inicio();
+            inicio.Show();
+            this.Hide();
         }
 
-        private void FiltrarReunionesPorFecha(DateTime fecha)
+        private void buttonProyetos1Tareas_Click(object sender, EventArgs e)
         {
-            try
-            {
-                string rutaProyecto = Directory.GetParent(Application.StartupPath).Parent.Parent.Parent.FullName;
-                string rutaArchivo = Path.Combine(rutaProyecto, "JSON", "Reuniones.json");
-
-                if (!File.Exists(rutaArchivo))
-                {
-                    MessageBox.Show("No se encontró el archivo Reuniones.json.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
-                }
-
-                string json = File.ReadAllText(rutaArchivo);
-                List<Reunion> listaReuniones = JsonSerializer.Deserialize<List<Reunion>>(json);
-
-                // 🔹 Filtramos por día (ignorando hora)
-                var reunionesFiltradas = listaReuniones
-                    .Where(r => r.fechaHora.Date == fecha.Date)
-                    .Select(r => new
-                    {
-                        Tarea = r.titulo,
-                        Especificaciones = r.descripcion,
-                        Usuarios = string.Join(", ", r.usuariosReuniones),
-                        Fecha = r.fechaHora.ToString("dd/MM/yyyy HH:mm")
-                    })
-                    .ToList();
-
-                // Mostrar en el DataGridView
-                dataGridViewTarea.DataSource = reunionesFiltradas;
-            }
-
-
-
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Error al filtrar reuniones: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+            FormProyectosGerard1 formProyectosGerard1 = new FormProyectosGerard1();
+            formProyectosGerard1.Show();
+            this.Hide();
         }
 
-
-        private void labelVerTodasLasReuniones_Click(object sender, EventArgs e)
+        private void buttonTareas1Tareas_Click(object sender, EventArgs e)
         {
-            labelReuniones.Text = "Todas las reuniones";
-            CargarReunionesDataGrid();
+            FormTareasTho1 formTareasTho1 = new FormTareasTho1();
+            formTareasTho1.Show();
+            this.Hide();
         }
-
-        private void buttonIdioma_Click(object sender, EventArgs e)
-        {
-            contextMenuStripMenuIdiomas.Show(buttonIdioma, new Point(0, buttonIdioma.Height));
-        }
-
-
-        private void CambiarBandera(string idioma)
-        {
-            // Limpia cualquier imagen previa
-            buttonIdioma.Image = null;
-
-            switch (idioma)
-            {
-                case "es":
-                    buttonIdioma.BackgroundImage = Properties.Resources.espana;
-                    break;
-                case "en":
-                    buttonIdioma.BackgroundImage = Properties.Resources.estados_unidos;
-                    break;
-                case "cat":
-                    buttonIdioma.BackgroundImage = Properties.Resources.cataluna;
-                    break;
-            }
-
-            buttonIdioma.BackgroundImageLayout = ImageLayout.Zoom;
-            buttonIdioma.FlatStyle = FlatStyle.Flat;
-            buttonIdioma.FlatAppearance.BorderSize = 0;
-            buttonIdioma.BackColor = Color.Transparent;
-
-            // Asegura que se refresque visualmente
-            buttonIdioma.Refresh();
-        }
-
-        private void españolToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            CambiarBandera("es");
-        }
-
-        private void englishToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            CambiarBandera("en");
-        }
-
-        private void catalàToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            CambiarBandera("cat");
-        }
-
     }
 }
