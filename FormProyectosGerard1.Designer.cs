@@ -89,6 +89,7 @@
             btnReunion.TabIndex = 4;
             btnReunion.Text = "Reuniones";
             btnReunion.UseVisualStyleBackColor = false;
+            btnReunion.Click += btnReunion_Click;
             // 
             // btnTareas
             // 
@@ -116,6 +117,7 @@
             btnInicio.TabIndex = 1;
             btnInicio.Text = "Inicio";
             btnInicio.UseVisualStyleBackColor = false;
+            btnInicio.Click += btnInicio_Click;
             // 
             // btnProyectos
             // 
@@ -128,28 +130,40 @@
             btnProyectos.Size = new Size(186, 53);
             btnProyectos.TabIndex = 2;
             btnProyectos.Text = "Proyectos";
-            btnProyectos.UseVisualStyleBackColor = false;
+            btnProyectos.UseVisualStyleBackColor = true;
+            btnProyectos.Click += btnProyectos_Click;
             // 
-            // btnBuscar
+            // button1
             // 
-            btnBuscar.BackColor = Color.FromArgb(41, 191, 205);
-            btnBuscar.ForeColor = Color.White;
-            btnBuscar.Location = new Point(457, 21);
-            btnBuscar.Margin = new Padding(3, 2, 3, 2);
-            btnBuscar.Name = "btnBuscar";
-            btnBuscar.Size = new Size(92, 31);
-            btnBuscar.TabIndex = 8;
-            btnBuscar.Text = "Buscar";
-            btnBuscar.UseVisualStyleBackColor = false;
-            btnBuscar.Click += button1_Click;
+            button1.BackColor = Color.FromArgb(41, 191, 205);
+            button1.ForeColor = Color.White;
+            button1.Location = new Point(457, 21);
+            button1.Margin = new Padding(3, 2, 3, 2);
+            button1.Name = "button1";
+            button1.Size = new Size(92, 31);
+            button1.TabIndex = 8;
+            button1.Text = "Buscar";
+            button1.UseVisualStyleBackColor = false;
             // 
-            // txtBuscarProyecto
+            // textBox1
             // 
-            txtBuscarProyecto.BackColor = Color.FromArgb(224, 224, 224);
-            txtBuscarProyecto.Location = new Point(266, 26);
-            txtBuscarProyecto.Name = "txtBuscarProyecto";
-            txtBuscarProyecto.Size = new Size(185, 23);
-            txtBuscarProyecto.TabIndex = 9;
+            textBox1.BackColor = Color.FromArgb(224, 224, 224);
+            textBox1.Location = new Point(266, 26);
+            textBox1.Name = "textBox1";
+            textBox1.Size = new Size(185, 23);
+            textBox1.TabIndex = 9;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Montserrat Medium", 8.999999F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.ForeColor = Color.FromArgb(41, 191, 205);
+            label1.Location = new Point(266, 93);
+            label1.Name = "label1";
+            label1.Size = new Size(103, 18);
+            label1.TabIndex = 11;
+            label1.Text = "+ Crear Proyeto";
+            label1.Click += label1_Click;
             // 
             // button2
             // 
@@ -251,6 +265,7 @@
             Controls.Add(btnBuscar);
             Controls.Add(panel1);
             Name = "FormProyectosGerard1";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "FormProyectosGerard1";
             Load += FormProyectosGerard1_Load_1;
             panel1.ResumeLayout(false);

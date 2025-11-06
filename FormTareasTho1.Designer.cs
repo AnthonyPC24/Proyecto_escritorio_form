@@ -34,8 +34,6 @@
             labelBeatrix = new Label();
             buttonReuniones1Tareas = new Button();
             buttonTareas1Tareas = new Button();
-            textBoxBuscarNombreProyecto = new TextBox();
-            buttonBuscarNombreProyecto = new Button();
             comboBoxProyectos = new ComboBox();
             comboBoxTareas = new ComboBox();
             buttonNuevaTarea = new Button();
@@ -45,9 +43,10 @@
             labelDescripcionSubtarea = new Label();
             comboBoxUsuariosSubTarea = new ComboBox();
             labelUsuariosSubtareas = new Label();
-            dateTimePicker1 = new DateTimePicker();
+            dateTimePickerEntregaSubtarea = new DateTimePicker();
             labelFechaFin = new Label();
             dateTimePickerFechaInicioSubtarea = new DateTimePicker();
+            buttonSubTarea = new Button();
             labelFechaInicioSubTarea = new Label();
             groupBoxSubtareaEstados = new GroupBox();
             radioButtonCancelada = new RadioButton();
@@ -56,7 +55,6 @@
             radioButtonEnEspera = new RadioButton();
             radioButtonEnProceso = new RadioButton();
             radioButtonPendiente = new RadioButton();
-            buttonSubTarea = new Button();
             comboBoxSubTareas = new ComboBox();
             labelEstado = new Label();
             labelUsuarios = new Label();
@@ -70,6 +68,8 @@
             labelFecha = new Label();
             textBoxNombreTarea = new TextBox();
             labelNombreTarea = new Label();
+            textBoxBuscarNombreProyecto = new TextBox();
+            buttonBuscarNombreProyecto = new Button();
             panelBarraOpciones.SuspendLayout();
             groupBoxTarea.SuspendLayout();
             groupBoxSubtareas.SuspendLayout();
@@ -87,6 +87,7 @@
             buttonInicioForm1Tareas.TabIndex = 0;
             buttonInicioForm1Tareas.Text = "Inicio";
             buttonInicioForm1Tareas.UseVisualStyleBackColor = false;
+            buttonInicioForm1Tareas.Click += buttonInicioForm1Tareas_Click;
             // 
             // buttonProyetos1Tareas
             // 
@@ -99,6 +100,7 @@
             buttonProyetos1Tareas.TabIndex = 1;
             buttonProyetos1Tareas.Text = "Proyectos";
             buttonProyetos1Tareas.UseVisualStyleBackColor = false;
+            buttonProyetos1Tareas.Click += buttonProyetos1Tareas_Click;
             // 
             // panelBarraOpciones
             // 
@@ -136,6 +138,7 @@
             buttonReuniones1Tareas.TabIndex = 3;
             buttonReuniones1Tareas.Text = "Reuniones";
             buttonReuniones1Tareas.UseVisualStyleBackColor = false;
+            buttonReuniones1Tareas.Click += buttonReuniones1Tareas_Click;
             // 
             // buttonTareas1Tareas
             // 
@@ -148,27 +151,6 @@
             buttonTareas1Tareas.TabIndex = 2;
             buttonTareas1Tareas.Text = "Tareas";
             buttonTareas1Tareas.UseVisualStyleBackColor = false;
-            // 
-            // textBoxBuscarNombreProyecto
-            // 
-            textBoxBuscarNombreProyecto.BorderStyle = BorderStyle.FixedSingle;
-            textBoxBuscarNombreProyecto.Location = new Point(236, 61);
-            textBoxBuscarNombreProyecto.Name = "textBoxBuscarNombreProyecto";
-            textBoxBuscarNombreProyecto.PlaceholderText = "Buscar";
-            textBoxBuscarNombreProyecto.Size = new Size(209, 23);
-            textBoxBuscarNombreProyecto.TabIndex = 3;
-            // 
-            // buttonBuscarNombreProyecto
-            // 
-            buttonBuscarNombreProyecto.BackColor = Color.Transparent;
-            buttonBuscarNombreProyecto.BackgroundImage = Properties.Resources.buscar;
-            buttonBuscarNombreProyecto.BackgroundImageLayout = ImageLayout.Zoom;
-            buttonBuscarNombreProyecto.FlatAppearance.MouseDownBackColor = Color.FromArgb(41, 195, 205);
-            buttonBuscarNombreProyecto.Location = new Point(451, 60);
-            buttonBuscarNombreProyecto.Name = "buttonBuscarNombreProyecto";
-            buttonBuscarNombreProyecto.Size = new Size(29, 23);
-            buttonBuscarNombreProyecto.TabIndex = 4;
-            buttonBuscarNombreProyecto.UseVisualStyleBackColor = false;
             // 
             // comboBoxProyectos
             // 
@@ -226,12 +208,12 @@
             groupBoxSubtareas.Controls.Add(labelDescripcionSubtarea);
             groupBoxSubtareas.Controls.Add(comboBoxUsuariosSubTarea);
             groupBoxSubtareas.Controls.Add(labelUsuariosSubtareas);
-            groupBoxSubtareas.Controls.Add(dateTimePicker1);
+            groupBoxSubtareas.Controls.Add(dateTimePickerEntregaSubtarea);
             groupBoxSubtareas.Controls.Add(labelFechaFin);
             groupBoxSubtareas.Controls.Add(dateTimePickerFechaInicioSubtarea);
+            groupBoxSubtareas.Controls.Add(buttonSubTarea);
             groupBoxSubtareas.Controls.Add(labelFechaInicioSubTarea);
             groupBoxSubtareas.Controls.Add(groupBoxSubtareaEstados);
-            groupBoxSubtareas.Controls.Add(buttonSubTarea);
             groupBoxSubtareas.Controls.Add(comboBoxSubTareas);
             groupBoxSubtareas.Location = new Point(543, 41);
             groupBoxSubtareas.Name = "groupBoxSubtareas";
@@ -239,12 +221,13 @@
             groupBoxSubtareas.TabIndex = 17;
             groupBoxSubtareas.TabStop = false;
             groupBoxSubtareas.Text = "Sub tareas";
+            groupBoxSubtareas.Enter += groupBoxSubtareas_Enter;
             // 
             // richTextBoxDescripcionSubTareas
             // 
-            richTextBoxDescripcionSubTareas.Location = new Point(17, 291);
+            richTextBoxDescripcionSubTareas.Location = new Point(17, 301);
             richTextBoxDescripcionSubTareas.Name = "richTextBoxDescripcionSubTareas";
-            richTextBoxDescripcionSubTareas.Size = new Size(395, 91);
+            richTextBoxDescripcionSubTareas.Size = new Size(395, 85);
             richTextBoxDescripcionSubTareas.TabIndex = 23;
             richTextBoxDescripcionSubTareas.Text = "";
             // 
@@ -252,7 +235,7 @@
             // 
             labelDescripcionSubtarea.AutoSize = true;
             labelDescripcionSubtarea.Font = new Font("Montserrat Medium", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            labelDescripcionSubtarea.Location = new Point(17, 264);
+            labelDescripcionSubtarea.Location = new Point(17, 274);
             labelDescripcionSubtarea.Name = "labelDescripcionSubtarea";
             labelDescripcionSubtarea.Size = new Size(101, 24);
             labelDescripcionSubtarea.TabIndex = 22;
@@ -261,7 +244,7 @@
             // comboBoxUsuariosSubTarea
             // 
             comboBoxUsuariosSubTarea.FormattingEnabled = true;
-            comboBoxUsuariosSubTarea.Location = new Point(176, 231);
+            comboBoxUsuariosSubTarea.Location = new Point(176, 241);
             comboBoxUsuariosSubTarea.Name = "comboBoxUsuariosSubTarea";
             comboBoxUsuariosSubTarea.Size = new Size(236, 23);
             comboBoxUsuariosSubTarea.TabIndex = 18;
@@ -270,25 +253,25 @@
             // 
             labelUsuariosSubtareas.AutoSize = true;
             labelUsuariosSubtareas.Font = new Font("Montserrat Medium", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            labelUsuariosSubtareas.Location = new Point(17, 231);
+            labelUsuariosSubtareas.Location = new Point(17, 241);
             labelUsuariosSubtareas.Name = "labelUsuariosSubtareas";
             labelUsuariosSubtareas.Size = new Size(77, 24);
             labelUsuariosSubtareas.TabIndex = 21;
             labelUsuariosSubtareas.Text = "Usuarios";
             // 
-            // dateTimePicker1
+            // dateTimePickerEntregaSubtarea
             // 
-            dateTimePicker1.Location = new Point(176, 192);
-            dateTimePicker1.Name = "dateTimePicker1";
-            dateTimePicker1.Size = new Size(236, 23);
-            dateTimePicker1.TabIndex = 20;
-            dateTimePicker1.Value = new DateTime(2025, 10, 16, 16, 42, 9, 0);
+            dateTimePickerEntregaSubtarea.Location = new Point(176, 202);
+            dateTimePickerEntregaSubtarea.Name = "dateTimePickerEntregaSubtarea";
+            dateTimePickerEntregaSubtarea.Size = new Size(236, 23);
+            dateTimePickerEntregaSubtarea.TabIndex = 20;
+            dateTimePickerEntregaSubtarea.Value = new DateTime(2025, 10, 16, 16, 42, 9, 0);
             // 
             // labelFechaFin
             // 
             labelFechaFin.AutoSize = true;
             labelFechaFin.Font = new Font("Montserrat Medium", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            labelFechaFin.Location = new Point(17, 193);
+            labelFechaFin.Location = new Point(17, 203);
             labelFechaFin.Name = "labelFechaFin";
             labelFechaFin.Size = new Size(143, 24);
             labelFechaFin.TabIndex = 19;
@@ -296,17 +279,27 @@
             // 
             // dateTimePickerFechaInicioSubtarea
             // 
-            dateTimePickerFechaInicioSubtarea.Location = new Point(176, 159);
+            dateTimePickerFechaInicioSubtarea.Location = new Point(176, 169);
             dateTimePickerFechaInicioSubtarea.Name = "dateTimePickerFechaInicioSubtarea";
             dateTimePickerFechaInicioSubtarea.Size = new Size(236, 23);
             dateTimePickerFechaInicioSubtarea.TabIndex = 18;
             dateTimePickerFechaInicioSubtarea.Value = new DateTime(2025, 10, 16, 16, 42, 9, 0);
             // 
+            // buttonSubTarea
+            // 
+            buttonSubTarea.BackColor = Color.Transparent;
+            buttonSubTarea.Location = new Point(232, 40);
+            buttonSubTarea.Name = "buttonSubTarea";
+            buttonSubTarea.Size = new Size(109, 23);
+            buttonSubTarea.TabIndex = 10;
+            buttonSubTarea.Text = "Crear Subtarea";
+            buttonSubTarea.UseVisualStyleBackColor = false;
+            // 
             // labelFechaInicioSubTarea
             // 
             labelFechaInicioSubTarea.AutoSize = true;
             labelFechaInicioSubTarea.Font = new Font("Montserrat Medium", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            labelFechaInicioSubTarea.Location = new Point(17, 160);
+            labelFechaInicioSubTarea.Location = new Point(17, 170);
             labelFechaInicioSubTarea.Name = "labelFechaInicioSubTarea";
             labelFechaInicioSubTarea.Size = new Size(125, 24);
             labelFechaInicioSubTarea.TabIndex = 18;
@@ -320,7 +313,7 @@
             groupBoxSubtareaEstados.Controls.Add(radioButtonEnEspera);
             groupBoxSubtareaEstados.Controls.Add(radioButtonEnProceso);
             groupBoxSubtareaEstados.Controls.Add(radioButtonPendiente);
-            groupBoxSubtareaEstados.Location = new Point(17, 59);
+            groupBoxSubtareaEstados.Location = new Point(17, 69);
             groupBoxSubtareaEstados.Name = "groupBoxSubtareaEstados";
             groupBoxSubtareaEstados.Size = new Size(398, 87);
             groupBoxSubtareaEstados.TabIndex = 11;
@@ -393,23 +386,14 @@
             radioButtonPendiente.Text = "Pendiente";
             radioButtonPendiente.UseVisualStyleBackColor = true;
             // 
-            // buttonSubTarea
-            // 
-            buttonSubTarea.BackColor = Color.Transparent;
-            buttonSubTarea.Location = new Point(232, 25);
-            buttonSubTarea.Name = "buttonSubTarea";
-            buttonSubTarea.Size = new Size(89, 23);
-            buttonSubTarea.TabIndex = 10;
-            buttonSubTarea.Text = "Nueva Tarea";
-            buttonSubTarea.UseVisualStyleBackColor = false;
-            // 
             // comboBoxSubTareas
             // 
             comboBoxSubTareas.FormattingEnabled = true;
-            comboBoxSubTareas.Location = new Point(17, 25);
+            comboBoxSubTareas.Location = new Point(17, 40);
             comboBoxSubTareas.Name = "comboBoxSubTareas";
             comboBoxSubTareas.Size = new Size(209, 23);
             comboBoxSubTareas.TabIndex = 9;
+            comboBoxSubTareas.SelectedIndexChanged += comboBoxSubTareas_SelectedIndexChanged;
             // 
             // labelEstado
             // 
@@ -519,6 +503,28 @@
             labelNombreTarea.TabIndex = 0;
             labelNombreTarea.Text = "Tarea";
             // 
+            // textBoxBuscarNombreProyecto
+            // 
+            textBoxBuscarNombreProyecto.BorderStyle = BorderStyle.FixedSingle;
+            textBoxBuscarNombreProyecto.Location = new Point(236, 61);
+            textBoxBuscarNombreProyecto.Name = "textBoxBuscarNombreProyecto";
+            textBoxBuscarNombreProyecto.PlaceholderText = "Buscar";
+            textBoxBuscarNombreProyecto.Size = new Size(209, 23);
+            textBoxBuscarNombreProyecto.TabIndex = 3;
+            // 
+            // buttonBuscarNombreProyecto
+            // 
+            buttonBuscarNombreProyecto.BackColor = Color.Transparent;
+            buttonBuscarNombreProyecto.BackgroundImage = Properties.Resources.buscar;
+            buttonBuscarNombreProyecto.BackgroundImageLayout = ImageLayout.Zoom;
+            buttonBuscarNombreProyecto.FlatAppearance.MouseDownBackColor = Color.FromArgb(41, 195, 205);
+            buttonBuscarNombreProyecto.Location = new Point(451, 60);
+            buttonBuscarNombreProyecto.Name = "buttonBuscarNombreProyecto";
+            buttonBuscarNombreProyecto.Size = new Size(29, 23);
+            buttonBuscarNombreProyecto.TabIndex = 4;
+            buttonBuscarNombreProyecto.UseVisualStyleBackColor = false;
+            buttonBuscarNombreProyecto.Click += buttonBuscarNombreProyecto_Click;
+            // 
             // FormTareasTho1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -533,6 +539,7 @@
             Controls.Add(textBoxBuscarNombreProyecto);
             Controls.Add(panelBarraOpciones);
             Name = "FormTareasTho1";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Tareas";
             panelBarraOpciones.ResumeLayout(false);
             panelBarraOpciones.PerformLayout();
@@ -554,8 +561,6 @@
         private Button buttonReuniones1Tareas;
         private Button buttonTareas1Tareas;
         private Label labelBeatrix;
-        private TextBox textBoxBuscarNombreProyecto;
-        private Button buttonBuscarNombreProyecto;
         private ComboBox comboBoxProyectos;
         private ComboBox comboBoxTareas;
         private Button buttonNuevaTarea;
@@ -583,12 +588,14 @@
         private RadioButton radioButtonEnProceso;
         private RadioButton radioButtonPendiente;
         private Label labelFechaInicioSubTarea;
-        private DateTimePicker dateTimePicker1;
+        private DateTimePicker dateTimePickerEntregaSubtarea;
         private Label labelFechaFin;
         private DateTimePicker dateTimePickerFechaInicioSubtarea;
         private Label labelUsuariosSubtareas;
         private Label labelDescripcionSubtarea;
         private ComboBox comboBoxUsuariosSubTarea;
         private RichTextBox richTextBoxDescripcionSubTareas;
+        private TextBox textBoxBuscarNombreProyecto;
+        private Button buttonBuscarNombreProyecto;
     }
 }

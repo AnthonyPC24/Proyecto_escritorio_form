@@ -94,156 +94,35 @@ namespace Beatrix_Formulario
 
         // --- Otros métodos del form ---
         private void pictureBox1_Click(object sender, EventArgs e) { }
-        private void pictureBox1_Click_1(object sender, EventArgs e)
-        {
+        private void pictureBox1_Click_1(object sender, EventArgs e) { }
 
-        }
-        private void button1_Click(object sender, EventArgs e) {
-            // 1. Obtenemos el texto del TextBox y quitamos espacios en blanco
-            string textoBusqueda = txtBuscarProyecto.Text.Trim();
-
-            if (string.IsNullOrWhiteSpace(textoBusqueda))
-            {
-                MessageBox.Show("Introduce un nombre de proyecto para buscar.");
-                return;
-            }
-
-            // 2. Deseleccionamos cualquier fila que estuviera seleccionada antes
-            dataGridViewTarea.ClearSelection();
-
-            // 3. Buscamos en nuestra lista de datos (listaDeProyectos)
-            //    Usamos 'IndexOf' con 'StringComparison.OrdinalIgnoreCase' para que
-            //    busque el texto (aunque esté en mayúsculas o minúsculas)
-            Proyectos proyectoEncontrado = listaDeProyectos.FirstOrDefault(p =>
-                p.NombreProyecto.IndexOf(textoBusqueda, StringComparison.OrdinalIgnoreCase) >= 0
-            );
-
-            // 4. Si lo encontramos...
-            if (proyectoEncontrado != null)
-            {
-                // 5. Obtenemos el índice (la posición) de ese proyecto en la lista
-                int index = listaDeProyectos.IndexOf(proyectoEncontrado);
-
-                // 6. Nos aseguramos de que el índice es válido
-                if (index >= 0 && index < dataGridViewTarea.Rows.Count)
-                {
-                    // 7. Seleccionamos la fila correspondiente en la tabla
-                    dataGridViewTarea.Rows[index].Selected = true;
-
-                    // 8. Opcional: Hacemos scroll para que la fila se vea
-                    dataGridViewTarea.FirstDisplayedScrollingRowIndex = index;
-
-                    // 9. Opcional: Ponemos el foco en la tabla para que se vea la selección
-                    dataGridViewTarea.Focus();
-                }
-            }
-            else
-            {
-                // 10. Si no se encuentra, avisamos al usuario
-                MessageBox.Show($"No se encontró ningún proyecto que contenga '{textoBusqueda}'.", "No Encontrado");
-            }
-        }
-        private void btnReunion_Click(object sender, EventArgs e) { }
-        private void btnTareas_Click(object sender, EventArgs e) { }
         private void button4_Click(object sender, EventArgs e) { }
         private void dataGridViewTarea_CellContentClick(object sender, DataGridViewCellEventArgs e) { }
 
-        private void button4_Click_1(object sender, EventArgs e)
+        private void btnInicio_Click(object sender, EventArgs e)
         {
-            using (FormProyectosGerard2 formCrear = new FormProyectosGerard2())
-            {
-                DialogResult resultado = formCrear.ShowDialog();
-
-                if (resultado == DialogResult.OK)
-                {
-                    CargarProyectosDesdeJson(); // Solo recargamos los datos
-                }
-            }
+            Inicio Inicio = new Inicio();
+            Inicio.Show();
+            this.Hide();
         }
 
-        private void btnEliminar_Click(object sender, EventArgs e)
+        private void btnProyectos_Click(object sender, EventArgs e)
         {
-            // 1. Asegurarnos de que hay algo seleccionado
-            if (dataGridViewTarea.SelectedRows.Count == 0)
-            {
-                MessageBox.Show("Por favor, selecciona un proyecto de la lista para eliminar.");
-                return;
-            }
 
-            // 2. Pedir confirmación al usuario
-            DialogResult confirmacion = MessageBox.Show(
-                "¿Estás seguro de que quieres eliminar este proyecto? Esta acción no se puede deshacer.",
-                "Confirmar Eliminación",
-                MessageBoxButtons.YesNo,
-                MessageBoxIcon.Warning
-            );
-
-            if (confirmacion == DialogResult.No)
-            {
-                return; // El usuario canceló
-            }
-
-            // 3. Obtener el proyecto a eliminar
-            try
-            {
-                // Obtenemos el nombre del proyecto desde la celda 0 de la fila seleccionada
-                string nombreProyecto = dataGridViewTarea.SelectedRows[0].Cells[0].Value.ToString();
-
-                // Buscamos ese proyecto en nuestra lista principal
-                Proyectos proyectoAEliminar = listaDeProyectos.FirstOrDefault(p => p.NombreProyecto == nombreProyecto);
-
-                if (proyectoAEliminar != null)
-                {
-                    // 4. Eliminarlo de la lista en memoria
-                    listaDeProyectos.Remove(proyectoAEliminar);
-
-                    // 5. Guardar la lista actualizada en el archivo JSON
-                    GuardarProyectosEnJson();
-
-                    // 6. Refrescar el DataGridView para que desaparezca
-                    RefrescarDataGridView();
-
-                    MessageBox.Show("Proyecto eliminado con éxito.", "Eliminado");
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Error al eliminar el proyecto: {ex.Message}");
-            }
         }
 
-        private void dataGridViewTarea_SelectionChanged(object sender, EventArgs e)
+        private void btnTareas_Click(object sender, EventArgs e)
         {
-            if (dataGridViewTarea.SelectedRows.Count > 0)
-            {
-                btnEliminar.Enabled = true;
-            }
-            else
-            {
-                btnEliminar.Enabled = false;
-            }
+            FormTareasTho1 TareasTho1 = new FormTareasTho1();
+            TareasTho1.Show();
+            this.Hide();
         }
 
-        private void GuardarProyectosEnJson()
+        private void btnReunion_Click(object sender, EventArgs e)
         {
-            try
-            {
-                // Opciones para que el JSON se vea bonito (indentado)
-                var options = new JsonSerializerOptions
-                {
-                    WriteIndented = true
-                };
-
-                // Serializa la lista COMPLETA (con los proyectos ya eliminados)
-                string jsonActualizado = JsonSerializer.Serialize(listaDeProyectos, options);
-
-                // Escribe el nuevo JSON al disco
-                File.WriteAllText(rutaArchivoJson, jsonActualizado);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Error al guardar los cambios en JSON: {ex.Message}");
-            }
-        }   
+            FormReunionesDy1 formReunionesDy1 = new FormReunionesDy1();
+            formReunionesDy1.Show();
+            this.Hide();
+        }
     }
 }
