@@ -21,6 +21,7 @@ namespace Beatrix_Formulario
             InitializeComponent();
             CargarReuniones();
         }
+      
 
         private void panelBarraOpciones_Paint(object sender, PaintEventArgs e)
         {
