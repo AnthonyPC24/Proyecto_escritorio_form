@@ -37,6 +37,7 @@
             panel1 = new Panel();
             pictureBoxUsuario = new PictureBox();
 <<<<<<< HEAD
+<<<<<<< HEAD
             txtNombre = new TextBox();
             txtCorreu = new TextBox();
             txtTele = new TextBox();
@@ -44,6 +45,8 @@
             label2 = new Label();
             lblTele = new Label();
             btnEditar = new Button();
+=======
+>>>>>>> parent of 243938d (Merge pull request #29 from AnthonyPC24/Qiaoqiao_)
 =======
 >>>>>>> parent of 243938d (Merge pull request #29 from AnthonyPC24/Qiaoqiao_)
             panelBarraOpciones.SuspendLayout();

@@ -222,6 +222,9 @@
             panelTareaHoy.Size = new Size(394, 202);
             panelTareaHoy.TabIndex = 13;
             // 
+<<<<<<< HEAD
+>>>>>>> parent of 243938d (Merge pull request #29 from AnthonyPC24/Qiaoqiao_)
+=======
 >>>>>>> parent of 243938d (Merge pull request #29 from AnthonyPC24/Qiaoqiao_)
             // panelBarraOpciones
             // 

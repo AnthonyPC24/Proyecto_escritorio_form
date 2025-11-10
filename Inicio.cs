@@ -207,7 +207,10 @@ namespace Beatrix_Formulario
         }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> parent of 243938d (Merge pull request #29 from AnthonyPC24/Qiaoqiao_)
         private void buttonProyetos1Tareas_Click(object sender, EventArgs e)
         {
             FormProyectosGerard1 formProyectosGerard1 = new FormProyectosGerard1();
@@ -228,6 +231,9 @@ namespace Beatrix_Formulario
             formReunionesDy1.Show();
             this.Hide();
         }
+<<<<<<< HEAD
+>>>>>>> parent of 243938d (Merge pull request #29 from AnthonyPC24/Qiaoqiao_)
+=======
 >>>>>>> parent of 243938d (Merge pull request #29 from AnthonyPC24/Qiaoqiao_)
     }
 }
