@@ -211,7 +211,6 @@
             Controls.Add(button3);
             Controls.Add(btnCrear);
             Name = "FormProyectosGerard2";
-            StartPosition = FormStartPosition.CenterScreen;
             Text = "FormProyectosGerard2";
             Load += FormProyectosGerard2_Load_1;
             groupBox1.ResumeLayout(false);

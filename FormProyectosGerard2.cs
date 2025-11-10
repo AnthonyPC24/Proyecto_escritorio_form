@@ -50,7 +50,7 @@ namespace Beatrix_Formulario
                 string nombreUsuario = item.ToString();
                 Usuarios usuarioAsignado = new Usuarios
                 {
-                    nombreUsuario = nombreUsuario
+                    nombreApellidos = nombreUsuario
                 };
                 proyectoTemporal.UsuariosAsignados.Add(usuarioAsignado);
             }
@@ -117,9 +117,13 @@ namespace Beatrix_Formulario
                     string json = File.ReadAllText(rutaUsuariosJson);
                     List<Usuarios> listaTotalUsuarios = JsonSerializer.Deserialize<List<Usuarios>>(json);
 
+                    // Aquí estás cargando 'comboBox1', lo cual es correcto
+                    // para tu lógica de 'comboBox1_SelectedIndexChanged'
                     comboBoxUsuarios.Items.Clear();
                     foreach (Usuarios user in listaTotalUsuarios)
                     {
+                        // Añadimos el objeto 'Usuarios'
+                        // (el método ToString() mostrará el nombre)
                         comboBoxUsuarios.Items.Add(user);
                     }
                 }

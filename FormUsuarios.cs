@@ -20,17 +20,7 @@ namespace Beatrix_Formulario
         private void btnEditar_Click(object sender, EventArgs e)
         {
             this.Close();
-            //Application.Run(new FormPantallaUsuario());
-        }
-
-        private void btnCrearUsuario_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void lblCrearUsuario_Click(object sender, EventArgs e)
-        {
-            
+            Application.Run(new FormPantallaUsuario());
         }
     }
 }
