@@ -18,6 +18,7 @@ namespace Beatrix_Formulario
         {
             InitializeComponent();
 
+            // ✅ Usa una ruta segura (siempre relativa al ejecutable)
             rutaArchivoJson = Path.Combine(Application.StartupPath, "JSON", "Proyectos.JSON");
         }
 
@@ -27,6 +28,20 @@ namespace Beatrix_Formulario
         }
 
         // --- Al hacer clic en "Crear Proyecto" ---
+        private void label1_Click(object sender, EventArgs e)
+        {
+            using (FormProyectosGerard2 formCrear = new FormProyectosGerard2())
+            {
+                DialogResult resultado = formCrear.ShowDialog();
+
+                // ✅ Ya no llamamos a GuardarProyectosEnJson()
+                // porque Form2 ya guarda el proyecto directamente.
+                if (resultado == DialogResult.OK)
+                {
+                    CargarProyectosDesdeJson(); // Solo recargamos los datos
+                }
+            }
+        }
 
         // --- Cargar proyectos desde JSON ---
         private void CargarProyectosDesdeJson()
@@ -42,11 +57,7 @@ namespace Beatrix_Formulario
                     }
                     else
                     {
-                        var options = new JsonSerializerOptions
-                        {
-                            PropertyNameCaseInsensitive = true
-                        };
-                        listaDeProyectos = JsonSerializer.Deserialize<List<Proyectos>>(json, options);
+                        listaDeProyectos = JsonSerializer.Deserialize<List<Proyectos>>(json);
                     }
                 }
                 catch (Exception ex)
@@ -82,7 +93,7 @@ namespace Beatrix_Formulario
 
             if (proyecto.UsuariosAsignados != null && proyecto.UsuariosAsignados.Any())
             {
-                usuariosStr = string.Join(", ", proyecto.UsuariosAsignados.Select(u => u.nombreUsuario));
+                usuariosStr = string.Join(", ", proyecto.UsuariosAsignados.Select(u => u.nombreApellidos));
             }
 
             dataGridViewTarea.Rows.Add(
@@ -95,34 +106,10 @@ namespace Beatrix_Formulario
         // --- Otros métodos del form ---
         private void pictureBox1_Click(object sender, EventArgs e) { }
         private void pictureBox1_Click_1(object sender, EventArgs e) { }
-
+        private void button1_Click(object sender, EventArgs e) { }
+        private void btnReunion_Click(object sender, EventArgs e) { }
+        private void btnTareas_Click(object sender, EventArgs e) { }
         private void button4_Click(object sender, EventArgs e) { }
         private void dataGridViewTarea_CellContentClick(object sender, DataGridViewCellEventArgs e) { }
-
-        private void btnInicio_Click(object sender, EventArgs e)
-        {
-            Inicio Inicio = new Inicio();
-            Inicio.Show();
-            this.Hide();
-        }
-
-        private void btnProyectos_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnTareas_Click(object sender, EventArgs e)
-        {
-            FormTareasTho1 TareasTho1 = new FormTareasTho1();
-            TareasTho1.Show();
-            this.Hide();
-        }
-
-        private void btnReunion_Click(object sender, EventArgs e)
-        {
-            FormReunionesDy1 formReunionesDy1 = new FormReunionesDy1();
-            formReunionesDy1.Show();
-            this.Hide();
-        }
     }
 }

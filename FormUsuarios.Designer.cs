@@ -35,14 +35,20 @@
             buttonProyetos1Tareas = new Button();
             buttonInicioForm1Tareas = new Button();
             panel1 = new Panel();
-            btnEditar = new Button();
-            lblTele = new Label();
-            label2 = new Label();
-            lblNombre = new Label();
-            txtTele = new TextBox();
-            txtCorreu = new TextBox();
-            txtNombre = new TextBox();
             pictureBoxUsuario = new PictureBox();
+<<<<<<< HEAD
+<<<<<<< HEAD
+            txtNombre = new TextBox();
+            txtCorreu = new TextBox();
+            txtTele = new TextBox();
+            lblNombre = new Label();
+            label2 = new Label();
+            lblTele = new Label();
+            btnEditar = new Button();
+=======
+>>>>>>> parent of 243938d (Merge pull request #29 from AnthonyPC24/Qiaoqiao_)
+=======
+>>>>>>> parent of 243938d (Merge pull request #29 from AnthonyPC24/Qiaoqiao_)
             panelBarraOpciones.SuspendLayout();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBoxUsuario).BeginInit();
@@ -58,8 +64,9 @@
             panelBarraOpciones.Controls.Add(buttonInicioForm1Tareas);
             panelBarraOpciones.Dock = DockStyle.Left;
             panelBarraOpciones.Location = new Point(0, 0);
+            panelBarraOpciones.Margin = new Padding(3, 4, 3, 4);
             panelBarraOpciones.Name = "panelBarraOpciones";
-            panelBarraOpciones.Size = new Size(219, 505);
+            panelBarraOpciones.Size = new Size(250, 673);
             panelBarraOpciones.TabIndex = 3;
             // 
             // labelBeatrix
@@ -67,9 +74,9 @@
             labelBeatrix.AutoSize = true;
             labelBeatrix.Font = new Font("Montserrat Black", 17.9999981F, FontStyle.Bold, GraphicsUnit.Point, 0);
             labelBeatrix.ForeColor = Color.Transparent;
-            labelBeatrix.Location = new Point(12, 18);
+            labelBeatrix.Location = new Point(14, 24);
             labelBeatrix.Name = "labelBeatrix";
-            labelBeatrix.Size = new Size(112, 38);
+            labelBeatrix.Size = new Size(139, 47);
             labelBeatrix.TabIndex = 4;
             labelBeatrix.Text = "Beatrix";
             // 
@@ -78,9 +85,10 @@
             buttonReuniones1Tareas.BackColor = Color.FromArgb(41, 195, 205);
             buttonReuniones1Tareas.Font = new Font("Montserrat Medium", 8.999999F, FontStyle.Bold, GraphicsUnit.Point, 0);
             buttonReuniones1Tareas.ForeColor = Color.White;
-            buttonReuniones1Tareas.Location = new Point(12, 425);
+            buttonReuniones1Tareas.Location = new Point(14, 567);
+            buttonReuniones1Tareas.Margin = new Padding(3, 4, 3, 4);
             buttonReuniones1Tareas.Name = "buttonReuniones1Tareas";
-            buttonReuniones1Tareas.Size = new Size(186, 53);
+            buttonReuniones1Tareas.Size = new Size(213, 71);
             buttonReuniones1Tareas.TabIndex = 3;
             buttonReuniones1Tareas.Text = "Reuniones";
             buttonReuniones1Tareas.UseVisualStyleBackColor = false;
@@ -90,9 +98,10 @@
             buttonTareas1Tareas.BackColor = Color.FromArgb(41, 195, 205);
             buttonTareas1Tareas.Font = new Font("Montserrat Medium", 8.999999F, FontStyle.Bold, GraphicsUnit.Point, 0);
             buttonTareas1Tareas.ForeColor = Color.White;
-            buttonTareas1Tareas.Location = new Point(12, 366);
+            buttonTareas1Tareas.Location = new Point(14, 488);
+            buttonTareas1Tareas.Margin = new Padding(3, 4, 3, 4);
             buttonTareas1Tareas.Name = "buttonTareas1Tareas";
-            buttonTareas1Tareas.Size = new Size(186, 53);
+            buttonTareas1Tareas.Size = new Size(213, 71);
             buttonTareas1Tareas.TabIndex = 2;
             buttonTareas1Tareas.Text = "Tareas";
             buttonTareas1Tareas.UseVisualStyleBackColor = false;
@@ -102,9 +111,10 @@
             buttonProyetos1Tareas.BackColor = Color.FromArgb(41, 195, 205);
             buttonProyetos1Tareas.Font = new Font("Montserrat Medium", 8.999999F, FontStyle.Bold, GraphicsUnit.Point, 0);
             buttonProyetos1Tareas.ForeColor = Color.White;
-            buttonProyetos1Tareas.Location = new Point(12, 307);
+            buttonProyetos1Tareas.Location = new Point(14, 409);
+            buttonProyetos1Tareas.Margin = new Padding(3, 4, 3, 4);
             buttonProyetos1Tareas.Name = "buttonProyetos1Tareas";
-            buttonProyetos1Tareas.Size = new Size(186, 53);
+            buttonProyetos1Tareas.Size = new Size(213, 71);
             buttonProyetos1Tareas.TabIndex = 1;
             buttonProyetos1Tareas.Text = "Proyectos";
             buttonProyetos1Tareas.UseVisualStyleBackColor = false;
@@ -114,9 +124,10 @@
             buttonInicioForm1Tareas.BackColor = Color.FromArgb(41, 195, 205);
             buttonInicioForm1Tareas.Font = new Font("Montserrat Medium", 8.999999F, FontStyle.Bold, GraphicsUnit.Point, 0);
             buttonInicioForm1Tareas.ForeColor = Color.White;
-            buttonInicioForm1Tareas.Location = new Point(12, 248);
+            buttonInicioForm1Tareas.Location = new Point(14, 331);
+            buttonInicioForm1Tareas.Margin = new Padding(3, 4, 3, 4);
             buttonInicioForm1Tareas.Name = "buttonInicioForm1Tareas";
-            buttonInicioForm1Tareas.Size = new Size(186, 53);
+            buttonInicioForm1Tareas.Size = new Size(213, 71);
             buttonInicioForm1Tareas.TabIndex = 0;
             buttonInicioForm1Tareas.Text = "Inicio";
             buttonInicioForm1Tareas.UseVisualStyleBackColor = false;
@@ -132,11 +143,66 @@
             panel1.Controls.Add(txtCorreu);
             panel1.Controls.Add(txtNombre);
             panel1.Controls.Add(pictureBoxUsuario);
-            panel1.Location = new Point(325, 34);
-            panel1.Margin = new Padding(3, 2, 3, 2);
+            panel1.Location = new Point(371, 46);
             panel1.Name = "panel1";
-            panel1.Size = new Size(661, 205);
+            panel1.Size = new Size(755, 273);
             panel1.TabIndex = 4;
+            // 
+            // pictureBoxUsuario
+            // 
+            pictureBoxUsuario.Location = new Point(90, 62);
+            pictureBoxUsuario.Name = "pictureBoxUsuario";
+            pictureBoxUsuario.Size = new Size(125, 125);
+            pictureBoxUsuario.TabIndex = 0;
+            pictureBoxUsuario.TabStop = false;
+            // 
+            // txtNombre
+            // 
+            txtNombre.Location = new Point(450, 64);
+            txtNombre.Name = "txtNombre";
+            txtNombre.Size = new Size(173, 27);
+            txtNombre.TabIndex = 1;
+            // 
+            // txtCorreu
+            // 
+            txtCorreu.Location = new Point(450, 113);
+            txtCorreu.Name = "txtCorreu";
+            txtCorreu.Size = new Size(173, 27);
+            txtCorreu.TabIndex = 2;
+            // 
+            // txtTele
+            // 
+            txtTele.Location = new Point(450, 164);
+            txtTele.Name = "txtTele";
+            txtTele.Size = new Size(173, 27);
+            txtTele.TabIndex = 3;
+            // 
+            // lblNombre
+            // 
+            lblNombre.AutoSize = true;
+            lblNombre.Location = new Point(282, 67);
+            lblNombre.Name = "lblNombre";
+            lblNombre.Size = new Size(140, 20);
+            lblNombre.TabIndex = 4;
+            lblNombre.Text = "Nombre y apellidos";
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Location = new Point(282, 116);
+            label2.Name = "label2";
+            label2.Size = new Size(132, 20);
+            label2.TabIndex = 5;
+            label2.Text = "Correo Electronico";
+            // 
+            // lblTele
+            // 
+            lblTele.AutoSize = true;
+            lblTele.Location = new Point(282, 167);
+            lblTele.Name = "lblTele";
+            lblTele.Size = new Size(108, 20);
+            lblTele.TabIndex = 6;
+            lblTele.Text = "Telefono Movil";
             // 
             // btnEditar
             // 
@@ -149,77 +215,15 @@
             btnEditar.UseVisualStyleBackColor = true;
             btnEditar.Click += btnEditar_Click;
             // 
-            // lblTele
-            // 
-            lblTele.AutoSize = true;
-            lblTele.Location = new Point(247, 125);
-            lblTele.Name = "lblTele";
-            lblTele.Size = new Size(86, 15);
-            lblTele.TabIndex = 6;
-            lblTele.Text = "Telefono Movil";
-            // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.Location = new Point(247, 87);
-            label2.Name = "label2";
-            label2.Size = new Size(105, 15);
-            label2.TabIndex = 5;
-            label2.Text = "Correo Electronico";
-            // 
-            // lblNombre
-            // 
-            lblNombre.AutoSize = true;
-            lblNombre.Location = new Point(247, 50);
-            lblNombre.Name = "lblNombre";
-            lblNombre.Size = new Size(110, 15);
-            lblNombre.TabIndex = 4;
-            lblNombre.Text = "Nombre y apellidos";
-            // 
-            // txtTele
-            // 
-            txtTele.Location = new Point(394, 123);
-            txtTele.Margin = new Padding(3, 2, 3, 2);
-            txtTele.Name = "txtTele";
-            txtTele.Size = new Size(152, 23);
-            txtTele.TabIndex = 3;
-            // 
-            // txtCorreu
-            // 
-            txtCorreu.Location = new Point(394, 85);
-            txtCorreu.Margin = new Padding(3, 2, 3, 2);
-            txtCorreu.Name = "txtCorreu";
-            txtCorreu.Size = new Size(152, 23);
-            txtCorreu.TabIndex = 2;
-            // 
-            // txtNombre
-            // 
-            txtNombre.Location = new Point(394, 48);
-            txtNombre.Margin = new Padding(3, 2, 3, 2);
-            txtNombre.Name = "txtNombre";
-            txtNombre.Size = new Size(152, 23);
-            txtNombre.TabIndex = 1;
-            // 
-            // pictureBoxUsuario
-            // 
-            pictureBoxUsuario.Location = new Point(79, 46);
-            pictureBoxUsuario.Margin = new Padding(3, 2, 3, 2);
-            pictureBoxUsuario.Name = "pictureBoxUsuario";
-            pictureBoxUsuario.Size = new Size(109, 94);
-            pictureBoxUsuario.TabIndex = 0;
-            pictureBoxUsuario.TabStop = false;
-            // 
             // FormUsuarios
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.HighlightText;
-            ClientSize = new Size(1104, 505);
+            ClientSize = new Size(1262, 673);
             Controls.Add(panel1);
             Controls.Add(panelBarraOpciones);
-            Margin = new Padding(3, 2, 3, 2);
             Name = "FormUsuarios";
-            StartPosition = FormStartPosition.CenterScreen;
             Text = "FormUsuarios";
             panelBarraOpciones.ResumeLayout(false);
             panelBarraOpciones.PerformLayout();
