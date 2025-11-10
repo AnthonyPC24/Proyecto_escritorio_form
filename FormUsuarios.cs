@@ -1,36 +1,36 @@
-﻿//using System;
-//using System.Collections.Generic;
-//using System.ComponentModel;
-//using System.Data;
-//using System.Drawing;
-//using System.Linq;
-//using System.Text;
-//using System.Threading.Tasks;
-//using System.Windows.Forms;
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
 
-//namespace Beatrix_Formulario
-//{
-//    public partial class FormUsuarios : Form
-//    {
-//        public FormUsuarios()
-//        {
-//            InitializeComponent();
-//        }
+namespace Beatrix_Formulario
+{
+    public partial class FormUsuarios : Form
+    {
+        public FormUsuarios()
+        {
+            InitializeComponent();
+        }
 
-//        private void btnEditar_Click(object sender, EventArgs e)
-//        {
-//            this.Close();
-//            //Application.Run(new FormPantallaUsuario());
-//        }
+        private void btnEditar_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            //Application.Run(new FormPantallaUsuario());
+        }
 
-//        private void btnCrearUsuario_Click(object sender, EventArgs e)
-//        {
+        private void btnCrearUsuario_Click(object sender, EventArgs e)
+        {
 
-//        }
+        }
 
-//        private void lblCrearUsuario_Click(object sender, EventArgs e)
-//        {
+        private void lblCrearUsuario_Click(object sender, EventArgs e)
+        {
             
-//        }
-//    }
-//}
+        }
+    }
+}
