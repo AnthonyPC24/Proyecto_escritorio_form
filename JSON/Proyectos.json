@@ -17,7 +17,8 @@
             "telefono": null,
             "rol": null
           }
-        ]
+        ],
+        "Subtareas": []
       },
       {
         "nombreTarea": "Desarrollo del Backend (API REST)",
@@ -34,7 +35,8 @@
             "telefono": null,
             "rol": null
           }
-        ]
+        ],
+        "Subtareas": []
       },
       {
         "nombreTarea": "Definir arquitectura de la app",
@@ -59,7 +61,8 @@
             "telefono": null,
             "rol": null
           }
-        ]
+        ],
+        "Subtareas": []
       },
       {
         "nombreTarea": "nueva app",
@@ -84,7 +87,8 @@
             "telefono": null,
             "rol": null
           }
-        ]
+        ],
+        "Subtareas": []
       }
     ],
     "fechaEntrega": "0001-01-01T00:00:00",
@@ -92,7 +96,7 @@
     "UsuariosAsignados": []
   },
   {
-    "NombreProyecto": "Migración a la Nube (AWS)",
+    "NombreProyecto": "Migraci\u00F3n a la Nube (AWS)",
     "Tareas": [
       {
         "nombreTarea": "Auditor\u00EDa de infraestructura",
@@ -109,7 +113,8 @@
             "telefono": null,
             "rol": null
           }
-        ]
+        ],
+        "Subtareas": []
       },
       {
         "nombreTarea": "Configuraci\u00F3n de VPC",
@@ -126,7 +131,34 @@
             "telefono": null,
             "rol": null
           }
-        ]
+        ],
+        "Subtareas": []
+      },
+      {
+        "nombreTarea": "nueva aws",
+        "descripcion": "ashfahfjasf",
+        "fechaInicio": "2025-11-12T19:00:18.886",
+        "fechaEntrega": "2025-11-13T19:00:18.883",
+        "estado": "Pendiente",
+        "usuariosAsignados": [
+          {
+            "nombreApellidos": null,
+            "nombreUsuario": "afernandez",
+            "contrase\u00F1a": null,
+            "email": null,
+            "telefono": null,
+            "rol": null
+          },
+          {
+            "nombreApellidos": null,
+            "nombreUsuario": "csantana",
+            "contrase\u00F1a": null,
+            "email": null,
+            "telefono": null,
+            "rol": null
+          }
+        ],
+        "Subtareas": []
       }
     ],
     "fechaEntrega": "0001-01-01T00:00:00",

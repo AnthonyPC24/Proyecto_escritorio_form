@@ -52,5 +52,16 @@
       "Elena Ruiz"
     ],
     "descripcion": "THE LAST ACE IN A LOST HAND"
+  },
+  {
+    "titulo": "reunio",
+    "fechaHora": "2025-11-12T18:59:54.456",
+    "usuariosReuniones": [
+      "Ana Fernandez",
+      "Carlos Santana",
+      "Elena Ruiz",
+      "Marcos Gomez"
+    ],
+    "descripcion": "reunion"
   }
 ]
