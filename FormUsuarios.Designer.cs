@@ -146,38 +146,45 @@
             // 
             // btnEditar
             // 
+            btnEditar.BackColor = Color.FromArgb(41, 191, 205);
+            btnEditar.FlatStyle = FlatStyle.Popup;
+            btnEditar.Font = new Font("Montserrat Medium", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnEditar.ForeColor = SystemColors.ControlLightLight;
             btnEditar.Location = new Point(529, 216);
             btnEditar.Name = "btnEditar";
             btnEditar.Size = new Size(94, 29);
             btnEditar.TabIndex = 7;
             btnEditar.Text = "Editar";
-            btnEditar.UseVisualStyleBackColor = true;
+            btnEditar.UseVisualStyleBackColor = false;
             btnEditar.Click += btnEditar_Click;
             // 
             // lblTele
             // 
             lblTele.AutoSize = true;
+            lblTele.Font = new Font("Montserrat", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lblTele.Location = new Point(282, 167);
             lblTele.Name = "lblTele";
-            lblTele.Size = new Size(108, 20);
+            lblTele.Size = new Size(116, 24);
             lblTele.TabIndex = 6;
             lblTele.Text = "Telefono Movil";
             // 
             // label2
             // 
             label2.AutoSize = true;
+            label2.Font = new Font("Montserrat", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label2.Location = new Point(282, 116);
             label2.Name = "label2";
-            label2.Size = new Size(132, 20);
+            label2.Size = new Size(147, 24);
             label2.TabIndex = 5;
             label2.Text = "Correo Electronico";
             // 
             // lblNombre
             // 
             lblNombre.AutoSize = true;
+            lblNombre.Font = new Font("Montserrat", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lblNombre.Location = new Point(282, 67);
             lblNombre.Name = "lblNombre";
-            lblNombre.Size = new Size(140, 20);
+            lblNombre.Size = new Size(154, 24);
             lblNombre.TabIndex = 4;
             lblNombre.Text = "Nombre y apellidos";
             // 
@@ -204,9 +211,11 @@
             // 
             // pictureBoxUsuario
             // 
+            pictureBoxUsuario.Image = Properties.Resources.usuario;
             pictureBoxUsuario.Location = new Point(90, 62);
             pictureBoxUsuario.Name = "pictureBoxUsuario";
             pictureBoxUsuario.Size = new Size(125, 125);
+            pictureBoxUsuario.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBoxUsuario.TabIndex = 0;
             pictureBoxUsuario.TabStop = false;
             // 
@@ -243,6 +252,7 @@
             Controls.Add(lblCrearUsuario);
             Controls.Add(panel1);
             Controls.Add(panelBarraOpciones);
+            MinimizeBox = false;
             Name = "FormUsuarios";
             Text = "FormUsuarios";
             panelBarraOpciones.ResumeLayout(false);
