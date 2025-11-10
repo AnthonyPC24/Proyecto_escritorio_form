@@ -4,9 +4,6 @@
     <Compile Update="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="FormPantallaUsuario.cs">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Update="FormProyectosGerard1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -23,9 +20,6 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="FormTareasTho2.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Update="FormUsuarios.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Inicio.cs">
