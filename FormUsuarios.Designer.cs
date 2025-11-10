@@ -36,6 +36,7 @@
             buttonInicioForm1Tareas = new Button();
             panel1 = new Panel();
             pictureBoxUsuario = new PictureBox();
+<<<<<<< HEAD
             txtNombre = new TextBox();
             txtCorreu = new TextBox();
             txtTele = new TextBox();
@@ -43,6 +44,8 @@
             label2 = new Label();
             lblTele = new Label();
             btnEditar = new Button();
+=======
+>>>>>>> parent of 243938d (Merge pull request #29 from AnthonyPC24/Qiaoqiao_)
             panelBarraOpciones.SuspendLayout();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBoxUsuario).BeginInit();
@@ -200,9 +203,10 @@
             // 
             // btnEditar
             // 
-            btnEditar.Location = new Point(529, 216);
+            btnEditar.Location = new Point(463, 162);
+            btnEditar.Margin = new Padding(3, 2, 3, 2);
             btnEditar.Name = "btnEditar";
-            btnEditar.Size = new Size(94, 29);
+            btnEditar.Size = new Size(82, 22);
             btnEditar.TabIndex = 7;
             btnEditar.Text = "Editar";
             btnEditar.UseVisualStyleBackColor = true;

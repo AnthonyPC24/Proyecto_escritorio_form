@@ -206,5 +206,28 @@ namespace Beatrix_Formulario
             }
         }
 
+<<<<<<< HEAD
+=======
+        private void buttonProyetos1Tareas_Click(object sender, EventArgs e)
+        {
+            FormProyectosGerard1 formProyectosGerard1 = new FormProyectosGerard1();
+            formProyectosGerard1.Show();
+            this.Hide();
+        }
+
+        private void buttonTareas1Tareas_Click(object sender, EventArgs e)
+        {
+            FormTareasTho1 formTareasTho1 = new FormTareasTho1();
+            formTareasTho1.Show();
+            this.Hide();
+        }
+
+        private void buttonReuniones1Tareas_Click(object sender, EventArgs e)
+        {
+            FormReunionesDy1 formReunionesDy1 = new FormReunionesDy1();
+            formReunionesDy1.Show();
+            this.Hide();
+        }
+>>>>>>> parent of 243938d (Merge pull request #29 from AnthonyPC24/Qiaoqiao_)
     }
 }
