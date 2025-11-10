@@ -36,8 +36,6 @@
             buttonInicioForm1Tareas = new Button();
             panel1 = new Panel();
             pictureBoxUsuario = new PictureBox();
-<<<<<<< HEAD
-<<<<<<< HEAD
             txtNombre = new TextBox();
             txtCorreu = new TextBox();
             txtTele = new TextBox();
@@ -45,10 +43,6 @@
             label2 = new Label();
             lblTele = new Label();
             btnEditar = new Button();
-=======
->>>>>>> parent of 243938d (Merge pull request #29 from AnthonyPC24/Qiaoqiao_)
-=======
->>>>>>> parent of 243938d (Merge pull request #29 from AnthonyPC24/Qiaoqiao_)
             panelBarraOpciones.SuspendLayout();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBoxUsuario).BeginInit();
@@ -150,39 +144,45 @@
             // 
             // pictureBoxUsuario
             // 
-            pictureBoxUsuario.Location = new Point(90, 62);
-            pictureBoxUsuario.Name = "pictureBoxUsuario";
-            pictureBoxUsuario.Size = new Size(125, 125);
-            pictureBoxUsuario.TabIndex = 0;
-            pictureBoxUsuario.TabStop = false;
+            btnEditar.BackColor = Color.FromArgb(41, 191, 205);
+            btnEditar.FlatStyle = FlatStyle.Popup;
+            btnEditar.Font = new Font("Montserrat Medium", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnEditar.ForeColor = SystemColors.ControlLightLight;
+            btnEditar.Location = new Point(529, 216);
+            btnEditar.Name = "btnEditar";
+            btnEditar.Size = new Size(94, 29);
+            btnEditar.TabIndex = 7;
+            btnEditar.Text = "Editar";
+            btnEditar.UseVisualStyleBackColor = false;
+            btnEditar.Click += btnEditar_Click;
             // 
             // txtNombre
             // 
-            txtNombre.Location = new Point(450, 64);
-            txtNombre.Name = "txtNombre";
-            txtNombre.Size = new Size(173, 27);
-            txtNombre.TabIndex = 1;
+            lblTele.AutoSize = true;
+            lblTele.Font = new Font("Montserrat", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblTele.Location = new Point(282, 167);
+            lblTele.Name = "lblTele";
+            lblTele.Size = new Size(116, 24);
+            lblTele.TabIndex = 6;
+            lblTele.Text = "Telefono Movil";
             // 
             // txtCorreu
             // 
-            txtCorreu.Location = new Point(450, 113);
-            txtCorreu.Name = "txtCorreu";
-            txtCorreu.Size = new Size(173, 27);
-            txtCorreu.TabIndex = 2;
-            // 
-            // txtTele
-            // 
-            txtTele.Location = new Point(450, 164);
-            txtTele.Name = "txtTele";
-            txtTele.Size = new Size(173, 27);
-            txtTele.TabIndex = 3;
+            label2.AutoSize = true;
+            label2.Font = new Font("Montserrat", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label2.Location = new Point(282, 116);
+            label2.Name = "label2";
+            label2.Size = new Size(147, 24);
+            label2.TabIndex = 5;
+            label2.Text = "Correo Electronico";
             // 
             // lblNombre
             // 
             lblNombre.AutoSize = true;
+            lblNombre.Font = new Font("Montserrat", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lblNombre.Location = new Point(282, 67);
             lblNombre.Name = "lblNombre";
-            lblNombre.Size = new Size(140, 20);
+            lblNombre.Size = new Size(154, 24);
             lblNombre.TabIndex = 4;
             lblNombre.Text = "Nombre y apellidos";
             // 
@@ -204,7 +204,13 @@
             lblTele.TabIndex = 6;
             lblTele.Text = "Telefono Movil";
             // 
-            // btnEditar
+            pictureBoxUsuario.Image = Properties.Resources.usuario;
+            pictureBoxUsuario.Location = new Point(90, 62);
+            pictureBoxUsuario.Name = "pictureBoxUsuario";
+            pictureBoxUsuario.Size = new Size(125, 125);
+            pictureBoxUsuario.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBoxUsuario.TabIndex = 0;
+            pictureBoxUsuario.TabStop = false;
             // 
             btnEditar.Location = new Point(463, 162);
             btnEditar.Margin = new Padding(3, 2, 3, 2);
@@ -223,6 +229,7 @@
             ClientSize = new Size(1262, 673);
             Controls.Add(panel1);
             Controls.Add(panelBarraOpciones);
+            MinimizeBox = false;
             Name = "FormUsuarios";
             Text = "FormUsuarios";
             panelBarraOpciones.ResumeLayout(false);

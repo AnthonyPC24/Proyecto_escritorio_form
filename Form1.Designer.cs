@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
-            buttonLogin = new Button();
+            btnLogin = new Button();
             Logo = new PictureBox();
             txtUsuario = new TextBox();
             txtContrasena = new TextBox();
@@ -39,17 +39,17 @@
             ((System.ComponentModel.ISupportInitialize)bindingSource1).BeginInit();
             SuspendLayout();
             // 
-            // buttonLogin
+            // btnLogin
             // 
-            buttonLogin.FlatStyle = FlatStyle.System;
-            buttonLogin.Font = new Font("Montserrat", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            buttonLogin.Location = new Point(362, 393);
-            buttonLogin.Name = "buttonLogin";
-            buttonLogin.Size = new Size(190, 40);
-            buttonLogin.TabIndex = 0;
-            buttonLogin.Text = "Entrar";
-            buttonLogin.UseVisualStyleBackColor = true;
-            buttonLogin.Click += buttonLogin_Click;
+            btnLogin.FlatStyle = FlatStyle.System;
+            btnLogin.Font = new Font("Montserrat", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnLogin.Location = new Point(362, 393);
+            btnLogin.Name = "btnLogin";
+            btnLogin.Size = new Size(190, 40);
+            btnLogin.TabIndex = 0;
+            btnLogin.Text = "Entrar";
+            btnLogin.UseVisualStyleBackColor = true;
+            btnLogin.Click += btnLogin_Click;
             // 
             // Logo
             // 
@@ -103,7 +103,8 @@
             Controls.Add(txtContrasena);
             Controls.Add(txtUsuario);
             Controls.Add(Logo);
-            Controls.Add(buttonLogin);
+            Controls.Add(btnLogin);
+            MinimizeBox = false;
             Name = "BeatrixForm";
             Text = "Beatrix";
             Load += Beatrix_Load;
@@ -115,7 +116,7 @@
 
         #endregion
 
-        private Button buttonLogin;
+        private Button btnLogin;
         private PictureBox Logo;
         private TextBox txtUsuario;
         private TextBox txtContrasena;

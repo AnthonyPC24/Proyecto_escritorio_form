@@ -31,6 +31,7 @@
             DataGridView dgvTarea;
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridView dgvTarea;
             DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
             ColumnTarea = new DataGridViewTextBoxColumn();
@@ -158,8 +159,6 @@
             dgvTarea.Size = new Size(965, 281);
             dgvTarea.TabIndex = 10;
             // 
-<<<<<<< HEAD
-=======
             // ColumnTarea
             // 
             ColumnTarea.HeaderText = "Tarea";
@@ -222,10 +221,6 @@
             panelTareaHoy.Size = new Size(394, 202);
             panelTareaHoy.TabIndex = 13;
             // 
-<<<<<<< HEAD
->>>>>>> parent of 243938d (Merge pull request #29 from AnthonyPC24/Qiaoqiao_)
-=======
->>>>>>> parent of 243938d (Merge pull request #29 from AnthonyPC24/Qiaoqiao_)
             // panelBarraOpciones
             // 
             panelBarraOpciones.BackColor = Color.FromArgb(41, 195, 205);
@@ -316,6 +311,7 @@
             Controls.Add(dgvTarea);
             Controls.Add(comboBoxProyecto);
             Controls.Add(monthCalendar);
+            MaximizeBox = false;
             Name = "Inicio";
             Text = "Inicio";
             Load += Inicio_Load;
