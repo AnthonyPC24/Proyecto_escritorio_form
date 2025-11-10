@@ -158,6 +158,71 @@
             dgvTarea.Size = new Size(965, 281);
             dgvTarea.TabIndex = 10;
             // 
+<<<<<<< HEAD
+=======
+            // ColumnTarea
+            // 
+            ColumnTarea.HeaderText = "Tarea";
+            ColumnTarea.MinimumWidth = 6;
+            ColumnTarea.Name = "ColumnTarea";
+            ColumnTarea.ReadOnly = true;
+            // 
+            // ColumnEspecificaciones
+            // 
+            ColumnEspecificaciones.HeaderText = "Especificaciones";
+            ColumnEspecificaciones.MinimumWidth = 6;
+            ColumnEspecificaciones.Name = "ColumnEspecificaciones";
+            ColumnEspecificaciones.ReadOnly = true;
+            // 
+            // ColumnUsuario
+            // 
+            ColumnUsuario.HeaderText = "Usuario/s";
+            ColumnUsuario.MinimumWidth = 6;
+            ColumnUsuario.Name = "ColumnUsuario";
+            ColumnUsuario.ReadOnly = true;
+            // 
+            // monthCalendar
+            // 
+            monthCalendar.Font = new Font("Montserrat", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            monthCalendar.Location = new Point(239, 305);
+            monthCalendar.Margin = new Padding(8, 7, 8, 7);
+            monthCalendar.Name = "monthCalendar";
+            monthCalendar.TabIndex = 6;
+            monthCalendar.DateChanged += monthCalendar_DateChanged;
+            // 
+            // comboBoxProyecto
+            // 
+            comboBoxProyecto.Font = new Font("Montserrat Medium", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            comboBoxProyecto.FormattingEnabled = true;
+            comboBoxProyecto.Items.AddRange(new object[] { "Proyecto 1", "Proyecto 2", "Proyecto 3" });
+            comboBoxProyecto.Location = new Point(239, 9);
+            comboBoxProyecto.Margin = new Padding(3, 2, 3, 2);
+            comboBoxProyecto.Name = "comboBoxProyecto";
+            comboBoxProyecto.Size = new Size(133, 26);
+            comboBoxProyecto.TabIndex = 7;
+            comboBoxProyecto.Text = "Proyecto 1";
+            comboBoxProyecto.SelectedIndexChanged += comboBoxProyecto_SelectedIndexChanged;
+            // 
+            // btnIdioma
+            // 
+            btnIdioma.Location = new Point(1033, 9);
+            btnIdioma.Margin = new Padding(3, 2, 3, 2);
+            btnIdioma.Name = "btnIdioma";
+            btnIdioma.Size = new Size(50, 22);
+            btnIdioma.TabIndex = 12;
+            btnIdioma.UseVisualStyleBackColor = true;
+            btnIdioma.Click += btnIdioma_Click;
+            // 
+            // panelTareaHoy
+            // 
+            panelTareaHoy.BackColor = Color.FromArgb(0, 181, 200);
+            panelTareaHoy.Location = new Point(690, 281);
+            panelTareaHoy.Margin = new Padding(3, 2, 3, 2);
+            panelTareaHoy.Name = "panelTareaHoy";
+            panelTareaHoy.Size = new Size(394, 202);
+            panelTareaHoy.TabIndex = 13;
+            // 
+>>>>>>> parent of 243938d (Merge pull request #29 from AnthonyPC24/Qiaoqiao_)
             // panelBarraOpciones
             // 
             panelBarraOpciones.BackColor = Color.FromArgb(41, 195, 205);
