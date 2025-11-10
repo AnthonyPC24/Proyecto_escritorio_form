@@ -29,10 +29,8 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
-            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormReunionesDy1));
-            contextMenuStrip1 = new ContextMenuStrip(components);
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             panelBarraOpciones = new Panel();
             label1 = new Label();
             labelBeatrix = new Label();
@@ -189,29 +187,42 @@
             panelParaHoy.TabIndex = 6;
             panelParaHoy.Paint += panelParaHoy_Paint;
             // 
-            // label2
+            // labelVerTodasLasReuniones
             // 
-            label2.AutoSize = true;
-            label2.Font = new Font("Montserrat", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label2.Location = new Point(222, 7);
-            label2.Name = "label2";
-            label2.Size = new Size(199, 29);
-            label2.TabIndex = 17;
-            label2.Text = "Todas las reuniones";
+            labelVerTodasLasReuniones.AutoSize = true;
+            labelVerTodasLasReuniones.Cursor = Cursors.Hand;
+            labelVerTodasLasReuniones.Font = new Font("Montserrat", 9.749999F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            labelVerTodasLasReuniones.ForeColor = Color.FromArgb(41, 191, 205);
+            labelVerTodasLasReuniones.Location = new Point(14, 7);
+            labelVerTodasLasReuniones.Name = "labelVerTodasLasReuniones";
+            labelVerTodasLasReuniones.Size = new Size(169, 20);
+            labelVerTodasLasReuniones.TabIndex = 17;
+            labelVerTodasLasReuniones.Text = "Ver todas las reuniones";
+            labelVerTodasLasReuniones.Click += labelVerTodasLasReuniones_Click;
+            // 
+            // labelReuniones
+            // 
+            labelReuniones.AutoSize = true;
+            labelReuniones.Font = new Font("Montserrat", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            labelReuniones.Location = new Point(222, 7);
+            labelReuniones.Name = "labelReuniones";
+            labelReuniones.Size = new Size(199, 29);
+            labelReuniones.TabIndex = 17;
+            labelReuniones.Text = "Todas las reuniones";
             // 
             // dataGridViewTarea
             // 
             dataGridViewTarea.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridViewTarea.BackgroundColor = SystemColors.ButtonHighlight;
             dataGridViewTarea.BorderStyle = BorderStyle.Fixed3D;
-            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.BackColor = SystemColors.Control;
-            dataGridViewCellStyle3.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle3.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
-            dataGridViewTarea.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = SystemColors.Control;
+            dataGridViewCellStyle1.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle1.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
+            dataGridViewTarea.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dataGridViewTarea.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridViewTarea.GridColor = SystemColors.Control;
             dataGridViewTarea.Location = new Point(14, 38);
@@ -219,8 +230,8 @@
             dataGridViewTarea.Name = "dataGridViewTarea";
             dataGridViewTarea.ReadOnly = true;
             dataGridViewTarea.RowHeadersWidth = 51;
-            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewTarea.RowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewTarea.RowsDefaultCellStyle = dataGridViewCellStyle2;
             dataGridViewTarea.Size = new Size(570, 255);
             dataGridViewTarea.TabIndex = 11;
             // 

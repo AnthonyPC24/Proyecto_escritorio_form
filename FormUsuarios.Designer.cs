@@ -35,16 +35,14 @@
             buttonProyetos1Tareas = new Button();
             buttonInicioForm1Tareas = new Button();
             panel1 = new Panel();
-            btnEditar = new Button();
-            lblTele = new Label();
-            label2 = new Label();
-            lblNombre = new Label();
-            txtTele = new TextBox();
-            txtCorreu = new TextBox();
-            txtNombre = new TextBox();
             pictureBoxUsuario = new PictureBox();
-            lblCrearUsuario = new Label();
-            lblTitulo = new Label();
+            txtNombre = new TextBox();
+            txtCorreu = new TextBox();
+            txtTele = new TextBox();
+            lblNombre = new Label();
+            label2 = new Label();
+            lblTele = new Label();
+            btnEditar = new Button();
             panelBarraOpciones.SuspendLayout();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBoxUsuario).BeginInit();
@@ -144,7 +142,7 @@
             panel1.Size = new Size(755, 273);
             panel1.TabIndex = 4;
             // 
-            // btnEditar
+            // pictureBoxUsuario
             // 
             btnEditar.BackColor = Color.FromArgb(41, 191, 205);
             btnEditar.FlatStyle = FlatStyle.Popup;
@@ -158,7 +156,7 @@
             btnEditar.UseVisualStyleBackColor = false;
             btnEditar.Click += btnEditar_Click;
             // 
-            // lblTele
+            // txtNombre
             // 
             lblTele.AutoSize = true;
             lblTele.Font = new Font("Montserrat", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
@@ -168,7 +166,7 @@
             lblTele.TabIndex = 6;
             lblTele.Text = "Telefono Movil";
             // 
-            // label2
+            // txtCorreu
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Montserrat", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
@@ -188,28 +186,23 @@
             lblNombre.TabIndex = 4;
             lblNombre.Text = "Nombre y apellidos";
             // 
-            // txtTele
+            // label2
             // 
-            txtTele.Location = new Point(450, 164);
-            txtTele.Name = "txtTele";
-            txtTele.Size = new Size(173, 27);
-            txtTele.TabIndex = 3;
+            label2.AutoSize = true;
+            label2.Location = new Point(282, 116);
+            label2.Name = "label2";
+            label2.Size = new Size(132, 20);
+            label2.TabIndex = 5;
+            label2.Text = "Correo Electronico";
             // 
-            // txtCorreu
+            // lblTele
             // 
-            txtCorreu.Location = new Point(450, 113);
-            txtCorreu.Name = "txtCorreu";
-            txtCorreu.Size = new Size(173, 27);
-            txtCorreu.TabIndex = 2;
-            // 
-            // txtNombre
-            // 
-            txtNombre.Location = new Point(450, 64);
-            txtNombre.Name = "txtNombre";
-            txtNombre.Size = new Size(173, 27);
-            txtNombre.TabIndex = 1;
-            // 
-            // pictureBoxUsuario
+            lblTele.AutoSize = true;
+            lblTele.Location = new Point(282, 167);
+            lblTele.Name = "lblTele";
+            lblTele.Size = new Size(108, 20);
+            lblTele.TabIndex = 6;
+            lblTele.Text = "Telefono Movil";
             // 
             pictureBoxUsuario.Image = Properties.Resources.usuario;
             pictureBoxUsuario.Location = new Point(90, 62);
@@ -219,28 +212,14 @@
             pictureBoxUsuario.TabIndex = 0;
             pictureBoxUsuario.TabStop = false;
             // 
-            // lblCrearUsuario
-            // 
-            lblCrearUsuario.AutoSize = true;
-            lblCrearUsuario.Font = new Font("Montserrat Medium", 8.999999F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblCrearUsuario.ForeColor = Color.FromArgb(41, 191, 205);
-            lblCrearUsuario.Location = new Point(321, 388);
-            lblCrearUsuario.Name = "lblCrearUsuario";
-            lblCrearUsuario.Size = new Size(127, 24);
-            lblCrearUsuario.TabIndex = 12;
-            lblCrearUsuario.Text = "+ Crear Usuario";
-            lblCrearUsuario.Click += lblCrearUsuario_Click;
-            // 
-            // lblTitulo
-            // 
-            lblTitulo.AutoSize = true;
-            lblTitulo.Font = new Font("Montserrat Medium", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblTitulo.ForeColor = Color.FromArgb(41, 191, 205);
-            lblTitulo.Location = new Point(654, 409);
-            lblTitulo.Name = "lblTitulo";
-            lblTitulo.Size = new Size(176, 28);
-            lblTitulo.TabIndex = 13;
-            lblTitulo.Text = "Todos los usuarios";
+            btnEditar.Location = new Point(463, 162);
+            btnEditar.Margin = new Padding(3, 2, 3, 2);
+            btnEditar.Name = "btnEditar";
+            btnEditar.Size = new Size(82, 22);
+            btnEditar.TabIndex = 7;
+            btnEditar.Text = "Editar";
+            btnEditar.UseVisualStyleBackColor = true;
+            btnEditar.Click += btnEditar_Click;
             // 
             // FormUsuarios
             // 
@@ -248,8 +227,6 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.HighlightText;
             ClientSize = new Size(1262, 673);
-            Controls.Add(lblTitulo);
-            Controls.Add(lblCrearUsuario);
             Controls.Add(panel1);
             Controls.Add(panelBarraOpciones);
             MinimizeBox = false;
@@ -261,7 +238,6 @@
             panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBoxUsuario).EndInit();
             ResumeLayout(false);
-            PerformLayout();
         }
 
         #endregion
@@ -281,7 +257,5 @@
         private Label label2;
         private Button btnEditar;
         private Label lblTele;
-        private Label lblCrearUsuario;
-        private Label lblTitulo;
     }
 }
