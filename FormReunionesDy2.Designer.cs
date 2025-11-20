@@ -51,7 +51,7 @@
             labelNuevaReunion.Font = new Font("Montserrat", 21.7499962F, FontStyle.Regular, GraphicsUnit.Point, 0);
             labelNuevaReunion.Location = new Point(164, -1);
             labelNuevaReunion.Name = "labelNuevaReunion";
-            labelNuevaReunion.Size = new Size(246, 45);
+            labelNuevaReunion.Size = new Size(240, 45);
             labelNuevaReunion.TabIndex = 9;
             labelNuevaReunion.Text = "Nueva Reunión";
             // 
@@ -69,7 +69,7 @@
             labelAsunto.Font = new Font("Montserrat", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             labelAsunto.Location = new Point(241, 93);
             labelAsunto.Name = "labelAsunto";
-            labelAsunto.Size = new Size(82, 30);
+            labelAsunto.Size = new Size(81, 29);
             labelAsunto.TabIndex = 11;
             labelAsunto.Text = "Asunto";
             // 
@@ -79,7 +79,7 @@
             labelFechaHora.Font = new Font("Montserrat", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             labelFechaHora.Location = new Point(216, 151);
             labelFechaHora.Name = "labelFechaHora";
-            labelFechaHora.Size = new Size(136, 30);
+            labelFechaHora.Size = new Size(137, 29);
             labelFechaHora.TabIndex = 12;
             labelFechaHora.Text = "Fecha y Hora";
             // 
@@ -98,7 +98,7 @@
             labelParticipantes.Font = new Font("Montserrat", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             labelParticipantes.Location = new Point(215, 223);
             labelParticipantes.Name = "labelParticipantes";
-            labelParticipantes.Size = new Size(140, 30);
+            labelParticipantes.Size = new Size(138, 29);
             labelParticipantes.TabIndex = 14;
             labelParticipantes.Text = "Participantes";
             // 
@@ -132,7 +132,7 @@
             labelContador1.ForeColor = Color.White;
             labelContador1.Location = new Point(504, 125);
             labelContador1.Name = "labelContador1";
-            labelContador1.Size = new Size(36, 18);
+            labelContador1.Size = new Size(34, 19);
             labelContador1.TabIndex = 22;
             labelContador1.Text = "0/30";
             // 
@@ -143,7 +143,7 @@
             labelContador2.ForeColor = Color.White;
             labelContador2.Location = new Point(496, 448);
             labelContador2.Name = "labelContador2";
-            labelContador2.Size = new Size(37, 18);
+            labelContador2.Size = new Size(34, 19);
             labelContador2.TabIndex = 21;
             labelContador2.Text = "0/60";
             // 
@@ -190,7 +190,7 @@
             labelInformacion.Font = new Font("Montserrat", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             labelInformacion.Location = new Point(215, 386);
             labelInformacion.Name = "labelInformacion";
-            labelInformacion.Size = new Size(130, 30);
+            labelInformacion.Size = new Size(130, 29);
             labelInformacion.TabIndex = 17;
             labelInformacion.Text = "Información";
             // 
@@ -211,7 +211,6 @@
             ClientSize = new Size(570, 623);
             Controls.Add(panelParaHoy);
             Name = "FormReunionesDy2";
-            StartPosition = FormStartPosition.CenterScreen;
             Text = "FormReunionesDy2";
             panelParaHoy.ResumeLayout(false);
             panelParaHoy.PerformLayout();

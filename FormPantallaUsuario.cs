@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Beatrix_Formulario.ClasesTareas;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,6 +13,7 @@ namespace Beatrix_Formulario
 {
     public partial class FormPantallaUsuario : Form
     {
+        private List<Usuarios> users = new List<Usuarios>();
         public FormPantallaUsuario()
         {
             InitializeComponent();
@@ -24,6 +26,13 @@ namespace Beatrix_Formulario
 
         private void btnCrear_Click(object sender, EventArgs e)
         {
+            // Los usuarios se añadirán al archivo JSON después de su creación.
+
+            string usersPath = Path.Combine(Application.StartupPath, "JSON", "Usuarios.json");
+
+            
+           
+
 
         }
     }

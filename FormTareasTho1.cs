@@ -71,7 +71,6 @@ namespace Beatrix_Formulario
             if (nuevaTareaForm.ShowDialog() == DialogResult.OK)
             {
                 string nombreProyecto = comboBoxProyectos.SelectedItem?.ToString();
-
                 if (string.IsNullOrEmpty(nombreProyecto))
                 {
                     MessageBox.Show("Seleccione un proyecto para añadir la tarea.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -79,7 +78,6 @@ namespace Beatrix_Formulario
                 }
 
                 Proyectos proyecto = listaProyectos.FirstOrDefault(p => p.NombreProyecto == nombreProyecto);
-
                 if (proyecto == null)
                 {
                     MessageBox.Show("No se encontró el proyecto en la lista.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -103,14 +101,13 @@ namespace Beatrix_Formulario
 
         private void comboBoxTareas_SelectedIndexChanged(object sender, EventArgs e)
         {
-
             string nombreProyecto = comboBoxProyectos.SelectedItem?.ToString();
             string nombreTarea = comboBoxTareas.SelectedItem?.ToString();
 
             if (nombreProyecto == null || nombreTarea == null) return;
 
             Proyectos proyecto = listaProyectos.FirstOrDefault(p => p.NombreProyecto == nombreProyecto);
-            if (proyecto == null) return;
+            if (proyecto == null)return;
 
             Tareas tarea = proyecto.Tareas.FirstOrDefault(t => t.nombreTarea == nombreTarea);
             if (tarea == null) return;
@@ -157,100 +154,6 @@ namespace Beatrix_Formulario
                     comboBoxTareas.Items.Add(tarea.nombreTarea);
                 }
             }
-        }
-        private void buttonInicioForm1Tareas_Click(object sender, EventArgs e)
-        {
-            Inicio inicioForm = new Inicio();
-            inicioForm.Show();
-            this.Hide();
-        }
-
-        private void buttonProyetos1Tareas_Click(object sender, EventArgs e)
-        {
-            FormProyectosGerard1 formProyectosGerard1 = new FormProyectosGerard1();
-            formProyectosGerard1.Show();
-            this.Hide();
-        }
-
-        private void buttonReuniones1Tareas_Click(object sender, EventArgs e)
-        {
-            FormReunionesDy1 formReunionesDy1 = new FormReunionesDy1();
-            formReunionesDy1.Show();
-            this.Hide();
-        }
-
-
-        // --- Buscar proyecto por nombre ---
-        private void buttonBuscarNombreProyecto_Click(object sender, EventArgs e)
-        {
-            string textoBusqueda = textBoxBuscarNombreProyecto.Text.Trim();
-
-            if (string.IsNullOrWhiteSpace(textoBusqueda))
-            {
-                MessageBox.Show("Por favor, ingresa un nombre de proyecto para buscar.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                return;
-            }
-            // Buscar el proyecto que contenga el texto ingresado (insensible a mayúsculas)
-            Proyectos proyectoEncontrado = listaProyectos.FirstOrDefault(p =>
-                p.NombreProyecto != null &&
-                p.NombreProyecto.IndexOf(textoBusqueda, StringComparison.OrdinalIgnoreCase) >= 0);
-
-            if (proyectoEncontrado == null)
-            {
-                MessageBox.Show("No se encontró ningún proyecto con ese nombre.", "Sin resultados", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                return;
-            }
-
-            // Limpiar comboBoxTareas para evitar duplicados
-            comboBoxTareas.Items.Clear();
-
-            // Desactivar evento temporalmente para evitar duplicación al cambiar el SelectedItem
-            comboBoxProyectos.SelectedIndexChanged -= comboBoxProyectos_SelectedIndexChanged;
-            comboBoxProyectos.SelectedItem = proyectoEncontrado.NombreProyecto;
-            comboBoxProyectos.SelectedIndexChanged += comboBoxProyectos_SelectedIndexChanged;
-
-            // Cargar las tareas del proyecto encontrado
-            if (proyectoEncontrado.Tareas != null && proyectoEncontrado.Tareas.Count > 0)
-            {
-                foreach (var tarea in proyectoEncontrado.Tareas)
-                {
-                    comboBoxTareas.Items.Add(tarea.nombreTarea);
-                }
-
-                comboBoxTareas.SelectedIndex = 0; // Selecciona la primera tarea por defecto
-
-                // Mostrar detalles de la primera tarea en el groupBox
-                Tareas primeraTarea = proyectoEncontrado.Tareas[0];
-                textBoxNombreTarea.Text = primeraTarea.nombreTarea;
-                dateTimePickerFechaInicio.Value = primeraTarea.fechaInicio;
-                dateTimePickerFechaEntrega.Value = primeraTarea.fechaEntrega;
-                comboBoxEstadosTarea.Text = primeraTarea.estado;
-
-                comboBoxUsuarios.Items.Clear();
-                foreach (var usuario in primeraTarea.usuariosAsignados)
-                {
-                    comboBoxUsuarios.Items.Add(usuario.nombreUsuario);
-                }
-
-                if (primeraTarea.usuariosAsignados.Count > 0)
-                    comboBoxUsuarios.SelectedIndex = 0;
-
-                richTextBoxDescripcionTare.Text = primeraTarea.descripcion;
-            }
-            else
-            {
-                MessageBox.Show("El proyecto no tiene tareas registradas.", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-        }
-
-        private void groupBoxSubtareas_Enter(object sender, EventArgs e)
-        {
-
-        }
-
-        private void comboBoxSubTareas_SelectedIndexChanged(object sender, EventArgs e)
-        {
-         
         }
     }
 }
